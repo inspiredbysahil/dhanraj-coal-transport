@@ -1,7 +1,7 @@
 export const themePalette = {
-  ink: "#01161E",
-  deepTeal: "#124559",
-  steelBlue: "#598392",
-  sage: "#AEC3B0",
-  ivory: "#EFF6E0",
+  ink: "#090909",
+  deepTeal: "#1C1C1C",
+  steelBlue: "#707070",
+  sage: "#C7C7C7",
+  ivory: "#F7F7F5",
 } as const;
