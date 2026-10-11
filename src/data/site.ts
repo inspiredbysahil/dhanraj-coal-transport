@@ -1,0 +1,47 @@
+export const site = {
+  brand: "DHANRAJ COAL TRANSPORT",
+  tagline: "Trust · Deliver · Succeed",
+  motto: "Vishwas aur Quality — Hamari Pehchan",
+  eyebrow: "Pan-India Coal Supply · Since Day One",
+  title: "India's Trusted Coal Supply & Logistics Partner.",
+  intro: "Domestic & Imported Coal, Pet Coke and Wood Coal — moved from mines and ports to your plant with dependable logistics.",
+  primaryPhone: "+91 63761 39600",
+  primaryPhoneHref: "tel:+916376139600",
+  secondaryContact: "Aditya Singh Jaryal",
+  secondaryPhone: "+91 98059 95137",
+  secondaryPhoneHref: "tel:+919805995137",
+  gstin: "21EWPPR7307G1ZA",
+  legalName: "DHAN RAJ",
+  tradeName: "DHANRAJ TRADERS",
+  address: "Mouza Deulbeda, Talcher, Angul, Odisha — 759107",
+  branches: ["Morbi (Gujarat)", "Karnataka", "Ramgarh (Jharkhand)"],
+  whatsappText: "Hello DHANRAJ COAL TRANSPORT, I would like to enquire about your coal supply. Please share: Available Coal Types, Latest Prices, MOQ, Delivery Details. Thank you.",
+  seoTitle: "Dhanraj Coal Transport — Pan-India Coal Supply & Logistics",
+  seoDescription: "Trusted Pan-India supplier of Domestic Coal, Imported Indonesian Coal, Pet Coke & Wood Coal. Mine, port & vessel-wise supply with reliable logistics. Call +91 63761 39600.",
+  nav: [
+    ["Home", "top"], ["About", "about"], ["Products", "products"],
+    ["Supply Network", "network"], ["Services", "services"], ["Rates", "rates"], ["Contact", "contact"],
+  ] as const,
+  industries: ["Steel", "Cement", "Power Plants", "Brick Kilns", "Paper", "Chemicals", "Manufacturing", "Food Industry"],
+  timeline: [
+    ["Foundation", "Dhanraj Coal Transport founded as a specialised coal supply house."],
+    ["Coal Vertical", "Launched domestic mine supply from Dhanbad, Ramgarh and Raniganj."],
+    ["Pan-India", "Expanded with branches in Morbi, Talcher, Karnataka and Ramgarh."],
+    ["Imports", "Onboarded Navlakhi, Kandla and Tuna port vessels — Indonesian coal."],
+    ["Today", "63,000+ MT live stock · 100+ industrial clients across India."],
+  ] as const,
+  trustBadges: ["Trusted Supplier", "Reliable Logistics", "PAN India Network", "Competitive Pricing", "Bulk Orders", "Fast Delivery"],
+  services: [
+    ["Domestic Coal", "Raniganj, Dhanbad, Ramgarh, North Karanpura sourcing."],
+    ["Imported Coal", "Indonesian coal via Navlakhi, Kandla & Tuna ports."],
+    ["Pet Coke", "High-CV petroleum coke for cement & industrial burners."],
+    ["Wood Coal", "Clean-burn wood coal for brick kilns & bakeries."],
+    ["Coal Transportation", "Fleet-managed road freight, PAN-India dispatch."],
+    ["Mine Supply", "Ex-mine loading, verified GCV, immediate lifting."],
+    ["Port Supply", "FOB & ex-yard vessel supply with DIO readiness."],
+    ["Industrial Fuel Solutions", "Blend-matched fuel plans for OEM boilers."],
+  ] as const,
+};
+
+export const whatsappUrl = (message = site.whatsappText) =>
+  `https://wa.me/916376139600?text=${encodeURIComponent(message)}`;
