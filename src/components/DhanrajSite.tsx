@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
-import Lenis from "lenis";
 import { ArrowRight, ArrowUp, ChevronLeft, ChevronRight, Flame, Fuel, Globe2, MapPin, Menu, MessageCircle, Phone, Search, Ship, Sparkles, Truck, X, Zap } from "lucide-react";
 import { site, whatsappUrl } from "@/data/site";
 import { products } from "@/data/products";
@@ -10,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { HeroScene, ProductScene, GlobeScene } from "@/components/three/Scenes";
+import { HeroScene, ProductScene, GlobeScene } from "@/components/three/LazyScenes";
 import { RateTable } from "@/components/RateTable";
 import { TransportScene } from "@/components/TransportScene";
 
@@ -29,7 +28,7 @@ function Header() {
   const [open, setOpen] = useState(false); const [active, setActive] = useState("top"); const [scrolled, setScrolled] = useState(false);
   const { scrollYProgress } = useScroll(); const scaleX = useSpring(scrollYProgress,{stiffness:120,damping:30});
   useEffect(()=>{
-    const onScroll=()=>setScrolled(window.scrollY>40); onScroll(); window.addEventListener("scroll",onScroll,{passive:true});
+    const onScroll=()=>{const next=window.scrollY>40;setScrolled((prev)=>prev===next?prev:next)}; onScroll(); window.addEventListener("scroll",onScroll,{passive:true});
     const observer=new IntersectionObserver((entries)=>entries.forEach((e)=>{if(e.isIntersecting)setActive(e.target.id)}),{rootMargin:"-35% 0px -55%"});
     site.nav.forEach(([,id])=>{const el=document.getElementById(id);if(el)observer.observe(el)});
     return()=>{window.removeEventListener("scroll",onScroll);observer.disconnect()};
@@ -43,7 +42,7 @@ function Header() {
 }
 
 function Hero() {
-  return <section id="top" className="hero-section"><img src="/dhanraj-coal-logistics.jpg" alt="Coal transport truck at an Indian port with bulk coal ready for dispatch" width={1200} height={630} className="hero-photo"/><HeroScene/><div className="hero-vignette"/><div className="site-shell relative z-10 grid min-h-[920px] content-center gap-12 pb-20 pt-32 lg:min-h-[820px] lg:grid-cols-[1.05fr_.95fr] lg:items-center">
+  return <section id="top" className="hero-section"><img src="/hero.webp" alt="Coal transport truck at an Indian port with bulk coal ready for dispatch" width={1200} height={630} className="hero-photo" fetchPriority="high" decoding="async"/><HeroScene/><div className="hero-vignette"/><div className="site-shell relative z-10 grid min-h-[920px] content-center gap-12 pb-20 pt-32 lg:min-h-[820px] lg:grid-cols-[1.05fr_.95fr] lg:items-center">
     <div className="max-w-3xl"><motion.p initial={{opacity:0}} animate={{opacity:1}} className="eyebrow">{site.eyebrow}</motion.p><motion.h1 initial={{opacity:0,y:35}} animate={{opacity:1,y:0}} transition={{duration:.8}}>{site.title.split("Coal Supply & Logistics")[0]}<span>Coal Supply & Logistics</span> Partner.</motion.h1><motion.p initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{delay:.25}} className="mt-6 max-w-xl text-lg text-muted-foreground">{site.intro}</motion.p><motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:.45}} className="mt-8 flex flex-wrap gap-3"><Button size="lg" asChild><a href="#contact">Request quote <ArrowRight/></a></Button><Button size="lg" variant="outline" asChild><a href="#products">Explore products</a></Button></motion.div><motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:.6}} className="hero-assurance"><span>Verified GCV</span><span>Pan-India dispatch</span><span>Direct sales support</span></motion.div></div>
     <div className="hero-stats grid gap-3 sm:grid-cols-2 lg:self-end"><div className="stat-card primary-stat"><span>Monthly supply</span><strong>63,000<sup>+ MT</sup></strong><small>Dispatched every month</small></div><a href="#network" className="stat-card"><Ship/><strong>15+</strong><small>Indian ports covered</small></a><div className="stat-card sm:col-span-2"><span>Product range</span><strong>Domestic & Imported Coal</strong><small>Pet Coke · Wood Coal · Indonesian · South African · Australian · Russian</small></div><div className="stat-card sm:col-span-2"><span className="live-dot">Live dispatch</span><strong>PAN India Delivery</strong><small>28 states · Road, Rail & Port-to-Plant</small></div></div>
   </div></section>;
@@ -94,7 +93,5 @@ function Contact() {
 function Footer() { return <footer className="site-footer"><div className="site-shell grid gap-10 py-14 md:grid-cols-3"><div><a href="#top" className="brand-mark"><span className="brand-icon"><Fuel/></span><span><strong>DHANRAJ</strong><small>COAL TRANSPORT</small></span></a><p className="mt-5 max-w-sm text-sm text-muted-foreground">Trusted coal supply and logistics from mines and ports to industrial plants across India.</p><p className="mt-5 text-sm text-primary">{site.motto}</p></div><div><h3>Quick links</h3><div className="mt-4 grid grid-cols-2 gap-2">{site.nav.slice(1).map(([label,id])=><a href={`#${id}`} key={id}>{label}</a>)}<a href="/pet-coke-price">Pet Coke price</a></div></div><div><h3>Contact</h3><p className="mt-4 text-sm text-muted-foreground">{site.address}</p><a className="mt-3 block" href={site.primaryPhoneHref}>{site.primaryPhone}</a><p className="mt-3 text-xs text-muted-foreground">GSTIN {site.gstin}</p></div></div><div className="border-t border-border"><div className="site-shell flex flex-col gap-2 py-5 text-xs text-muted-foreground sm:flex-row sm:justify-between"><span>© 2026 Dhanraj Coal Transport. All rights reserved.</span><span>Powered by {site.tradeName}</span></div></div></footer>; }
 
 export function DhanrajSite() {
-  const reduce=useReducedMotion();
-  useEffect(()=>{if(reduce)return;const lenis=new Lenis({duration:1.05,smoothWheel:true});let id=0;const raf=(time:number)=>{lenis.raf(time);id=requestAnimationFrame(raf)};id=requestAnimationFrame(raf);return()=>{cancelAnimationFrame(id);lenis.destroy()}},[reduce]);
   return <><Header/><main><Hero/><Marquee/><About/><Services/><Products/><Network/><WhyUs/><section id="rates" className="section-pad bg-section"><div className="site-shell"><SectionTitle eyebrow="Rate chart" title="Transparent, GCV-wise pricing" intro="Mine, port and vessel-wise indicative rates — the same data our sales desk quotes from."/><div className="mt-12"><RateTable/></div></div></section><Industries/><section className="section-pad"><div className="site-shell"><SectionTitle eyebrow="Coverage" title="PAN-India delivery network" intro="From mines in the east to ports in the west — routes engineered for on-time dispatch."/><div className="mt-10"><IndiaMap/></div></div></section><Testimonials/><FAQSection/><Contact/></main><Footer/><div className="floating-actions"><Button size="icon" asChild><a href={site.primaryPhoneHref} aria-label="Call Dhanraj"><Phone/></a></Button><Button size="icon" asChild><a target="_blank" rel="noreferrer" href={whatsappUrl()} aria-label="WhatsApp Dhanraj"><MessageCircle/></a></Button></div><Button className="back-top" size="icon" variant="outline" asChild><a href="#top" aria-label="Back to top"><ArrowUp/></a></Button><div className="mobile-contact-bar"><Button asChild><a href={site.primaryPhoneHref}><Phone/> Call</a></Button><Button asChild><a target="_blank" rel="noreferrer" href={whatsappUrl()}><MessageCircle/> WhatsApp</a></Button></div></>;
 }
