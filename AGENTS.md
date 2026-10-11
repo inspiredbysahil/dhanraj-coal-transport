@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep all Dhanraj business copy and datasets in `src/data`; presentation components consume typed exports so content changes never require layout edits.
+- Keep Three.js scenes procedural, client-only, intersection-gated, and capped at 1.75 DPR to protect mobile performance and avoid SSR hydration failures.

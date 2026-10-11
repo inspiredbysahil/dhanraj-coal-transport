@@ -1,24 +1,25 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { DhanrajSite } from "@/components/DhanrajSite";
+import { site } from "@/data/site";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  ssr: false,
+  head: () => ({
+    meta: [
+      { title: site.seoTitle },
+      { name: "description", content: site.seoDescription },
+      { property: "og:title", content: site.seoTitle },
+      { property: "og:description", content: site.seoDescription },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "theme-color", content: "#0A0A0B" },
+    ],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify({
+      "@context": "https://schema.org", "@type": "LocalBusiness", name: site.brand,
+      description: site.seoDescription, telephone: site.primaryPhone, taxID: site.gstin,
+      address: { "@type": "PostalAddress", streetAddress: "Mouza Deulbeda", addressLocality: "Talcher", addressRegion: "Odisha", postalCode: "759107", addressCountry: "IN" },
+      areaServed: "India", priceRange: "₹₹₹",
+    }) }],
+  }),
+  component: DhanrajSite,
 });
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
