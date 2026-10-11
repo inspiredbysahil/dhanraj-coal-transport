@@ -11,8 +11,9 @@ function useIdle() {
   const [idle, setIdle] = useState(false);
   useEffect(() => {
     const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number };
-    if (w.requestIdleCallback) { w.requestIdleCallback(() => setIdle(true), { timeout: 2000 }); }
-    else { const t = window.setTimeout(() => setIdle(true), 1200); return () => window.clearTimeout(t); }
+    if (w.requestIdleCallback) { w.requestIdleCallback(() => setIdle(true), { timeout: 2000 }); return undefined; }
+    const t = window.setTimeout(() => setIdle(true), 1200);
+    return () => window.clearTimeout(t);
   }, []);
   return idle;
 }
