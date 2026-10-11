@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:image", content: shareImageUrl },
       { name: "theme-color", content: "#090909" },
     ],
-    links: [{ rel: "canonical", href: pageUrl }, { rel: "preload", as: "image", href: "/hero.webp", type: "image/webp", fetchpriority: "high" }],
+    links: [{ rel: "canonical", href: pageUrl }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({
         "@context": "https://schema.org", "@type": "LocalBusiness", name: site.brand,

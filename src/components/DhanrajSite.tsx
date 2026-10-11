@@ -1,97 +1,149 @@
-import { useEffect, useMemo, useState } from "react";
-import { motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
-import { ArrowRight, ArrowUp, ChevronLeft, ChevronRight, Flame, Fuel, Globe2, MapPin, Menu, MessageCircle, Phone, Search, Ship, Sparkles, Truck, X, Zap } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Fuel, Instagram, Linkedin, Mail, MapPin, Menu, MessageCircle, Phone, Quote, Recycle, Search, ShieldCheck, Truck, X, BadgeIndianRupee, Award } from "lucide-react";
 import { site, whatsappUrl } from "@/data/site";
 import { products } from "@/data/products";
-import { coalfields, ports, lanes, hubs } from "@/data/network";
 import { faq } from "@/data/faq";
-import { Button } from "@/components/ui/button";
+import { home } from "@/data/home";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { HeroScene, ProductScene, GlobeScene } from "@/components/three/LazyScenes";
 import { RateTable } from "@/components/RateTable";
-import { TransportScene } from "@/components/TransportScene";
 
-const iconSet = [Fuel, Globe2, Flame, Sparkles, Truck, MapPin, Ship, Zap];
-const testimonials = [
-  ["GCV always matches the docket. Their Navlakhi vessel dispatches have kept our kiln running through peak demand.", "Rajeev K.", "Procurement Head · Cement Plant, Gujarat"],
-  ["From rate confirmation to plant delivery, the dispatch desk stays accountable. That reliability matters to our operations.", "Amit P.", "Operations Manager · Ceramics, Morbi"],
-  ["They helped us select a lower cost blend without compromising furnace performance, then delivered it on schedule.", "Sanjay R.", "Plant Director · Manufacturing, Karnataka"],
-] as const;
+const fade = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: "-60px" }, transition: { duration: .6 } } as const;
+const navItems = site.nav.filter(([, id]) => id !== "top" && id !== "network" && id !== "services");
 
-function SectionTitle({ eyebrow, title, intro }: { eyebrow: string; title: string; intro?: string }) {
-  return <motion.div initial={{opacity:0,y:24}} whileInView={{opacity:1,y:0}} viewport={{once:true,margin:"-80px"}} transition={{duration:.65}} className="section-heading"><p className="eyebrow">{eyebrow}</p><h2>{title}</h2>{intro && <p>{intro}</p>}</motion.div>;
+function Pill({ href, children, light, onClick }: { href: string; children: React.ReactNode; light?: boolean; onClick?: () => void }) {
+  return <a href={href} onClick={onClick} className={`pill ${light ? "light" : ""}`}>{children}<span className="dot"><ArrowRight /></span></a>;
 }
 
-function Header() {
-  const [open, setOpen] = useState(false); const [active, setActive] = useState("top"); const [scrolled, setScrolled] = useState(false);
-  const { scrollYProgress } = useScroll(); const scaleX = useSpring(scrollYProgress,{stiffness:120,damping:30});
-  useEffect(()=>{
-    const onScroll=()=>{const next=window.scrollY>40;setScrolled((prev)=>prev===next?prev:next)}; onScroll(); window.addEventListener("scroll",onScroll,{passive:true});
-    const observer=new IntersectionObserver((entries)=>entries.forEach((e)=>{if(e.isIntersecting)setActive(e.target.id)}),{rootMargin:"-35% 0px -55%"});
-    site.nav.forEach(([,id])=>{const el=document.getElementById(id);if(el)observer.observe(el)});
-    return()=>{window.removeEventListener("scroll",onScroll);observer.disconnect()};
-  },[]);
-  return <header className={`site-header ${scrolled?"is-scrolled":""}`}><motion.div className="scroll-progress" style={{scaleX}}/><div className="site-shell flex h-full items-center justify-between">
-    <a href="#top" className="brand-mark" aria-label="Dhanraj Coal Transport home"><span className="brand-icon"><Fuel/></span><span><strong>DHANRAJ</strong><small>COAL TRANSPORT</small></span></a>
-    <nav className="hidden items-center gap-6 lg:flex" aria-label="Main navigation">{site.nav.map(([label,id])=><a key={id} className={active===id?"active":""} href={`#${id}`}>{label}</a>)}</nav>
-    <Button className="hidden lg:inline-flex" asChild><a href="#contact">Request a quote <ArrowRight/></a></Button>
-    <Button className="lg:hidden" variant="ghost" size="icon" onClick={()=>setOpen(!open)} aria-expanded={open} aria-label="Toggle menu">{open?<X/>:<Menu/>}</Button>
-  </div>{open&&<nav className="mobile-nav lg:hidden" aria-label="Mobile navigation">{site.nav.map(([label,id])=><a key={id} href={`#${id}`} onClick={()=>setOpen(false)}>{label}</a>)}<Button asChild><a href="#contact" onClick={()=>setOpen(false)}>Request a quote</a></Button></nav>}</header>;
+function Label({ children }: { children: React.ReactNode }) { return <p className="eyebrow">{children}</p>; }
+
+function Brand() {
+  return <a href="#top" className="brand-mark" aria-label="Dhanraj Coal Transport home"><span className="brand-icon"><Fuel /></span><span><strong>DHANRAJ</strong><small>COAL TRANSPORT</small></span></a>;
+}
+
+function Nav() {
+  const [open, setOpen] = useState(false); const [stuck, setStuck] = useState(false);
+  useEffect(() => { const on = () => { const n = window.scrollY > 500; setStuck((p) => p === n ? p : n); }; on(); window.addEventListener("scroll", on, { passive: true }); return () => window.removeEventListener("scroll", on); }, []);
+  const links = <>{navItems.map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>{label}</a>)}<a href="/pet-coke-price">Pet Coke</a></>;
+  return <>
+    <header className="top-nav"><div className="site-shell flex h-20 items-center justify-between">
+      <Brand />
+      <nav className="hidden items-center gap-7 lg:flex" aria-label="Main navigation">{links}</nav>
+      <div className="flex items-center gap-2"><a href={site.primaryPhoneHref} className="hidden text-xs opacity-80 md:block">{site.primaryPhone}</a><a href="#contact" className="hidden rounded-full bg-card px-4 py-2 text-xs font-semibold text-foreground lg:block">Contact Us</a>
+        <button className="grid h-10 w-10 place-items-center rounded-full bg-card text-foreground lg:hidden" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Toggle menu">{open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}</button></div>
+    </div>{open && <nav className="mobile-nav lg:hidden" aria-label="Mobile navigation">{links}<Pill href="#contact" onClick={() => setOpen(false)}>Contact Us</Pill></nav>}</header>
+    <motion.div initial={false} animate={{ opacity: stuck ? 1 : 0, y: stuck ? 0 : -20 }} style={{ pointerEvents: stuck ? "auto" : "none" }} className="sticky-nav hidden lg:block">
+      <div className="flex h-14 items-center justify-between pl-5 pr-2"><Brand /><nav className="flex gap-6 text-sm text-muted-foreground" aria-label="Sticky navigation">{navItems.map(([label, id]) => <a className="hover:text-foreground" key={id} href={`#${id}`}>{label}</a>)}</nav><Pill href="#contact">Get a Quote</Pill></div>
+    </motion.div>
+  </>;
 }
 
 function Hero() {
-  return <section id="top" className="hero-section"><img src="/hero.webp" alt="Coal transport truck at an Indian port with bulk coal ready for dispatch" width={1200} height={630} className="hero-photo" fetchPriority="high" decoding="async"/><HeroScene/><div className="hero-vignette"/><div className="site-shell relative z-10 grid min-h-[920px] content-center gap-12 pb-20 pt-32 lg:min-h-[820px] lg:grid-cols-[1.05fr_.95fr] lg:items-center">
-    <div className="max-w-3xl"><motion.p initial={{opacity:0}} animate={{opacity:1}} className="eyebrow">{site.eyebrow}</motion.p><motion.h1 initial={{opacity:0,y:35}} animate={{opacity:1,y:0}} transition={{duration:.8}}>{site.title.split("Coal Supply & Logistics")[0]}<span>Coal Supply & Logistics</span> Partner.</motion.h1><motion.p initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{delay:.25}} className="mt-6 max-w-xl text-lg text-muted-foreground">{site.intro}</motion.p><motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:.45}} className="mt-8 flex flex-wrap gap-3"><Button size="lg" asChild><a href="#contact">Request quote <ArrowRight/></a></Button><Button size="lg" variant="outline" asChild><a href="#products">Explore products</a></Button></motion.div><motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:.6}} className="hero-assurance"><span>Verified GCV</span><span>Pan-India dispatch</span><span>Direct sales support</span></motion.div></div>
-    <div className="hero-stats grid gap-3 sm:grid-cols-2 lg:self-end"><div className="stat-card primary-stat"><span>Monthly supply</span><strong>63,000<sup>+ MT</sup></strong><small>Dispatched every month</small></div><a href="#network" className="stat-card"><Ship/><strong>15+</strong><small>Indian ports covered</small></a><div className="stat-card sm:col-span-2"><span>Product range</span><strong>Domestic & Imported Coal</strong><small>Pet Coke · Wood Coal · Indonesian · South African · Australian · Russian</small></div><div className="stat-card sm:col-span-2"><span className="live-dot">Live dispatch</span><strong>PAN India Delivery</strong><small>28 states · Road, Rail & Port-to-Plant</small></div></div>
+  const h = home.hero;
+  return <section id="top" className="px-0 md:px-4 md:pt-4"><div className="hero-frame md:rounded-3xl">
+    <img className="bg" src={h.image} alt="Aerial view of an open-pit coal mine with trucks on the haul road" width={1600} height={960} fetchPriority="high" />
+    <Nav />
+    <div className="site-shell flex min-h-[min(100svh,860px)] flex-col justify-between pb-8 pt-36 md:pt-44">
+      <div><motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8 }} className="headline max-w-3xl !text-[clamp(2.5rem,6vw,4.8rem)]">{h.title[0]}<br />{h.title[1]}</motion.h1>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .3 }} className="mt-8 flex flex-wrap gap-3"><Pill href="#contact">{h.cta}</Pill><a href="#products" className="glass rounded-full px-5 py-3 text-sm font-semibold">Explore products</a></motion.div></div>
+      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"><p className="max-w-sm text-sm opacity-85">{h.footnote}</p><p className="glass inline-flex w-fit items-center gap-2 rounded-full px-4 py-2 text-xs"><Award className="h-4 w-4 text-lime" />{h.badge}</p></div>
+    </div>
   </div></section>;
 }
 
-function Marquee() { return <div className="marquee" aria-label="Industries served"><div>{[...site.industries,...site.industries].map((item,i)=><span key={`${item}-${i}`}>{item}<Sparkles/></span>)}</div></div>; }
-
 function About() {
-  return <section id="about" className="section-pad"><div className="site-shell"><SectionTitle eyebrow="Who we are" title="Fueling India's industry with every ton delivered." intro="Dhanraj Coal Transport delivers premium-quality fuels across India — with the logistics muscle to move them on time."/><div className="mt-14 grid gap-10 lg:grid-cols-[1.1fr_.9fr]"><div className="timeline">{site.timeline.map(([title,desc],i)=><motion.article key={title} initial={{opacity:.3,x:-20}} whileInView={{opacity:1,x:0}} viewport={{margin:"-35% 0px -35%"}} className="timeline-item"><span>{String(i+1).padStart(2,"0")}</span><div><h3>{title}</h3><p>{desc}</p></div></motion.article>)}</div><div className="lg:sticky lg:top-32 lg:self-start"><div className="grid grid-cols-2 gap-3">{site.trustBadges.map((badge)=><div className="industrial-card p-5" key={badge}><Sparkles className="text-primary"/><p className="mt-8 font-display font-bold">{badge}</p></div>)}</div><div className="legal-strip mt-4"><p>{site.motto}</p><small>GSTIN: {site.gstin} · {site.legalName} · {site.tradeName}</small></div></div></div></div></section>;
+  const a = home.about; const icons = [Recycle, ShieldCheck, BadgeIndianRupee];
+  return <section id="about" className="section-pad"><div className="site-shell">
+    <Label>{a.label}</Label>
+    <div className="mt-5 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><motion.h2 {...fade} className="headline">{a.title[0]}<br />{a.title[1]}</motion.h2><Pill href="#products" light>Explore More</Pill></div>
+    <div className="mt-14 grid overflow-hidden rounded-2xl border border-border lg:grid-cols-[1fr_1fr_1fr_1.1fr]">
+      {a.values.map(([t, d], i) => { const Icon = icons[i] ?? Truck; return <motion.div {...fade} transition={{ duration: .6, delay: i * .1 }} key={t} className="value-card flex flex-col" style={{ paddingTop: `${1.75 + i * 3}rem` }}><Icon className="h-6 w-6" /><h3 className="mt-6 text-base font-semibold">{t}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{d}</p></motion.div>; })}
+      <img src={a.image} alt="Excavator loading coal into a truck at a floodlit coal yard" width={768} height={960} loading="lazy" className="h-full max-h-[460px] w-full object-cover" />
+    </div>
+    <p className="mt-6 text-xs text-muted-foreground">GSTIN {site.gstin} · {site.legalName} · {site.tradeName} · {site.motto}</p>
+  </div></section>;
 }
 
-function Services() { return <section id="services" className="section-pad bg-section"><div className="site-shell"><SectionTitle eyebrow="Services" title="Full-stack coal supply & logistics"/><div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{site.services.map(([name,desc],i)=>{const Icon=iconSet[i] ?? Flame;return <motion.article key={name} whileHover={{y:-5,rotateX:2,rotateY:-2}} className="industrial-card service-card"><Icon/><span>0{i+1}</span><h3>{name}</h3><p>{desc}</p></motion.article>})}</div></div><div className="mt-16"><TransportScene/></div></section>; }
+function Founder() {
+  const q = home.quote;
+  return <section className="pb-20 md:pb-28"><div className="site-shell grid overflow-hidden rounded-2xl border border-border bg-card md:grid-cols-[.8fr_1.2fr]">
+    <img src={q.image} alt="Portrait of the founder of Dhanraj Coal Transport" width={816} height={816} loading="lazy" className="h-full max-h-[440px] w-full object-cover" />
+    <div className="flex flex-col justify-between gap-10 p-7 md:p-12"><div><Quote className="h-8 w-8 text-positive" /><motion.p {...fade} className="mt-6 text-lg leading-8 md:text-xl">{q.text}</motion.p></div>
+      <div className="flex items-end justify-between"><div><p className="font-semibold">{q.name}</p><p className="text-sm text-muted-foreground">{q.role}</p></div><a href={whatsappUrl()} target="_blank" rel="noreferrer" className="circle-btn" aria-label="Message us on WhatsApp"><ArrowUpRight /></a></div></div>
+  </div></section>;
+}
 
 function Products() {
-  const [active,setActive]=useState(0); const product=products[active];
-  if (!product) return null;
-  return <section id="products" className="section-pad"><div className="site-shell"><SectionTitle eyebrow="Products" title="Every grade. Engineered for industry." intro="Inspect each fuel sample and compare its typical performance profile."/><div className="mt-10 flex flex-wrap gap-2" role="tablist">{products.map((item,i)=><Button key={item.id} role="tab" aria-selected={active===i} variant={active===i?"default":"outline"} onClick={()=>setActive(i)}>{item.shortName}</Button>)}</div><div className="product-viewer mt-5 grid overflow-hidden border border-border lg:grid-cols-[1.15fr_.85fr]"><div className="min-h-96 bg-card"><ProductScene product={product}/></div><motion.div key={product.id} initial={{opacity:0,x:20}} animate={{opacity:1,x:0}} className="p-6 md:p-10"><p className="status-badge">{product.status}</p><h3 className="mt-5 font-display text-3xl font-bold">{product.name}</h3><div className="mt-8 grid grid-cols-2 gap-5">{[["GCV",product.gcv],["Ash",product.ash],["Moisture",product.moisture],["Sulphur",product.sulphur]].map(([label,value],i)=><div key={label}><div className="flex justify-between gap-2"><small>{label}</small><strong className="font-mono text-spark">{value}</strong></div><div className="spec-bar"><motion.i initial={{width:0}} animate={{width:`${[88,55,42,30][i]}%`}}/></div></div>)}</div><dl className="mt-8 border-t border-border pt-6"><dt>{product.detailLabel}</dt><dd>{product.detail}</dd><dt>Availability</dt><dd>{product.availability}</dd></dl><Button className="mt-8 w-full" size="lg" asChild><a href="#contact" onClick={()=>window.dispatchEvent(new CustomEvent("select-product",{detail:product.name}))}>Enquire now <ArrowRight/></a></Button></motion.div></div><p className="mt-4 text-xs text-muted-foreground">Typical specifications shown. Exact GCV, Ash, Moisture and Sulphur values confirmed per lot with lab report.</p></div></section>;
+  const p = home.products; const ref = useRef<HTMLDivElement>(null);
+  const scroll = (d: number) => ref.current?.scrollBy({ left: d * 310, behavior: "smooth" });
+  return <section id="products" className="section-pad border-t border-border"><div className="site-shell">
+    <Label>{p.label}</Label>
+    <div className="mt-5 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><motion.h2 {...fade} className="headline">{p.title[0]}<br />{p.title[1]}</motion.h2><p className="max-w-xs text-sm text-muted-foreground">{p.intro}</p></div>
+    <div ref={ref} className="scroller mt-12">{products.map((item) => <a key={item.id} href="#contact" onClick={() => window.dispatchEvent(new CustomEvent("select-product", { detail: item.name }))} className="product-card" aria-label={`Enquire about ${item.name}`}>
+      <img src={p.images[item.id]} alt={item.name} width={736} height={912} loading="lazy" />
+      <span className="status-badge absolute left-4 top-4 z-10">{item.status}</span>
+      <div className="meta"><div><p className="text-sm font-semibold">{item.name}</p><p className="mt-1 text-xs opacity-75">GCV {item.gcv} · Ash {item.ash}</p></div><span className="arrow-dot"><ArrowUpRight /></span></div>
+    </a>)}</div>
+    <div className="mt-6 flex gap-2"><button className="circle-btn" onClick={() => scroll(-1)} aria-label="Previous products"><ChevronLeft /></button><button className="circle-btn" onClick={() => scroll(1)} aria-label="Next products"><ChevronRight /></button></div>
+  </div></section>;
 }
 
-function IndiaMap() {
-  const [active,setActive]=useState(0); const hub=hubs[active]; const origin = hubs[0];
-  if (!hub || !origin) return null;
-  return <div className="industrial-card grid overflow-hidden lg:grid-cols-[1fr_320px]"><div className="relative min-h-96 p-6"><svg viewBox="0 0 100 110" className="h-full w-full" aria-label="India supply network map"><path className="india-shape" d="M35 5 L59 8 71 19 79 29 72 38 79 47 70 58 66 72 57 88 50 105 43 91 35 77 28 62 17 55 20 42 12 33 23 24 27 12Z"/>{hubs.map((item,i)=><g key={item.name} className="map-hub" onClick={()=>setActive(i)} role="button" tabIndex={0} onKeyDown={(e)=>{if(e.key==="Enter")setActive(i)}}><circle cx={item.x} cy={item.y} r={i===active?2.2:1.4}/><text x={item.x+2.5} y={item.y-1.5}>{item.name}</text></g>)}{hubs.slice(1).map((item)=><line key={item.name} className="route-line" x1={origin.x} y1={origin.y} x2={item.x} y2={item.y}/>)}</svg></div><div className="border-t border-border p-6 lg:border-l lg:border-t-0"><p className="eyebrow">Selected hub</p><h3 className="mt-4 font-display text-3xl font-bold">{hub.name}</h3><p className="mt-2 text-primary">{hub.type}</p><p className="mt-8 text-sm text-muted-foreground">Connected through mine, port and road corridors to keep dispatch moving across India.</p><div className="mt-8 space-y-3 text-sm"><p><strong>Head Office</strong><br/>{site.address}</p><p><strong>Branches</strong><br/>{site.branches.join(" · ")}</p></div></div></div>;
+function Impact() {
+  const m = home.impact;
+  return <section className="md:px-4"><div className="photo-band md:rounded-3xl">
+    <img className="bg" src={m.image} alt="Freight train carrying coal wagons through green hills" width={1600} height={912} loading="lazy" />
+    <div className="site-shell grid gap-10 py-16 md:py-24 lg:grid-cols-[1.2fr_.8fr]">
+      <div className="flex flex-col justify-between gap-10"><div><p className="eyebrow !text-[oklch(.97_0_0/.75)]">{m.label}</p><h2 className="headline mt-5">{m.title[0]}<br />{m.title[1]}</h2><p className="mt-5 max-w-sm text-sm opacity-85">{m.intro}</p></div><Pill href="#rates">See Rates</Pill></div>
+      <div className="grid gap-3">{m.stats.map(([v, l], i) => <motion.div {...fade} transition={{ duration: .5, delay: i * .08 }} key={l} className="glass rounded-xl p-5"><p className="text-4xl font-medium tracking-tight">{v}<span className="text-lime">+</span></p><p className="mt-1 text-xs opacity-75">{l}</p></motion.div>)}</div>
+    </div>
+  </div></section>;
 }
 
-function Network() {
-  const [active,setActive]=useState(0); const lane=lanes[active];
-  if (!lane) return null;
-  return <section id="network" className="section-pad bg-section"><div className="site-shell"><SectionTitle eyebrow="Supply network" title="Coalfields, ports & vessels — one integrated network" intro="We source from India's largest coalfields and handle imports through major ports on both coasts."/><div className="network-viewer mt-12 grid overflow-hidden border border-border lg:grid-cols-[1.1fr_.9fr]"><div className="min-h-[500px] bg-card"><GlobeScene activeLane={active} onLane={setActive}/></div><div className="p-6 md:p-10"><p className="eyebrow">Global sourcing lanes</p><div className="mt-6 space-y-2">{lanes.map((item,i)=><button key={item.country} className={`lane-button ${i===active?"active":""}`} onClick={()=>setActive(i)}><span>{item.country}</span><small>{item.origin}</small></button>)}</div><div className="mt-8 border-t border-border pt-6"><p className="text-sm text-muted-foreground">Active corridor</p><h3 className="mt-2 font-display text-2xl font-bold">{lane.country} → {lane.port}</h3><p className="mt-3 text-sm text-muted-foreground">Vessel-ready coordination from origin terminal to Indian port, yard and plant.</p></div></div></div><div className="mt-4 grid gap-4 lg:grid-cols-2"><div className="industrial-card p-6"><p className="eyebrow">Domestic sourcing · 10+</p><div className="mt-5 flex flex-wrap gap-2">{coalfields.map((item)=><span className="chip" key={item}>{item}</span>)}</div><div className="mt-8 grid grid-cols-3 gap-2 border-t border-border pt-5"><strong>40k+<small>MT / month</small></strong><strong>3.8–7k<small>GCV kcal/kg</small></strong><strong>24–48h<small>Dispatch</small></strong></div></div><div className="industrial-card p-6"><p className="eyebrow">Indian ports · 15+</p><div className="mt-5 flex flex-wrap gap-2">{ports.map((item)=><span className="chip" key={item}>{item}</span>)}</div></div></div><div className="mt-4"><IndiaMap/></div></div></section>;
+function Rates() {
+  return <section id="rates" className="section-pad"><div className="site-shell"><Label>Rate chart</Label><div className="mt-5 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><motion.h2 {...fade} className="headline">Transparent,<br />GCV-wise Pricing.</motion.h2><p className="max-w-xs text-sm text-muted-foreground">Mine, port and vessel-wise indicative rates — the same data our sales desk quotes from.</p></div><div className="mt-12"><RateTable /></div></div></section>;
 }
 
-function WhyUs() { const stats=[["63,000+","Tons Available"],["100+","Industrial Clients"],["28","States Delivered"],["24/7","Dispatch Support"]]; const bars=[["On-time Delivery",96],["Verified GCV Match",99],["Client Retention",94],["Bulk Order Fulfilment",97]] as const; return <section className="section-pad"><div className="site-shell"><SectionTitle eyebrow="Why us" title="Numbers that move industry"/><div className="mt-12 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">{stats.map(([value,label])=><div className="bg-background p-8" key={label}><strong className="font-mono text-4xl text-primary">{value}</strong><p className="mt-2 text-sm text-muted-foreground">{label}</p></div>)}</div><div className="mt-10 grid gap-6 lg:grid-cols-2">{bars.map(([label,value])=><div key={label}><div className="flex justify-between font-mono text-sm"><span>{label}</span><span>{value}%</span></div><div className="progress-track"><motion.i initial={{width:0}} whileInView={{width:`${value}%`}} viewport={{once:true}} transition={{duration:1}}/></div></div>)}</div></div></section>; }
-
-function Industries() { return <section className="section-pad bg-section"><div className="site-shell"><SectionTitle eyebrow="Industries we serve" title="Fuel for every furnace"/><div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4">{site.industries.map((item,i)=>{const Icon=iconSet[i] ?? Flame;return <motion.div whileHover={{y:-4}} className="industrial-card p-6" key={item}><Icon className="text-primary"/><p className="mt-8 font-display font-bold">{item}</p></motion.div>})}</div></div></section>; }
-
-function Testimonials() { const [active,setActive]=useState(0); const reduce=useReducedMotion(); useEffect(()=>{if(reduce)return;const timer=setInterval(()=>setActive((v)=>(v+1)%testimonials.length),6000);return()=>clearInterval(timer)},[reduce]); const item=testimonials[active]; if (!item) return null; return <section className="section-pad"><div className="site-shell"><SectionTitle eyebrow="Testimonials" title="Trusted by industrial buyers"/><motion.blockquote key={active} initial={{opacity:0,x:20}} animate={{opacity:1,x:0}} className="testimonial"><p>“{item[0]}”</p><footer><strong>{item[1]}</strong><span>{item[2]}</span></footer></motion.blockquote><div className="mt-5 flex gap-2"><Button aria-label="Previous testimonial" variant="outline" size="icon" onClick={()=>setActive((active-1+testimonials.length)%testimonials.length)}><ChevronLeft/></Button><Button aria-label="Next testimonial" variant="outline" size="icon" onClick={()=>setActive((active+1)%testimonials.length)}><ChevronRight/></Button></div></div></section>; }
-
-function FAQSection() { const [search,setSearch]=useState(""); const items=faq.filter(([q,a])=>`${q} ${a}`.toLowerCase().includes(search.toLowerCase())); return <section className="section-pad bg-section"><div className="site-shell grid gap-12 lg:grid-cols-[.75fr_1.25fr]"><div><SectionTitle eyebrow="FAQ" title="Answers before you pick up the phone"/><div className="relative mt-6"><Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground"/><Input value={search} onChange={(e)=>setSearch(e.target.value)} className="pl-9" placeholder="Search questions…" aria-label="Search frequently asked questions"/></div><div className="mt-6 flex flex-wrap gap-2"><Button asChild><a href={site.primaryPhoneHref}><Phone/>Talk to sales</a></Button><Button variant="outline" asChild><a target="_blank" rel="noreferrer" href={whatsappUrl()}><MessageCircle/>WhatsApp</a></Button></div></div><Accordion type="single" collapsible>{items.map(([q,a],i)=><AccordionItem value={`item-${i}`} key={q}><AccordionTrigger className="text-base">{q}</AccordionTrigger><AccordionContent className="leading-7 text-muted-foreground">{a}</AccordionContent></AccordionItem>)}</Accordion></div></section>; }
-
-function Contact() {
-  const [form,setForm]=useState({name:"",company:"",phone:"",email:"",requirement:""}); const [errors,setErrors]=useState<Record<string,string>>({}); const [sent,setSent]=useState(false); const [loading,setLoading]=useState(false);
-  useEffect(()=>{const handler=(event:Event)=>{const product=(event as CustomEvent<string>).detail;setForm((value)=>({...value,requirement:`Enquiry for ${product}`}))};window.addEventListener("select-product",handler);return()=>window.removeEventListener("select-product",handler)},[]);
-  function submit(e:React.FormEvent){e.preventDefault();const next:Record<string,string>={};if(!form.name.trim())next["name"]="Name is required";if(!/^\+?[\d\s-]{8,}$/.test(form.phone))next["phone"]="Enter a valid phone number";setErrors(next);if(Object.keys(next).length)return;setLoading(true);const text=`Hello DHANRAJ COAL TRANSPORT,\n\nName: ${form.name}\nCompany: ${form.company||"—"}\nPhone: ${form.phone}\nEmail: ${form.email||"—"}\nRequirement: ${form.requirement||"General coal supply enquiry"}`;setTimeout(()=>{setLoading(false);setSent(true);window.open(whatsappUrl(text),"_blank","noopener,noreferrer")},450)}
-  const fields: Array<["name"|"company"|"phone"|"email", string]> = [["name","Name *"],["company","Company"],["phone","Phone *"],["email","Email"]];
-  return <section id="contact" className="section-pad"><div className="site-shell"><SectionTitle eyebrow="Contact" title="Get a quote in minutes"/><div className="mt-12 grid gap-4 lg:grid-cols-[.8fr_1.2fr]"><div className="industrial-card p-6 md:p-8"><div className="space-y-6"><a className="contact-line" href={site.primaryPhoneHref}><Phone/><span><small>Primary</small><strong>{site.primaryPhone}</strong></span></a><a className="contact-line" href={site.secondaryPhoneHref}><Phone/><span><small>{site.secondaryContact}</small><strong>{site.secondaryPhone}</strong></span></a><div className="contact-line"><MapPin/><span><small>Principal place of business</small><strong>{site.address}</strong></span></div></div><div className="mt-8 border-t border-border pt-6 text-sm text-muted-foreground"><p>GSTIN · {site.gstin}</p><p>{site.legalName} · {site.tradeName}</p><p>Branches · {site.branches.join(" · ")}</p></div><Button className="mt-8 w-full" variant="outline" asChild><a target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/?api=1&query=Mouza+Deulbeda+Talcher+Angul+Odisha+759107">Open in maps <ArrowRight/></a></Button></div><form className="industrial-card grid gap-4 p-6 md:grid-cols-2 md:p-8" onSubmit={submit} noValidate>{fields.map(([key,label])=><label key={key} className="text-sm text-muted-foreground">{label}<Input className="mt-2" type={key==="email"?"email":key==="phone"?"tel":"text"} value={form[key]} onChange={(e)=>setForm({...form,[key]:e.target.value})} aria-invalid={!!errors[key]}/>{errors[key]&&<span className="mt-1 block text-xs text-destructive">{errors[key]}</span>}</label>)}<label className="text-sm text-muted-foreground md:col-span-2">Requirement<Textarea className="mt-2 min-h-32" value={form.requirement} onChange={(e)=>setForm({...form,requirement:e.target.value})}/></label><Button size="lg" className="md:col-span-2" disabled={loading}>{loading?"Preparing WhatsApp…":sent?"Enquiry ready — open WhatsApp":"Send enquiry on WhatsApp"}<MessageCircle/></Button>{sent&&<p className="text-sm text-primary md:col-span-2">Enquiry prepared — we'll call you shortly.</p>}</form></div></div></section>;
+function Updates() {
+  const u = home.updates; const [f, setF] = useState<string>("All");
+  const items = u.items.filter((i) => f === "All" || i.tag === f);
+  return <section className="section-pad border-t border-border"><div className="site-shell">
+    <Label>{u.label}</Label>
+    <div className="mt-5 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><h2 className="headline">{u.title}</h2><div className="flex gap-1 rounded-full border border-border bg-card p-1">{u.filters.map((x) => <button key={x} className="chip-btn" aria-pressed={f === x} onClick={() => setF(x)}>{x}</button>)}</div></div>
+    <div className="mt-12 grid gap-6 md:grid-cols-3">{items.map((i) => <motion.article {...fade} key={i.title} className="article-card"><div className="relative overflow-hidden rounded-xl"><img src={i.image} alt={i.title} width={976} height={688} loading="lazy" /><span className="absolute right-3 top-3 rounded-full bg-card px-3 py-1 text-xs font-semibold">{i.tag}</span></div><p className="mt-4 text-xs font-semibold text-positive">{i.date}</p><h3 className="mt-2 font-semibold">{i.title}</h3><p className="mt-1 text-sm text-muted-foreground">{i.text}</p></motion.article>)}</div>
+    <div className="mt-10 flex flex-wrap gap-2">{site.industries.map((x) => <span key={x} className="rounded-full border border-border bg-card px-4 py-2 text-sm">{x}</span>)}</div>
+  </div></section>;
 }
 
-function Footer() { return <footer className="site-footer"><div className="site-shell grid gap-10 py-14 md:grid-cols-3"><div><a href="#top" className="brand-mark"><span className="brand-icon"><Fuel/></span><span><strong>DHANRAJ</strong><small>COAL TRANSPORT</small></span></a><p className="mt-5 max-w-sm text-sm text-muted-foreground">Trusted coal supply and logistics from mines and ports to industrial plants across India.</p><p className="mt-5 text-sm text-primary">{site.motto}</p></div><div><h3>Quick links</h3><div className="mt-4 grid grid-cols-2 gap-2">{site.nav.slice(1).map(([label,id])=><a href={`#${id}`} key={id}>{label}</a>)}<a href="/pet-coke-price">Pet Coke price</a></div></div><div><h3>Contact</h3><p className="mt-4 text-sm text-muted-foreground">{site.address}</p><a className="mt-3 block" href={site.primaryPhoneHref}>{site.primaryPhone}</a><p className="mt-3 text-xs text-muted-foreground">GSTIN {site.gstin}</p></div></div><div className="border-t border-border"><div className="site-shell flex flex-col gap-2 py-5 text-xs text-muted-foreground sm:flex-row sm:justify-between"><span>© 2026 Dhanraj Coal Transport. All rights reserved.</span><span>Powered by {site.tradeName}</span></div></div></footer>; }
+function FAQSection() {
+  const [search, setSearch] = useState(""); const items = faq.filter(([q, a]) => `${q} ${a}`.toLowerCase().includes(search.toLowerCase()));
+  return <section className="section-pad border-t border-border"><div className="site-shell grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><div><Label>FAQ</Label><h2 className="headline mt-5">Answers Before<br />You Call.</h2><div className="relative mt-8"><Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" /><Input value={search} onChange={(e) => setSearch(e.target.value)} className="rounded-full bg-card pl-9" placeholder="Search questions…" aria-label="Search frequently asked questions" /></div></div>
+    <Accordion type="single" collapsible>{items.map(([q, a], i) => <AccordionItem value={`item-${i}`} key={q}><AccordionTrigger className="text-base">{q}</AccordionTrigger><AccordionContent className="leading-7 text-muted-foreground">{a}</AccordionContent></AccordionItem>)}</Accordion></div></section>;
+}
+
+function ContactAndFooter() {
+  const [form, setForm] = useState({ name: "", company: "", phone: "", email: "", requirement: "" }); const [errors, setErrors] = useState<Record<string, string>>({}); const [sent, setSent] = useState(false);
+  useEffect(() => { const h = (e: Event) => { const p = (e as CustomEvent<string>).detail; setForm((v) => ({ ...v, requirement: `Enquiry for ${p}` })); }; window.addEventListener("select-product", h); return () => window.removeEventListener("select-product", h); }, []);
+  function submit(e: React.FormEvent) { e.preventDefault(); const n: Record<string, string> = {}; if (!form.name.trim()) n["name"] = "Name is required"; if (!/^\+?[\d\s-]{8,}$/.test(form.phone)) n["phone"] = "Enter a valid phone number"; setErrors(n); if (Object.keys(n).length) return; const text = `Hello DHANRAJ COAL TRANSPORT,\n\nName: ${form.name}\nCompany: ${form.company || "—"}\nPhone: ${form.phone}\nEmail: ${form.email || "—"}\nRequirement: ${form.requirement || "General coal supply enquiry"}`; setSent(true); window.open(whatsappUrl(text), "_blank", "noopener,noreferrer"); }
+  const fields: Array<["name" | "company" | "phone" | "email", string]> = [["name", "Name *"], ["company", "Company"], ["phone", "Phone *"], ["email", "Email"]];
+  return <section className="md:px-4 md:pb-4"><div id="contact" className="dark-block md:rounded-3xl">
+    <div className="site-shell py-20 text-center md:py-28"><h2 className="headline mx-auto">{home.cta.title[0]}<br />{home.cta.title[1]}</h2><div className="mt-8 flex justify-center"><a href={whatsappUrl()} target="_blank" rel="noreferrer" className="pill light">{home.cta.button}<span className="dot"><ArrowRight /></span></a></div></div>
+    <div className="site-shell grid gap-6 pb-16 lg:grid-cols-[.8fr_1.2fr]">
+      <div className="space-y-5 rounded-2xl border border-[oklch(1_0_0/.12)] p-7">{[[Phone, "Primary", site.primaryPhone, site.primaryPhoneHref], [Phone, site.secondaryContact, site.secondaryPhone, site.secondaryPhoneHref], [MapPin, "Head office", site.address, "https://www.google.com/maps/search/?api=1&query=Mouza+Deulbeda+Talcher+Angul+Odisha+759107"]].map(([Icon, l, v, href]) => { const I = Icon as typeof Phone; return <a key={String(l)} href={String(href)} className="flex gap-4"><span className="arrow-dot shrink-0"><I /></span><span><small className="muted block text-xs">{String(l)}</small><strong className="text-sm font-semibold">{String(v)}</strong></span></a>; })}<p className="muted border-t border-[oklch(1_0_0/.12)] pt-5 text-xs">Branches · {site.branches.join(" · ")}</p></div>
+      <form className="grid gap-4 rounded-2xl border border-[oklch(1_0_0/.12)] p-7 md:grid-cols-2" onSubmit={submit} noValidate>{fields.map(([k, l]) => <label key={k} className="muted text-sm">{l}<Input className="mt-2" type={k === "email" ? "email" : k === "phone" ? "tel" : "text"} value={form[k]} onChange={(e) => setForm({ ...form, [k]: e.target.value })} aria-invalid={!!errors[k]} />{errors[k] && <span className="mt-1 block text-xs text-destructive">{errors[k]}</span>}</label>)}<label className="muted text-sm md:col-span-2">Requirement<Textarea className="mt-2 min-h-28" value={form.requirement} onChange={(e) => setForm({ ...form, requirement: e.target.value })} /></label><button className="pill light justify-between md:col-span-2">{sent ? "Enquiry ready — open WhatsApp" : "Send enquiry on WhatsApp"}<span className="dot"><MessageCircle /></span></button></form>
+    </div>
+    <footer className="border-t border-[oklch(1_0_0/.12)]"><div className="site-shell grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+      <div><Brand /><p className="muted mt-5 max-w-xs text-sm">Trusted coal supply and logistics from mines and ports to industrial plants across India.</p><div className="mt-6 flex gap-2">{[[Phone, site.primaryPhoneHref, "Call"], [MessageCircle, whatsappUrl(), "WhatsApp"], [Mail, "#contact", "Enquiry"], [Linkedin, "#contact", "LinkedIn"], [Instagram, "#contact", "Instagram"]].map(([I, h, l]) => { const Icon = I as typeof Phone; return <a key={String(l)} href={String(h)} aria-label={String(l)} className="grid h-9 w-9 place-items-center rounded-full bg-[oklch(1_0_0/.08)]"><Icon className="h-4 w-4" /></a>; })}</div></div>
+      <div><h3 className="text-sm font-semibold">Company</h3><div className="muted mt-4 grid gap-2 text-sm">{navItems.map(([l, id]) => <a key={id} href={`#${id}`}>{l}</a>)}</div></div>
+      <div><h3 className="text-sm font-semibold">Products</h3><div className="muted mt-4 grid gap-2 text-sm">{products.map((p) => <a key={p.id} href="#products">{p.shortName}</a>)}<a href="/pet-coke-price">Pet Coke price</a></div></div>
+      <div><h3 className="text-sm font-semibold">Contact</h3><div className="muted mt-4 grid gap-2 text-sm"><p>{site.address}</p><a href={site.primaryPhoneHref}>{site.primaryPhone}</a><a href={site.secondaryPhoneHref}>{site.secondaryPhone}</a><p className="text-xs">GSTIN {site.gstin}</p></div></div>
+    </div><div className="site-shell muted flex flex-col gap-2 border-t border-[oklch(1_0_0/.12)] py-5 text-xs sm:flex-row sm:justify-between"><span>© 2026 Dhanraj Coal Transport. All rights reserved.</span><span>{site.tagline}</span></div></footer>
+  </div></section>;
+}
 
 export function DhanrajSite() {
-  return <><Header/><main><Hero/><Marquee/><About/><Services/><Products/><Network/><WhyUs/><section id="rates" className="section-pad bg-section"><div className="site-shell"><SectionTitle eyebrow="Rate chart" title="Transparent, GCV-wise pricing" intro="Mine, port and vessel-wise indicative rates — the same data our sales desk quotes from."/><div className="mt-12"><RateTable/></div></div></section><Industries/><section className="section-pad"><div className="site-shell"><SectionTitle eyebrow="Coverage" title="PAN-India delivery network" intro="From mines in the east to ports in the west — routes engineered for on-time dispatch."/><div className="mt-10"><IndiaMap/></div></div></section><Testimonials/><FAQSection/><Contact/></main><Footer/><div className="floating-actions"><Button size="icon" asChild><a href={site.primaryPhoneHref} aria-label="Call Dhanraj"><Phone/></a></Button><Button size="icon" asChild><a target="_blank" rel="noreferrer" href={whatsappUrl()} aria-label="WhatsApp Dhanraj"><MessageCircle/></a></Button></div><Button className="back-top" size="icon" variant="outline" asChild><a href="#top" aria-label="Back to top"><ArrowUp/></a></Button><div className="mobile-contact-bar"><Button asChild><a href={site.primaryPhoneHref}><Phone/> Call</a></Button><Button asChild><a target="_blank" rel="noreferrer" href={whatsappUrl()}><MessageCircle/> WhatsApp</a></Button></div></>;
+  return <><main><Hero /><About /><Founder /><Products /><Impact /><Rates /><Updates /><FAQSection /><ContactAndFooter /></main>
+    <div className="floating-actions"><a href={site.primaryPhoneHref} aria-label="Call Dhanraj"><Phone className="h-5 w-5" /></a><a target="_blank" rel="noreferrer" href={whatsappUrl()} aria-label="WhatsApp Dhanraj"><MessageCircle className="h-5 w-5" /></a></div>
+    <div className="mobile-contact-bar"><a href={site.primaryPhoneHref}><Phone className="h-4 w-4" /> Call</a><a target="_blank" rel="noreferrer" href={whatsappUrl()}><MessageCircle className="h-4 w-4" /> WhatsApp</a></div></>;
 }
