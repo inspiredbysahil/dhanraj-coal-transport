@@ -21,9 +21,9 @@ export const Route = createFileRoute("/")({
       { property: "og:image", content: shareImageUrl },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: shareImageUrl },
-      { name: "theme-color", content: "#090909" },
+      { name: "theme-color", content: "#F7F8F5" },
     ],
-    links: [{ rel: "canonical", href: pageUrl }, { rel: "preload", as: "image", href: "/hero.webp", type: "image/webp", fetchpriority: "high" }],
+    links: [{ rel: "canonical", href: pageUrl }],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify({
         "@context": "https://schema.org", "@type": "LocalBusiness", name: site.brand,

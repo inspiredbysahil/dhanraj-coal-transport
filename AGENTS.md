@@ -13,5 +13,5 @@
 - Keep Three.js scenes procedural, client-only, intersection-gated, and capped at 1.75 DPR to protect mobile performance and avoid SSR hydration failures.
 - Keep shared visual colors in semantic CSS tokens and `src/lib/theme-palette.ts` so DOM and Three.js visuals remain synchronized.
 - Keep sitemap eligibility explicit in every route through required `staticData.sitemap` decisions so new public pages are discoverable by default review.
-- Keep the public interface monochrome and contrast-led; use restrained motion and clear actions because industrial buyers prioritize trust and speed.
-- 3D scenes load only through `src/components/three/LazyScenes.tsx` (lazy, idle-gated, client-only) so Three.js stays out of the initial bundle and first paint stays fast.
+- Keep the public interface light, photo-led and contrast-driven with a single accent token for actions, because industrial buyers prioritize trust and speed.
+- The homepage is photo-only; any future 3D must load through `src/components/three/LazyScenes.tsx` (lazy, idle-gated, client-only) to keep first paint fast.
