@@ -5,6 +5,7 @@ import { faq } from "@/data/faq";
 import { products } from "@/data/products";
 
 const pageUrl = "https://coal-visual-connect.lovable.app/";
+const shareImageUrl = "https://coal-visual-connect.lovable.app/dhanraj-coal-logistics.jpg";
 
 export const Route = createFileRoute("/")({
   ssr: false,
@@ -17,7 +18,9 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: site.seoDescription },
       { property: "og:type", content: "website" },
       { property: "og:url", content: pageUrl },
+      { property: "og:image", content: shareImageUrl },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: shareImageUrl },
       { name: "theme-color", content: "#01161E" },
     ],
     links: [{ rel: "canonical", href: pageUrl }],
