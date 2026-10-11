@@ -74,15 +74,14 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  staticData: { sitemap: false },
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Dhanraj Coal Transport" },
-      { name: "description", content: "Pan-India coal supply and logistics." },
       { name: "author", content: "Dhanraj Coal Transport" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:site_name", content: "Dhanraj Coal Transport" },
     ],
     links: [
       {
