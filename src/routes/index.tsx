@@ -12,7 +12,7 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: site.seoDescription },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "theme-color", content: "#0A0A0B" },
+      { name: "theme-color", content: "#01161E" },
     ],
     scripts: [{ type: "application/ld+json", children: JSON.stringify({
       "@context": "https://schema.org", "@type": "LocalBusiness", name: site.brand,
