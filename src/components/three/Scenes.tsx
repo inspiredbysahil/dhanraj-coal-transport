@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Line, Environment, Lightformer } from "@react-three/drei";
+import { OrbitControls, Line } from "@react-three/drei";
 import { useEffect, useMemo, useRef, useState, type RefObject } from "react";
 import * as THREE from "three";
 import type { Product } from "@/data/products";
@@ -9,6 +9,8 @@ import { themePalette } from "@/lib/theme-palette";
 function useVisible<T extends HTMLElement>(rootMargin = "100px") {
   const ref = useRef<T>(null);
   const [visible, setVisible] = useState(false);
+  const [seen, setSeen] = useState(false);
+  useEffect(() => { if (visible) setSeen(true); }, [visible]);
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
@@ -19,7 +21,7 @@ function useVisible<T extends HTMLElement>(rootMargin = "100px") {
     observer.observe(element);
     return () => observer.disconnect();
   }, [rootMargin]);
-  return [ref, visible] as const;
+  return [ref, visible, seen] as const;
 }
 
 function SceneLights() {
@@ -27,7 +29,7 @@ function SceneLights() {
     <ambientLight intensity={0.7} color={themePalette.sage} />
     <pointLight position={[3, 3, 4]} color={themePalette.steelBlue} intensity={5} />
     <directionalLight position={[-4, 5, 3]} color={themePalette.ivory} intensity={1.8} />
-    <Environment><Lightformer intensity={1.4} color={themePalette.sage} position={[0, 5, 0]} scale={[10, 10, 1]} /></Environment>
+    <hemisphereLight args={[themePalette.sage, themePalette.ink, 0.8]} />
   </>;
 }
 
@@ -35,7 +37,7 @@ const coalPositions: Array<[number, number, number, number]> = [
   [0, 0, 0, 1.55], [1.5, .3, -.5, 1], [-1.3, -.45, -.7, .9], [.3, -1.15, .2, .8], [-.65, 1, -.6, .72],
 ];
 
-function EmberParticles({ count = 70 }: { count?: number }) {
+function EmberParticles({ count = 40 }: { count?: number }) {
   const points = useRef<THREE.Points>(null);
   const positions = useMemo(() => {
     const array = new Float32Array(count * 3);
@@ -85,16 +87,23 @@ function CoalCluster() {
   </group>;
 }
 
-function CanvasShell({ children, camera = [0,0,7], interactive = false }: { children: React.ReactNode; camera?: [number,number,number]; interactive?: boolean }) {
-  return <Canvas dpr={[1, 1.75]} camera={{ position: camera, fov: 43 }} gl={{ antialias: true, alpha: true }} frameloop="always">
+function usePageVisible() {
+  const [shown, setShown] = useState(true);
+  useEffect(() => { const on = () => setShown(!document.hidden); document.addEventListener("visibilitychange", on); return () => document.removeEventListener("visibilitychange", on); }, []);
+  return shown;
+}
+
+function CanvasShell({ children, camera = [0,0,7], interactive = false, active = true }: { children: React.ReactNode; camera?: [number,number,number]; interactive?: boolean; active?: boolean }) {
+  const pageVisible = usePageVisible();
+  return <Canvas dpr={[1, 1.25]} camera={{ position: camera, fov: 43 }} gl={{ antialias: interactive, alpha: true, powerPreference: "low-power" }} frameloop={active && pageVisible ? "always" : "never"}>
     <SceneLights />{children}
     {interactive && <OrbitControls enablePan={false} enableZoom={false} minPolarAngle={.7} maxPolarAngle={2.4} autoRotate autoRotateSpeed={.6} />}
   </Canvas>;
 }
 
 export function HeroScene() {
-  const [ref, visible] = useVisible<HTMLDivElement>();
-  return <div ref={ref} className="absolute inset-0" aria-hidden>{visible && <CanvasShell camera={[0,0,8]}><fog attach="fog" args={[themePalette.ink, 8, 15]} /><CoalCluster /></CanvasShell>}</div>;
+  const [ref, visible, seen] = useVisible<HTMLDivElement>();
+  return <div ref={ref} className="absolute inset-0" aria-hidden>{seen && <CanvasShell active={visible} camera={[0,0,8]}><fog attach="fog" args={[themePalette.ink, 8, 15]} /><CoalCluster /></CanvasShell>}</div>;
 }
 
 function ProductSample({ product }: { product: Product }) {
@@ -114,16 +123,16 @@ function ProductSample({ product }: { product: Product }) {
 }
 
 export function ProductScene({ product }: { product: Product }) {
-  const [ref, visible] = useVisible<HTMLDivElement>();
+  const [ref, visible, seen] = useVisible<HTMLDivElement>();
   return <div ref={ref} className="h-full min-h-80 w-full cursor-grab active:cursor-grabbing" aria-label={`Interactive 3D sample of ${product.name}`}>
-    {visible ? <CanvasShell interactive><ProductSample product={product} /></CanvasShell> : <div className="h-full animate-pulse bg-muted" />}
+    {seen ? <CanvasShell active={visible} interactive><ProductSample product={product} /></CanvasShell> : <div className="h-full animate-pulse bg-muted" />}
   </div>;
 }
 
 function DottedGlobe({ activeLane, onLane }: { activeLane: number; onLane: (i:number)=>void }) {
   const globe = useRef<THREE.Group>(null);
-  const dots = useMemo(() => Array.from({length:220},(_,i) => {
-    const phi = Math.acos(1 - 2 * (i + .5) / 220); const theta = Math.PI * (1 + Math.sqrt(5)) * i;
+  const dots = useMemo(() => Array.from({length:160},(_,i) => {
+    const phi = Math.acos(1 - 2 * (i + .5) / 160); const theta = Math.PI * (1 + Math.sqrt(5)) * i;
     return [2*Math.sin(phi)*Math.cos(theta),2*Math.cos(phi),2*Math.sin(phi)*Math.sin(theta)] as [number,number,number];
   }), []);
   useFrame((_,delta)=>{ if(globe.current) globe.current.rotation.y += Math.min(delta,.05)*.05; });
@@ -143,8 +152,8 @@ function DottedGlobe({ activeLane, onLane }: { activeLane: number; onLane: (i:nu
 }
 
 export function GlobeScene({ activeLane, onLane }: { activeLane: number; onLane:(i:number)=>void }) {
-  const [ref, visible] = useVisible<HTMLDivElement>();
+  const [ref, visible, seen] = useVisible<HTMLDivElement>();
   return <div ref={ref} className="h-full min-h-96 cursor-grab active:cursor-grabbing" aria-label="Interactive global coal supply globe">
-    {visible && <CanvasShell camera={[0,0,7]} interactive><DottedGlobe activeLane={activeLane} onLane={onLane} /></CanvasShell>}
+    {seen && <CanvasShell active={visible} camera={[0,0,7]} interactive><DottedGlobe activeLane={activeLane} onLane={onLane} /></CanvasShell>}
   </div>;
 }

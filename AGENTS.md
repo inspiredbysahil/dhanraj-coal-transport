@@ -14,3 +14,4 @@
 - Keep shared visual colors in semantic CSS tokens and `src/lib/theme-palette.ts` so DOM and Three.js visuals remain synchronized.
 - Keep sitemap eligibility explicit in every route through required `staticData.sitemap` decisions so new public pages are discoverable by default review.
 - Keep the public interface monochrome and contrast-led; use restrained motion and clear actions because industrial buyers prioritize trust and speed.
+- 3D scenes load only through `src/components/three/LazyScenes.tsx` (lazy, idle-gated, client-only) so Three.js stays out of the initial bundle and first paint stays fast.
