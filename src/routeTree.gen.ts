@@ -11,8 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CoalMinesRouteImport } from './routes/coal-mines'
+import { Route as McpRouteImport } from './routes/mcp'
 import { Route as PetCokePriceRouteImport } from './routes/pet-coke-price'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,6 +24,11 @@ const IndexRoute = IndexRouteImport.update({
 const CoalMinesRoute = CoalMinesRouteImport.update({
   id: '/coal-mines',
   path: '/coal-mines',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const McpRoute = McpRouteImport.update({
+  id: '/mcp',
+  path: '/mcp',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PetCokePriceRoute = PetCokePriceRouteImport.update({
@@ -34,39 +41,72 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char91DotwellKnownChar93OauthProtectedResourceRoute =
+  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
+    id: '/.well-known/oauth-protected-resource',
+    path: '/.well-known/oauth-protected-resource',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/coal-mines': typeof CoalMinesRoute
+  '/mcp': typeof McpRoute
   '/pet-coke-price': typeof PetCokePriceRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/coal-mines': typeof CoalMinesRoute
+  '/mcp': typeof McpRoute
   '/pet-coke-price': typeof PetCokePriceRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/coal-mines': typeof CoalMinesRoute
+  '/mcp': typeof McpRoute
   '/pet-coke-price': typeof PetCokePriceRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/coal-mines' | '/pet-coke-price' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/coal-mines'
+    | '/mcp'
+    | '/pet-coke-price'
+    | '/sitemap.xml'
+    | '/.well-known/oauth-protected-resource'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/coal-mines' | '/pet-coke-price' | '/sitemap.xml'
-  id: '__root__' | '/' | '/coal-mines' | '/pet-coke-price' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/coal-mines'
+    | '/mcp'
+    | '/pet-coke-price'
+    | '/sitemap.xml'
+    | '/.well-known/oauth-protected-resource'
+  id:
+    | '__root__'
+    | '/'
+    | '/coal-mines'
+    | '/mcp'
+    | '/pet-coke-price'
+    | '/sitemap.xml'
+    | '/.well-known/oauth-protected-resource'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CoalMinesRoute: typeof CoalMinesRoute
+  McpRoute: typeof McpRoute
   PetCokePriceRoute: typeof PetCokePriceRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -85,6 +125,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CoalMinesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mcp': {
+      id: '/mcp'
+      path: '/mcp'
+      fullPath: '/mcp'
+      preLoaderRoute: typeof McpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/pet-coke-price': {
       id: '/pet-coke-price'
       path: '/pet-coke-price'
@@ -99,14 +146,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/.well-known/oauth-protected-resource': {
+      id: '/.well-known/oauth-protected-resource'
+      path: '/.well-known/oauth-protected-resource'
+      fullPath: '/.well-known/oauth-protected-resource'
+      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CoalMinesRoute: CoalMinesRoute,
+  McpRoute: McpRoute,
   PetCokePriceRoute: PetCokePriceRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  Char91DotwellKnownChar93OauthProtectedResourceRoute:
+    Char91DotwellKnownChar93OauthProtectedResourceRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
