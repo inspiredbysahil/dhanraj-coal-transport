@@ -8,7 +8,6 @@ const pageUrl = "https://dhanraj-coal-transport.lovable.app/";
 const shareImageUrl = "https://dhanraj-coal-transport.lovable.app/dhanraj-coal-logistics.jpg";
 
 export const Route = createFileRoute("/")({
-  ssr: false,
   staticData: { sitemap: true },
   head: () => ({
     meta: [
