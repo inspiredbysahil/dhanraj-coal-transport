@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { RateTable } from "@/components/RateTable";
+import { z } from "zod";
 
 const fade = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: "-60px" }, transition: { duration: .6 } } as const;
 const navItems = site.nav.filter(([, id]) => id !== "top" && id !== "network" && id !== "services");
@@ -48,7 +49,7 @@ function Hero() {
     <div className="site-shell flex min-h-[min(100svh,860px)] flex-col justify-between pb-8 pt-36 md:pt-44">
       <div><motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8 }} className="headline max-w-3xl !text-[clamp(2.5rem,6vw,4.8rem)]">{h.title[0]}<br />{h.title[1]}</motion.h1>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .3 }} className="mt-8 flex flex-wrap gap-3"><Pill href="#contact">{h.cta}</Pill><a href="#products" className="glass rounded-full px-5 py-3 text-sm font-semibold">Explore products</a></motion.div></div>
-      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"><p className="max-w-sm text-sm opacity-85">{h.footnote}</p><p className="glass inline-flex w-fit items-center gap-2 rounded-full px-4 py-2 text-xs"><Award className="h-4 w-4 text-lime" />{h.badge}</p></div>
+      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"><p className="max-w-sm text-sm opacity-85">{h.footnote}</p>{h.badge && <p className="glass inline-flex w-fit items-center gap-2 rounded-full px-4 py-2 text-xs"><Award className="h-4 w-4 text-lime" />{h.badge}</p>}</div>
     </div>
   </div></section>;
 }
@@ -102,7 +103,7 @@ function Impact() {
 }
 
 function Rates() {
-  return <section id="rates" className="section-pad"><div className="site-shell"><Label>Rate chart</Label><div className="mt-5 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><motion.h2 {...fade} className="headline">Transparent,<br />GCV-wise Pricing.</motion.h2><p className="max-w-xs text-sm text-muted-foreground">Mine, port and vessel-wise indicative rates — the same data our sales desk quotes from.</p></div><div className="mt-12"><RateTable /></div></div></section>;
+  return <section id="rates" className="section-pad"><div className="site-shell"><Label>Rate chart</Label><div className="mt-5 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><motion.h2 {...fade} className="headline">Transparent,<br />GCV-wise Pricing.</motion.h2><p className="max-w-xs text-sm text-muted-foreground">Indicative mine, port and vessel-wise rates in ₹ per ton. Final price is confirmed only in a written quotation.</p></div><div className="mt-12"><RateTable /></div></div></section>;
 }
 
 function Updates() {
@@ -122,11 +123,42 @@ function FAQSection() {
     <Accordion type="single" collapsible>{items.map(([q, a], i) => <AccordionItem value={`item-${i}`} key={q}><AccordionTrigger className="text-base">{q}</AccordionTrigger><AccordionContent className="leading-7 text-muted-foreground">{a}</AccordionContent></AccordionItem>)}</Accordion></div></section>;
 }
 
+const enquirySchema = z.object({
+  name: z.string().trim().min(2, "Please enter your name").max(80, "Name is too long"),
+  company: z.string().trim().max(100, "Company name is too long"),
+  phone: z.string().trim().transform((v) => v.replace(/[\s-]/g, "")).refine((v) => /^(\+91|0)?[6-9]\d{9}$/.test(v), "Enter a valid 10-digit Indian mobile number"),
+  email: z.string().trim().max(120).refine((v) => v === "" || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v), "Enter a valid email address, or leave it empty"),
+  product: z.string(),
+  quantity: z.string().trim().max(40, "Keep quantity short, e.g. 500 tons"),
+  city: z.string().trim().max(80, "City name is too long"),
+  requirement: z.string().trim().max(800, "Please keep this under 800 characters"),
+});
+type EnquiryKey = keyof z.infer<typeof enquirySchema>;
+const emptyForm: Record<EnquiryKey, string> = { name: "", company: "", phone: "", email: "", product: "", quantity: "", city: "", requirement: "" };
+
+function EnquiryForm() {
+  const [form, setForm] = useState(emptyForm); const [errors, setErrors] = useState<Partial<Record<EnquiryKey, string>>>({});
+  const [status, setStatus] = useState<"idle" | "busy" | "opened" | "blocked">("idle"); const [link, setLink] = useState("");
+  useEffect(() => { const h = (e: Event) => { const p = (e as CustomEvent<string>).detail; setForm((v) => ({ ...v, product: products.some((x) => x.name === p) ? p : v.product, requirement: v.requirement || `Enquiry for ${p}` })); }; window.addEventListener("select-product", h); return () => window.removeEventListener("select-product", h); }, []);
+  const set = (k: EnquiryKey, v: string) => { setForm((f) => ({ ...f, [k]: v })); if (errors[k]) setErrors((e) => ({ ...e, [k]: undefined })); };
+  function submit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault(); if (status === "busy") return;
+    const r = enquirySchema.safeParse(form);
+    if (!r.success) { const n: Partial<Record<EnquiryKey, string>> = {}; r.error.issues.forEach((i) => { const k = i.path[0] as EnquiryKey; n[k] ??= i.message; }); setErrors(n); const first = Object.keys(n)[0]; document.getElementById(`enq-${first}`)?.focus(); return; }
+    setErrors({}); const d = r.data;
+    const lines = [["Name", d.name], ["Company", d.company], ["Phone", d.phone], ["Email", d.email], ["Product", d.product], ["Quantity", d.quantity], ["Delivery city", d.city], ["Requirement", d.requirement]].filter(([, v]) => v).map(([l, v]) => `${l}: ${v}`);
+    const url = whatsappUrl(`Hello DHANRAJ COAL TRANSPORT,\n\n${lines.join("\n")}`); setLink(url); setStatus("busy");
+    const w = window.open(url, "_blank", "noopener,noreferrer");
+    setStatus(w === null ? "blocked" : "opened");
+    setTimeout(() => setStatus((s) => (s === "busy" ? "idle" : s)), 2500);
+  }
+  const field = (k: EnquiryKey, label: string, opts: { required?: boolean; type?: string; placeholder?: string; auto?: string } = {}) => <label htmlFor={`enq-${k}`} className="muted text-sm">{label}{opts.required && <span aria-hidden="true"> *</span>}
+    <Input id={`enq-${k}`} className="mt-2" type={opts.type ?? "text"} inputMode={k === "phone" ? "tel" : undefined} autoComplete={opts.auto} placeholder={opts.placeholder} required={opts.required} value={form[k]} onChange={(e) => set(k, e.target.value)} aria-invalid={!!errors[k]} aria-describedby={errors[k] ? `enq-${k}-err` : undefined} />
+    {errors[k] && <span id={`enq-${k}-err`} role="alert" className="mt-1 block text-xs text-destructive">{errors[k]}</span>}</label>;
+  return <EnquiryForm />;
+}
+
 function ContactAndFooter() {
-  const [form, setForm] = useState({ name: "", company: "", phone: "", email: "", requirement: "" }); const [errors, setErrors] = useState<Record<string, string>>({}); const [sent, setSent] = useState(false);
-  useEffect(() => { const h = (e: Event) => { const p = (e as CustomEvent<string>).detail; setForm((v) => ({ ...v, requirement: `Enquiry for ${p}` })); }; window.addEventListener("select-product", h); return () => window.removeEventListener("select-product", h); }, []);
-  function submit(e: React.FormEvent) { e.preventDefault(); const n: Record<string, string> = {}; if (!form.name.trim()) n["name"] = "Name is required"; if (!/^\+?[\d\s-]{8,}$/.test(form.phone)) n["phone"] = "Enter a valid phone number"; setErrors(n); if (Object.keys(n).length) return; const text = `Hello DHANRAJ COAL TRANSPORT,\n\nName: ${form.name}\nCompany: ${form.company || "—"}\nPhone: ${form.phone}\nEmail: ${form.email || "—"}\nRequirement: ${form.requirement || "General coal supply enquiry"}`; setSent(true); window.open(whatsappUrl(text), "_blank", "noopener,noreferrer"); }
-  const fields: Array<["name" | "company" | "phone" | "email", string]> = [["name", "Name *"], ["company", "Company"], ["phone", "Phone *"], ["email", "Email"]];
   return <section className="md:px-4 md:pb-4"><div id="contact" className="dark-block md:rounded-3xl">
     <div className="site-shell py-20 text-center md:py-28"><h2 className="headline mx-auto">{home.cta.title[0]}<br />{home.cta.title[1]}</h2><div className="mt-8 flex justify-center"><a href={whatsappUrl()} target="_blank" rel="noreferrer" className="pill light">{home.cta.button}<span className="dot"><ArrowRight /></span></a></div></div>
     <div className="site-shell grid gap-6 pb-16 lg:grid-cols-[.8fr_1.2fr]">
@@ -143,7 +175,7 @@ function ContactAndFooter() {
 }
 
 export function DhanrajSite() {
-  return <><main><Hero /><About /><Founder /><Products /><Impact /><Rates /><Updates /><FAQSection /><ContactAndFooter /></main>
+  return <><main><Hero /><About />{home.quote.approved && <Founder />}<Products />{home.impact.approved && <Impact />}<Rates /><Updates /><FAQSection /><ContactAndFooter /></main>
     <div className="floating-actions"><a href={site.primaryPhoneHref} aria-label="Call Dhanraj"><Phone className="h-5 w-5" /></a><a target="_blank" rel="noreferrer" href={whatsappUrl()} aria-label="WhatsApp Dhanraj"><MessageCircle className="h-5 w-5" /></a></div>
     <div className="mobile-contact-bar"><a href={site.primaryPhoneHref}><Phone className="h-4 w-4" /> Call</a><a target="_blank" rel="noreferrer" href={whatsappUrl()}><MessageCircle className="h-4 w-4" /> WhatsApp</a></div></>;
 }
