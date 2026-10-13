@@ -16,7 +16,7 @@ export const home = {
     title: ["Reliable Coal Supply,", "Delivered Across India."],
     cta: "Get a Quote",
     footnote: "Domestic & imported coal, pet coke and wood coal — moved from mines and ports to your plant with dependable logistics.",
-    badge: "Trusted by 100+ industrial clients",
+    badge: "" as string, // add an approved claim here once the client confirms it
   },
   about: {
     label: "About us",
@@ -29,6 +29,7 @@ export const home = {
     ] as const,
   },
   quote: {
+    approved: false, // founder name, photo and words not yet supplied
     image: founder,
     text: "At Dhanraj Coal Transport, we believe real progress is measured not just by how many tons we move, but by the trust we keep. Every dispatch is guided by honesty, quality and commitment — so the industries we serve can keep running without worry.",
     name: "Founder",
@@ -41,6 +42,7 @@ export const home = {
     images: { domestic: pDomestic, imported: pImported, "pet-coke": pPetcoke, "wood-coal": pWood } as Record<string, string>,
   },
   impact: {
+    approved: false, // numbers below await client confirmation
     label: "Our impact",
     title: ["Real Supply,", "Measurable Results."],
     intro: "Every number reflects a plant kept running and a promise delivered on time.",

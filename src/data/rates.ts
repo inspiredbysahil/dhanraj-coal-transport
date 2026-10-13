@@ -1,6 +1,8 @@
 export type Rate = { category: string; gcv: string; source: string; grade: string; qty: string; rate: number; remarks: string };
 const r = (category:string,gcv:string,source:string,grade:string,qty:string,rate:number,remarks:string):Rate => ({category,gcv,source,grade,qty,rate,remarks});
+// Update both values by hand whenever the rate sheet changes.
 export const effectiveDate = "12/07/2026";
+export const effectiveDateLabel = "12 July 2026";
 export const rates: Rate[] = [
   r("Domestic (Mine)","6800–7000","Dhanbad","Coking (ROM)","1,850",9200,"Gross incl. loading"), r("Domestic (Mine)","6500–6800","Dhanbad","Coking (ROM)","1,200",7700,"Gross incl. loading"),
   r("Domestic (Mine)","6200–6500","Dhanbad","Coking (ROM)","2,700",7500,"Gross incl. loading"), r("Domestic (Mine)","6200–6500","Ramgarh","Coking (ROM)","2,000",7575,"Gross incl. loading"),

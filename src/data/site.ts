@@ -28,7 +28,7 @@ export const site = {
     ["Coal Vertical", "Launched domestic mine supply from Dhanbad, Ramgarh and Raniganj."],
     ["Pan-India", "Expanded with branches in Morbi, Talcher, Karnataka and Ramgarh."],
     ["Imports", "Onboarded Navlakhi, Kandla and Tuna port vessels — Indonesian coal."],
-    ["Today", "63,000+ MT live stock · 100+ industrial clients across India."],
+    ["Today", "Supplying industrial buyers across India from mines and ports."],
   ] as const,
   trustBadges: ["Trusted Supplier", "Reliable Logistics", "PAN India Network", "Competitive Pricing", "Bulk Orders", "Fast Delivery"],
   services: [
