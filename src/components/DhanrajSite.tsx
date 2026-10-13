@@ -148,7 +148,7 @@ function EnquiryForm() {
     setErrors({}); const d = r.data;
     const lines = [["Name", d.name], ["Company", d.company], ["Phone", d.phone], ["Email", d.email], ["Product", d.product], ["Quantity", d.quantity], ["Delivery city", d.city], ["Requirement", d.requirement]].filter(([, v]) => v).map(([l, v]) => `${l}: ${v}`);
     const url = whatsappUrl(`Hello DHANRAJ COAL TRANSPORT,\n\n${lines.join("\n")}`); setLink(url); setStatus("busy");
-    const w = window.open(url, "_blank", "noopener,noreferrer");
+    const w = window.open(url, "_blank"); if (w) w.opener = null;
     setStatus(w === null ? "blocked" : "opened");
     setTimeout(() => setStatus((s) => (s === "busy" ? "idle" : s)), 2500);
   }
