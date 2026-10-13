@@ -5,7 +5,7 @@ import { products } from "@/data/products";
 import { site, whatsappUrl } from "@/data/site";
 
 const petCoke = products.find((product) => product.id === "pet-coke");
-const pageUrl = "https://coal-visual-connect.lovable.app/pet-coke-price";
+const pageUrl = "https://dhanraj-coal-transport.lovable.app/pet-coke-price";
 const title = "Pet Coke Price in India & Specifications | Dhanraj Coal Transport";
 const description = "Request the latest Pet Coke price in India. Compare typical GCV, sulphur, ash and moisture specifications for bulk cement, boiler and kiln supply.";
 

@@ -4,11 +4,10 @@ import { site } from "@/data/site";
 import { faq } from "@/data/faq";
 import { products } from "@/data/products";
 
-const pageUrl = "https://coal-visual-connect.lovable.app/";
-const shareImageUrl = "https://coal-visual-connect.lovable.app/dhanraj-coal-logistics.jpg";
+const pageUrl = "https://dhanraj-coal-transport.lovable.app/";
+const shareImageUrl = "https://dhanraj-coal-transport.lovable.app/dhanraj-coal-logistics.jpg";
 
 export const Route = createFileRoute("/")({
-  ssr: false,
   staticData: { sitemap: true },
   head: () => ({
     meta: [
