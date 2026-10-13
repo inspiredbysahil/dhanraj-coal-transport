@@ -4,4 +4,6 @@ export const themePalette = {
   steelBlue: "#707070",
   sage: "#A6E22E",
   ivory: "#F7F7F5",
+  glassSurface: "#FFFFFF",
+  glassInk: "#1A1F1C",
 } as const;

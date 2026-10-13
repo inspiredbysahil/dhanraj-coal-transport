@@ -1,5 +1,8 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { ShieldCheck } from "lucide-react";
+import { site } from "@/data/site";
 import { supabase } from "@/integrations/supabase/client";
 
 type Details = { client?: { name?: string; redirect_uri?: string } | null; redirect_uri?: string; scope?: string; redirect_url?: string; redirect_to?: string; user?: { email?: string } };
@@ -14,7 +17,7 @@ export const Route = createFileRoute("/.lovable/oauth/consent")({
   ssr: false,
   staticData: { sitemap: false },
   validateSearch: (s: Record<string, unknown>) => ({ authorization_id: typeof s["authorization_id"] === "string" ? s["authorization_id"] : "" }),
-  head: () => ({ meta: [{ title: "Connect an app — Dhanraj Coal Transport" }, { name: "robots", content: "noindex" }] }),
+  head: () => ({ meta: [{ title: "Connect an app — Dhanraj Coal Transport" }, { name: "description", content: "Review and approve an assistant connection to Dhanraj Coal Transport." }, { property: "og:title", content: "Connect an app — Dhanraj Coal Transport" }, { property: "og:description", content: "Review and approve an assistant connection to Dhanraj Coal Transport." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }, { name: "robots", content: "noindex" }] }),
   beforeLoad: async ({ search, location }) => {
     if (!search.authorization_id) throw new Error("This connection link is missing its authorization ID.");
     const { data } = await supabase.auth.getSession();
@@ -22,7 +25,7 @@ export const Route = createFileRoute("/.lovable/oauth/consent")({
     return { email: data.session.user.email ?? "your account" };
   },
   loader: async ({ location }) => {
-    const id = new URLSearchParams(location.search).get("authorization_id")!;
+    const id = new URLSearchParams(location.search).get("authorization_id") ?? "";
     const { data, error } = await oauth().getAuthorizationDetails(id);
     if (error) throw new Error(error.message);
     const immediate = data?.redirect_url ?? data?.redirect_to;
@@ -32,7 +35,7 @@ export const Route = createFileRoute("/.lovable/oauth/consent")({
   component: Consent,
   errorComponent: ({ error }) => (
     <main className="site-shell flex min-h-screen items-center justify-center">
-      <div className="max-w-md rounded-3xl border border-border bg-card p-8">
+      <div className="auth-panel max-w-md p-6 md:p-8">
         <h1 className="font-display text-xl font-semibold">This connection request can't be loaded</h1>
         <p className="mt-2 text-sm text-muted-foreground">{error instanceof Error ? error.message : String(error)}</p>
         <p className="mt-2 text-sm text-muted-foreground">It may have expired. Start the connection again from your assistant.</p>
@@ -63,16 +66,17 @@ function Consent() {
 
   return (
     <main className="site-shell flex min-h-screen items-center justify-center py-16">
-      <div className="w-full max-w-md rounded-3xl border border-border bg-card p-8 shadow-sm">
+      <div className="auth-panel w-full max-w-md p-6 md:p-8">
+        <a href="/" className="auth-mark"><ShieldCheck /><span>{site.brand}</span></a>
         <h1 className="font-display text-2xl font-semibold">Connect {name} to Dhanraj Coal Transport</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Signed in as {email}. This lets {name} use this app as you — reading products, rates, mines, ports and FAQs.</p>
+        <p className="mt-2 break-words text-sm text-muted-foreground">Signed in as {email}. This lets {name} use this app as you — reading products, rates, mines, ports and FAQs.</p>
         {redirectUri && <p className="mt-3 break-all text-xs text-muted-foreground">Returns to: {redirectUri}</p>}
         {scopes.length > 0 && <ul className="mt-4 list-disc space-y-1 pl-5 text-sm">{scopes.map((s) => <li key={s}>{label(s)}</li>)}</ul>}
         <p className="mt-4 text-xs text-muted-foreground">This does not bypass this app's permissions.</p>
         {error && <p role="alert" className="mt-3 text-sm text-destructive">{error}</p>}
-        <div className="mt-6 flex gap-3">
-          <button disabled={busy} onClick={() => decide(true)} className="flex-1 rounded-full bg-primary px-4 py-3 text-sm font-medium text-primary-foreground disabled:opacity-60">Approve</button>
-          <button disabled={busy} onClick={() => decide(false)} className="flex-1 rounded-full border border-border px-4 py-3 text-sm font-medium disabled:opacity-60">Cancel connection</button>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Button disabled={busy} onClick={() => decide(true)} className="flex-1">Approve</Button>
+          <Button variant="outline" disabled={busy} onClick={() => decide(false)} className="flex-1">Cancel connection</Button>
         </div>
       </div>
     </main>
