@@ -7,13 +7,13 @@ Refresh the interface with **subtle, professional glass**, as selected: lightly 
 - **Navigation:** refine the photo-overlay header, floating navigation, mobile menu, and contact bar with controlled frosting, clearer contrast, and comfortable touch targets.
 - **Homepage:** keep photography unobscured and text directly over the opening image. Improve spacing, typography, product labels, filters, FAQ rows, and contact presentation. Keep page sections unframed; reserve glass for navigation, selected controls, and genuinely framed tools.
 - **Rates and enquiries:** use a frosted toolbar or estimator frame, but keep prices, table rows, input fields, instructions, and validation messages on readable solid surfaces. Make selected filters, focus, and disabled states unmistakable.
-- **Other screens:** carry the same visual language through Coal Mines, Pet Coke, sign-in, and connection approval. Preserve directory grouping, source/review labels, and explicit approval choices.
+- **Other screens:** carry the same visual language through Coal Mines, Pet Coke, sign-in, and connection approval. Keep directory rows and credential/approval forms opaque; use glass only on supporting chrome. Preserve directory grouping, source/review labels, and explicit approval choices.
 - **Trust:** make existing legal identity, contact details, pricing caveats, and source labels easy to find. Keep unapproved founder content and statistics hidden; do not invent testimonials, credentials, or business claims.
 
 ## Guardrails
 - No changes to prices, products, source datasets, calculations, WhatsApp messages, contact details, sign-in behavior, integrations, or permissions.
 - Keep current photographs; no new 3D scenes, heavy effects, cursor trails, or animated distortion.
-- Maintain readable contrast and keyboard focus. Provide solid-surface fallbacks where blur is unavailable and reduce effects on smaller screens or reduced-motion settings.
+- Maintain readable contrast and keyboard focus. Provide solid-surface fallbacks where blur is unavailable, honor increased-contrast and reduced-transparency preferences, and reduce effects on smaller screens or reduced-motion settings.
 - Keep opening fast: no fullscreen blur layers, overlapping stacks of filters, or continuous glass animations.
 
 ## Technical details
