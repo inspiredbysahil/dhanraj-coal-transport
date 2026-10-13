@@ -52,8 +52,8 @@ export function CoalMinesDirectory() {
     <section className="pb-24"><div className="site-shell">
       <div className="glass-panel grid gap-3 p-4 md:grid-cols-[2fr_1fr_1fr] lg:grid-cols-[2fr_1fr_1fr_auto]">
         <label className="relative"><span className="sr-only">Search mines by name</span><Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" /><Input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search mine name…" className="h-10 pl-9" /></label>
-        <label><span className="sr-only">Filter by state</span><select className={selectCls} value={state} onChange={(e) => setState(e.target.value)}><option value="">All states</option>{states.map((s) => <option key={s}>{s}</option>)}</select></label>
-        <label><span className="sr-only">Filter by operator</span><select className={selectCls} value={op} onChange={(e) => setOp(e.target.value)}><option value="">All operators</option>{operators.map((o) => <option key={o} value={o}>{show(o)}</option>)}</select></label>
+        <label><span className="sr-only">Filter by state</span><select aria-label="Filter by state" className={selectCls} value={state} onChange={(e) => setState(e.target.value)}><option value="">All states</option>{states.map((s) => <option key={s}>{s}</option>)}</select></label>
+        <label><span className="sr-only">Filter by operator</span><select aria-label="Filter by operator" className={selectCls} value={op} onChange={(e) => setOp(e.target.value)}><option value="">All operators</option>{operators.map((o) => <option key={o} value={o}>{show(o)}</option>)}</select></label>
         <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={flagged} onChange={(e) => setFlagged(e.target.checked)} className="h-4 w-4" />Only needs review</label>
       </div>
       <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-sm"><p aria-live="polite"><strong>{filtered.length}</strong> of {mines.length} entries</p>

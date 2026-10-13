@@ -34,7 +34,7 @@ function Nav() {
       <Brand />
       <nav className="hidden items-center gap-7 lg:flex" aria-label="Main navigation">{links}</nav>
       <div className="flex items-center gap-2"><a href={site.primaryPhoneHref} className="hidden text-xs opacity-80 md:block">{site.primaryPhone}</a><a href="#contact" className="hidden rounded-full bg-card px-4 py-2 text-xs font-semibold text-foreground lg:block">Contact Us</a>
-        <Button variant="plain" className="grid h-10 w-10 place-items-center rounded-full bg-card text-foreground lg:hidden" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Toggle menu">{open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}</Button></div>
+        <Button variant="circle" className="bg-card text-foreground lg:hidden" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Toggle menu">{open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}</Button></div>
     </div>{open && <nav className="mobile-nav lg:hidden" aria-label="Mobile navigation">{links}<Pill href="#contact" onClick={() => setOpen(false)}>Contact Us</Pill></nav>}</header>
     <motion.div initial={false} animate={{ opacity: stuck ? 1 : 0, y: stuck ? 0 : -20 }} style={{ pointerEvents: stuck ? "auto" : "none" }} className="sticky-nav hidden lg:block">
       <div className="flex h-14 items-center justify-between pl-5 pr-2"><Brand /><nav className="flex gap-6 text-sm text-muted-foreground" aria-label="Sticky navigation">{navItems.map(([label, id]) => <a className="hover:text-foreground" key={id} href={`#${id}`}>{label}</a>)}<a className="hover:text-foreground" href="/coal-mines">Coal Mines</a></nav><Pill href="#contact">Get a Quote</Pill></div>
@@ -48,8 +48,8 @@ function Hero() {
     <img className="bg" src={h.image} alt="Aerial view of an open-pit coal mine with trucks on the haul road" width={1600} height={960} fetchPriority="high" />
     <Nav />
     <div className="site-shell hero-content flex flex-col justify-between gap-12 pb-8 pt-36 md:pt-44">
-      <div><motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8 }} className="headline hero-title">{h.title[0]}<br />{h.title[1]}</motion.h1>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .3 }} className="mt-8 flex flex-wrap gap-3"><Pill href="#contact">{h.cta}</Pill><Button variant="glass" size="lg" asChild><a href="#products">Explore products <ArrowUpRight /></a></Button></motion.div></div>
+      <div><motion.h1 initial={false} className="headline hero-title">{h.title[0]}<br />{h.title[1]}</motion.h1>
+        <div className="mt-8 flex flex-wrap gap-3"><Pill href="#contact">{h.cta}</Pill><Button variant="glass" size="lg" asChild><a href="#products">Explore products <ArrowUpRight /></a></Button></div></div>
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"><p className="max-w-sm text-sm opacity-85">{h.footnote}</p>{h.badge && <p className="glass inline-flex w-fit items-center gap-2 rounded-full px-4 py-2 text-xs"><Award className="h-4 w-4 text-lime" />{h.badge}</p>}</div>
     </div>
   </div></section>;
@@ -61,7 +61,7 @@ function About() {
     <Label>{a.label}</Label>
     <div className="mt-5 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"><motion.h2 {...fade} className="headline">{a.title[0]}<br />{a.title[1]}</motion.h2><Pill href="#products" light>Explore More</Pill></div>
     <div className="mt-14 grid overflow-hidden rounded-2xl border border-border lg:grid-cols-[1fr_1fr_1fr_1.1fr]">
-      {a.values.map(([t, d], i) => { const Icon = icons[i] ?? Truck; return <motion.div {...fade} transition={{ duration: .6, delay: i * .1 }} key={t} className="value-card flex flex-col" style={{ paddingTop: `${1.75 + i * 3}rem` }}><Icon className="h-6 w-6" /><h3 className="mt-6 text-base font-semibold">{t}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{d}</p></motion.div>; })}
+      {a.values.map(([t, d], i) => { const Icon = icons[i] ?? Truck; return <motion.div {...fade} transition={{ duration: .6, delay: i * .1 }} key={t} className="value-card flex flex-col"><Icon className="h-6 w-6" /><h3 className="mt-6 text-base font-semibold">{t}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{d}</p></motion.div>; })}
       <img src={a.image} alt="Excavator loading coal into a truck at a floodlit coal yard" width={768} height={960} loading="lazy" className="h-full max-h-[460px] w-full object-cover" />
     </div>
     <p className="mt-6 text-xs text-muted-foreground">GSTIN {site.gstin} · {site.legalName} · {site.tradeName} · {site.motto}</p>
