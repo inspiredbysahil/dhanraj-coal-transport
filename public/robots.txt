@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://coal-visual-connect.lovable.app/sitemap.xml
+Sitemap: https://dhanraj-coal-transport.lovable.app/sitemap.xml
