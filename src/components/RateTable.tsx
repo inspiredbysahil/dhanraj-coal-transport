@@ -37,7 +37,7 @@ export function RateTable() {
   return <div className="space-y-6">
     <div className="rounded-md border border-border bg-card p-4 text-sm"><p className="font-semibold">Last updated: {effectiveDateLabel} · Indicative rates, not a confirmed quotation</p><p className="mt-1 text-muted-foreground">Prices are per ton. 18% GST extra · TCS as applicable · Freight extra, by delivery location · Loading as noted in each row · MOQ 100 tons · Subject to availability.</p></div>
     <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-      <div className="flex flex-wrap gap-2"><div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1 lg:flex-wrap">{categories.map((item)=><Button className="shrink-0" key={item} variant={category===item?"default":"outline"} size="sm" onClick={()=>setCategory(item)}>{item}</Button>)}</div></div>
+      <div className="min-w-0"><div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1 lg:flex-wrap">{categories.map((item)=><Button className="shrink-0" key={item} variant={category===item?"default":"outline"} size="sm" onClick={()=>setCategory(item)}>{item}</Button>)}</div></div>
       <div className="flex gap-2"><div className="relative min-w-0 flex-1 lg:w-72"><Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground"/><Input aria-label="Search rates" className="pl-9" placeholder="Search GCV, source, vessel…" value={query} onChange={(e)=>setQuery(e.target.value)}/></div><Button variant="outline" onClick={exportCsv}><Download/> Export</Button></div>
     </div>
     <div className="rate-table-wrap hidden overflow-auto rounded-md border border-border md:block">

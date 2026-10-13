@@ -19,6 +19,8 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: pageUrl },
       { property: "og:image", content: shareImageUrl },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: site.seoTitle },
+      { name: "twitter:description", content: site.seoDescription },
       { name: "twitter:image", content: shareImageUrl },
       { name: "theme-color", content: "#F7F8F5" },
     ],
