@@ -1,5 +1,8 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Fuel } from "lucide-react";
+import { site } from "@/data/site";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable/index";
 import { oauthReturnPath } from "@/lib/oauth-return-path";
@@ -56,19 +59,20 @@ function Login() {
 
   return (
     <main className="site-shell flex min-h-screen items-center justify-center py-16">
-      <div className="w-full max-w-sm rounded-3xl border border-border bg-card p-8 shadow-sm">
+      <div className="auth-panel w-full max-w-md p-6 md:p-9">
+        <a className="auth-mark" href="/" aria-label="Dhanraj Coal Transport home"><Fuel /><span>{site.brand}</span></a>
         <h1 className="font-display text-2xl font-semibold">{mode === "in" ? "Sign in" : "Create account"}</h1>
         <p className="mt-2 text-sm text-muted-foreground">Used to connect AI assistants to Dhanraj Coal Transport.</p>
-        <button onClick={google} className="mt-6 w-full rounded-full border border-border px-4 py-3 text-sm font-medium hover:bg-muted">Continue with Google</button>
+        <Button variant="outline" onClick={google} className="mt-6 w-full">Continue with Google</Button>
         <form onSubmit={submit} className="mt-4 space-y-3">
-          <label className="block text-sm">Email<input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 w-full rounded-xl border border-input bg-background px-3 py-2" /></label>
-          <label className="block text-sm">Password<input type="password" required minLength={6} value={password} onChange={(e) => setPassword(e.target.value)} className="mt-1 w-full rounded-xl border border-input bg-background px-3 py-2" /></label>
+          <label className="block text-sm">Email<input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 w-full h-12 rounded-md border border-input bg-card px-3 py-2" /></label>
+          <label className="block text-sm">Password<input type="password" required minLength={6} value={password} onChange={(e) => setPassword(e.target.value)} className="mt-1 w-full h-12 rounded-md border border-input bg-card px-3 py-2" /></label>
           {msg && <p role="alert" className="text-sm text-muted-foreground">{msg}</p>}
-          <button disabled={busy} className="w-full rounded-full bg-primary px-4 py-3 text-sm font-medium text-primary-foreground disabled:opacity-60">{busy ? "Please wait…" : mode === "in" ? "Sign in" : "Sign up"}</button>
+          <Button disabled={busy} className="w-full">{busy ? "Please wait…" : mode === "in" ? "Sign in" : "Sign up"}</Button>
         </form>
-        <button onClick={() => { setMode(mode === "in" ? "up" : "in"); setMsg(null); }} className="mt-4 text-sm underline">
+        <Button variant="link" onClick={() => { setMode(mode === "in" ? "up" : "in"); setMsg(null); }} className="mt-4 text-sm underline">
           {mode === "in" ? "New here? Create an account" : "Have an account? Sign in"}
-        </button>
+        </Button>
       </div>
     </main>
   );

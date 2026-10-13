@@ -1,7 +1,5 @@
-# Redesign roadmap
+# Subtle glass refresh
 
-- [x] Replace the former palette with professional black-and-white design tokens.
-- [x] Redesign navigation, opening section, content sections, cards, tables, forms, and calls to action.
-- [x] Synchronize the 3D scenes with the monochrome visual system.
-- [x] Apply the new interface to the Pet Coke page.
-- [x] Verify desktop and mobile navigation, products, rates, quote preselection, and contact actions.
+- [ ] Apply shared glass tokens, readable controls, and refreshed homepage spacing.
+- [ ] Refine rates, directory, Pet Coke, sign-in, and connection approval presentation.
+- [ ] Verify desktop/mobile layouts, central interactions, accessibility fallbacks, tests, and diagnostics.
