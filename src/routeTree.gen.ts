@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CoalMinesRouteImport } from './routes/coal-mines'
 import { Route as PetCokePriceRouteImport } from './routes/pet-coke-price'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoalMinesRoute = CoalMinesRouteImport.update({
+  id: '/coal-mines',
+  path: '/coal-mines',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PetCokePriceRoute = PetCokePriceRouteImport.update({
@@ -31,30 +37,34 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/coal-mines': typeof CoalMinesRoute
   '/pet-coke-price': typeof PetCokePriceRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/coal-mines': typeof CoalMinesRoute
   '/pet-coke-price': typeof PetCokePriceRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/coal-mines': typeof CoalMinesRoute
   '/pet-coke-price': typeof PetCokePriceRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/pet-coke-price' | '/sitemap.xml'
+  fullPaths: '/' | '/coal-mines' | '/pet-coke-price' | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/pet-coke-price' | '/sitemap.xml'
-  id: '__root__' | '/' | '/pet-coke-price' | '/sitemap.xml'
+  to: '/' | '/coal-mines' | '/pet-coke-price' | '/sitemap.xml'
+  id: '__root__' | '/' | '/coal-mines' | '/pet-coke-price' | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CoalMinesRoute: typeof CoalMinesRoute
   PetCokePriceRoute: typeof PetCokePriceRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/coal-mines': {
+      id: '/coal-mines'
+      path: '/coal-mines'
+      fullPath: '/coal-mines'
+      preLoaderRoute: typeof CoalMinesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pet-coke-price': {
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CoalMinesRoute: CoalMinesRoute,
   PetCokePriceRoute: PetCokePriceRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }

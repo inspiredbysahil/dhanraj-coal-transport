@@ -2020,3 +2020,15 @@ export const mines: MineRecord[] = [
 ];
 
 export const countsByState = (rows: { state: string }[]) => rows.reduce<Record<string, number>>((acc, r) => { acc[r.state] = (acc[r.state] ?? 0) + 1; return acc; }, {});
+
+// Headquarters exactly as printed in the PDF, keyed by state. States absent here have no HQ in the source.
+export const mineHeadquarters: Record<string, { operator: string; hq: string; sourcePage: number }> = {
+  "West Bengal": { operator: "ECLs (Eastern Coalfields Ltd.)", hq: "Saktoria, Pandaveswar, Paschim Bardhman District, West Bengal", sourcePage: 1 },
+  Chhattisgarh: { operator: "SECL (South Eastern Coalfields Ltd.)", hq: "Bilaspur", sourcePage: 2 },
+  "Madhya Pradesh": { operator: "NCL (Northern Coalfields Ltd.)", hq: "Singrauli", sourcePage: 3 },
+  Telangana: { operator: "CCL + SCCL", hq: "Kothagudem, Bhadragri Kothagudem District, Telangana", sourcePage: 4 },
+  Jharkhand: { operator: "BCCL", hq: "Dhanbad", sourcePage: 5 },
+  Odisha: { operator: "MCL (Mahanadi Coalfield Ltd.)", hq: "Sambalpur", sourcePage: 7 },
+  Maharashtra: { operator: "WCL (Western Coalfields LTD.)", hq: "Nagpur (Maharashtra)", sourcePage: 8 },
+};
+export const minesSourceDocument = "VISHWAKARMA COMPANY MINES 2.pdf";
