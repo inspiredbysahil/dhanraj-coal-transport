@@ -30,8 +30,8 @@ describe("Quick Order & Tax Estimator", () => {
     const url = new URL(whatsappUrl(message));
     expect(url.pathname).toBe("/916376139600");
     expect(url.searchParams.get("text")).toBe(message);
-    for (const part of [rate.grade, rate.category, rate.gcv, rate.source, "100 MT", "Morbi & Rajkot, Gujarat", "₹9,20,000.00", "₹1,65,600.00", "₹10,85,600.00", "14", rate.remarks]) {
-      if (part !== "14") expect(message).toContain(part);
+    for (const part of [rate.grade, rate.category, rate.gcv, rate.source, "100 MT", "Morbi & Rajkot, Gujarat", "₹9,20,000.00", "₹1,65,600.00", "₹10,85,600.00", rate.remarks]) {
+      expect(message).toContain(part);
     }
     expect(message).toContain("12 July 2026");
     expect(message).toContain("final landed price including freight");
