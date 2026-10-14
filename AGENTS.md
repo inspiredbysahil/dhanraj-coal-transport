@@ -10,6 +10,7 @@
 <!-- LOVABLE:END -->
 
 - Keep all Dhanraj business copy and datasets in `src/data`; presentation components consume typed exports so content changes never require layout edits.
+- Keep rate-chart display labels and category mappings separate from source rate rows in `src/data/rate-chart.ts` so buyer-facing wording never changes dataset identities.
 - Keep Three.js scenes procedural, client-only, intersection-gated, and capped at 1.75 DPR to protect mobile performance and avoid SSR hydration failures.
 - Keep shared visual colors in semantic CSS tokens and `src/lib/theme-palette.ts` so DOM and Three.js visuals remain synchronized.
 - Keep sitemap eligibility explicit in every route through required `staticData.sitemap` decisions so new public pages are discoverable by default review.

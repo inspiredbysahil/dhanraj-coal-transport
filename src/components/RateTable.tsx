@@ -1,22 +1,22 @@
 import { useMemo, useState } from "react";
 import { ArrowUpDown, Calculator, Download, MessageCircle, Search } from "lucide-react";
-import { rates, effectiveDate, effectiveDateLabel, type Rate } from "@/data/rates";
+import { rates, effectiveDate, effectiveDateLabel } from "@/data/rates";
 import { whatsappUrl } from "@/data/site";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { rateFilters, rateColumns, rateChartCopy, type RateSortKey } from "@/data/rate-chart";
 
-const categories = ["All categories", "Domestic (Port)", "Domestic (Mine)", "Imported (Navlakhi)", "Port (Kandla/Tuna)"];
-type SortKey = keyof Pick<Rate, "category" | "gcv" | "source" | "grade" | "qty" | "rate">;
+
 
 export function RateTable() {
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState(categories[0]);
-  const [sort, setSort] = useState<SortKey>("gcv");
+  const [category, setCategory] = useState<string>("");
+  const [sort, setSort] = useState<RateSortKey>("gcv");
   const [ascending, setAscending] = useState(false);
   const [tons, setTons] = useState(100);
   const [selectedRate, setSelectedRate] = useState(() => rates[0]?.rate ?? 0);
   const filtered = useMemo(() => rates.filter((item) => {
-    const matchesCategory = category === categories[0] || item.category === category;
+    const matchesCategory = category === "" || item.category === category;
     const haystack = Object.values(item).join(" ").toLowerCase();
     return matchesCategory && haystack.includes(query.toLowerCase());
   }).sort((a,b) => {
@@ -24,7 +24,7 @@ export function RateTable() {
     return (typeof av === "number" && typeof bv === "number" ? av-bv : String(av).localeCompare(String(bv))) * (ascending ? 1 : -1);
   }), [query, category, sort, ascending]);
 
-  function changeSort(key: SortKey) {
+  function changeSort(key: RateSortKey) {
     if (sort === key) setAscending((value) => !value); else { setSort(key); setAscending(true); }
   }
   function exportCsv() {
@@ -37,14 +37,27 @@ export function RateTable() {
   return <div className="space-y-6">
     <div className="rounded-md border border-border bg-card p-4 text-sm"><p className="font-semibold">Last updated: {effectiveDateLabel} · Indicative rates, not a confirmed quotation</p><p className="mt-1 text-muted-foreground">Prices are per ton. 18% GST extra · TCS as applicable · Freight extra, by delivery location · Loading as noted in each row · MOQ 100 tons · Subject to availability.</p></div>
     <div className="glass-panel flex flex-col gap-4 p-4 lg:flex-row lg:items-center lg:justify-between">
-      <div className="min-w-0"><div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1 lg:flex-wrap">{categories.map((item)=><Button className="shrink-0" key={item} variant={category===item?"default":"outline"} size="sm" onClick={()=>setCategory(item)}>{item}</Button>)}</div></div>
-      <div className="flex gap-2"><div className="relative min-w-0 flex-1 lg:w-72"><Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground"/><Input aria-label="Search rates" className="h-11 pl-9" placeholder="Search GCV, source, vessel…" value={query} onChange={(e)=>setQuery(e.target.value)}/></div><Button variant="outline" onClick={exportCsv}><Download/> Export</Button></div>
+      <div className="min-w-0"><div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1 lg:flex-wrap">{rateFilters.map((item)=><Button className="shrink-0" key={item.label} aria-pressed={category===item.category} variant={category===item.category?"default":"outline"} size="sm" onClick={()=>setCategory(item.category)}>{item.label}</Button>)}</div></div>
+      <div className="flex gap-2"><div className="relative min-w-0 flex-1 lg:w-72"><Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground"/><Input aria-label="Search rates" className="h-11 pl-9" placeholder={rateChartCopy.search} value={query} onChange={(e)=>setQuery(e.target.value)}/></div><Button variant="outline" onClick={exportCsv}><Download/> Export</Button></div>
     </div>
     <div className="rate-table-wrap hidden overflow-auto rounded-md border border-border md:block">
-      <table className="w-full min-w-[1050px] text-left text-sm"><thead className="sticky top-0 z-10 bg-card"><tr>{([['category','Category'],['gcv','GCV'],['source','Source'],['grade','Grade / Vessel'],['qty','Qty (Tons)'],['rate','Rate (₹/ton)']] as [SortKey,string][]).map(([key,label])=><th key={key} className="p-4 font-mono text-xs uppercase text-muted-foreground"><Button variant="plain" className="flex items-center gap-2 text-left" onClick={()=>changeSort(key)}>{label}<ArrowUpDown className="h-3 w-3"/></Button></th>)}<th className="p-4 font-mono text-xs uppercase text-muted-foreground">Remarks</th><th className="p-4"><span className="sr-only">Quote</span></th></tr></thead>
-      <tbody>{filtered.map((item,index)=><tr key={`${item.grade}-${index}`} className="border-t border-border transition-colors hover:bg-accent"><td className="p-4">{item.category}</td><td className="p-4 font-mono text-spark">{item.gcv}</td><td className="p-4">{item.source}</td><td className="max-w-72 p-4">{item.grade}</td><td className="p-4 font-mono">{item.qty}</td><td className="p-4 font-mono font-bold text-primary">₹{item.rate.toLocaleString("en-IN")}<span className="font-normal text-muted-foreground">/ton</span></td><td className="p-4 text-muted-foreground">{item.remarks}</td><td className="p-4"><Button title="Get quote for this row" variant="ghost" size="icon" asChild><a aria-label={`Request quote for ${item.grade}, ${item.gcv} GCV from ${item.source}`} target="_blank" rel="noreferrer" href={whatsappUrl(`Hello DHANRAJ COAL TRANSPORT, please quote ${item.category}, ${item.gcv} GCV, ${item.grade}, from ${item.source} at the listed rate ₹${item.rate}/ton.`)}><MessageCircle/></a></Button></td></tr>)}</tbody></table>
+      <table className="w-full min-w-[1050px] text-left text-sm"><thead className="sticky top-0 z-10 bg-card text-foreground"><tr>{rateColumns.map(({key,label})=><th scope="col" aria-sort={sort===key?(ascending?"ascending":"descending"):"none"} key={key} className="p-4 text-sm font-semibold"><Button variant="plain" className="flex items-center gap-2 px-0 text-left text-foreground" onClick={()=>changeSort(key)}>{label}<ArrowUpDown className="h-3 w-3" aria-hidden="true"/></Button></th>)}<th scope="col" className="p-4 text-sm font-semibold">{rateChartCopy.remarks}</th><th scope="col" className="p-4 text-sm font-semibold">{rateChartCopy.action}</th></tr></thead>
+      <tbody>{filtered.length===0 && <tr><td colSpan={8} className="p-6 text-center text-muted-foreground">{rateChartCopy.empty}</td></tr>}{filtered.map((item,index)=><tr key={`${item.grade}-${index}`} className="border-t border-border transition-colors hover:bg-accent"><td className="p-4">{item.category}</td><td className="p-4 font-mono text-spark">{item.gcv}</td><td className="p-4">{item.source}</td><td className="max-w-72 p-4">{item.grade}</td><td className="p-4 font-mono">{item.qty}</td><td className="p-4 font-mono font-bold text-primary">₹{item.rate.toLocaleString("en-IN")}<span className="font-normal text-muted-foreground">/ton</span></td><td className="p-4 text-muted-foreground">{item.remarks}</td><td className="p-4"><Button title="Get quote for this row" variant="ghost" size="icon" asChild><a aria-label={`Request quote for ${item.grade}, ${item.gcv} GCV from ${item.source}`} target="_blank" rel="noreferrer" href={whatsappUrl(`Hello DHANRAJ COAL TRANSPORT, please quote ${item.category}, ${item.gcv} GCV, ${item.grade}, from ${item.source} at the listed rate ₹${item.rate}/ton.`)}><MessageCircle/></a></Button></td></tr>)}</tbody></table>
     </div>
-    <div className="grid gap-3 md:hidden">{filtered.length===0 && <p className="text-sm text-muted-foreground">No rates match your search.</p>}{filtered.map((item,index)=><article key={`${item.grade}-${index}`} className="industrial-card p-4"><div className="flex justify-between gap-3"><div><p className="font-mono text-xs text-primary">{item.category}</p><h3 className="mt-1 font-display text-lg">{item.gcv} GCV</h3></div><p className="font-mono font-bold text-spark">₹{item.rate.toLocaleString("en-IN")}<span className="text-xs font-normal text-muted-foreground">/ton</span></p></div><p className="mt-3 text-sm">{item.grade}</p><p className="mt-1 text-xs text-muted-foreground">{item.source} · {item.qty} tons · {item.remarks}</p><Button className="mt-4 w-full" variant="outline" asChild><a target="_blank" rel="noreferrer" href={whatsappUrl(`Please quote ${item.category}, ${item.gcv} GCV, ${item.grade}.`)}><MessageCircle/> Get quote</a></Button></article>)}</div>
+    <div className="grid gap-3 md:hidden">{filtered.length===0 && <p className="text-sm text-muted-foreground">{rateChartCopy.empty}</p>}{filtered.map((item,index)=><article key={`${item.grade}-${index}`} className="industrial-card min-w-0 p-4">
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
+        <div className="min-w-0"><p className="text-xs text-muted-foreground">{rateColumns[1]?.label}</p><h3 className="mt-1 break-words font-display text-lg font-semibold">{item.gcv}</h3></div>
+        <div className="shrink-0 text-right"><p className="text-xs text-muted-foreground">{rateColumns[5]?.label}</p><p className="mt-1 font-mono font-bold text-foreground">₹{item.rate.toLocaleString("en-IN")}<span className="text-xs font-normal text-muted-foreground">/Ton</span></p></div>
+      </div>
+      <dl className="mt-4 grid min-w-0 grid-cols-2 gap-x-4 gap-y-3 text-sm">
+        <div className="min-w-0"><dt className="text-xs text-muted-foreground">{rateColumns[0]?.label}</dt><dd className="mt-1 break-words">{item.category}</dd></div>
+        <div className="min-w-0"><dt className="text-xs text-muted-foreground">{rateColumns[2]?.label}</dt><dd className="mt-1 break-words font-medium">{item.source}</dd></div>
+        <div className="col-span-2 min-w-0"><dt className="text-xs text-muted-foreground">{rateColumns[3]?.label}</dt><dd className="mt-1 break-words">{item.grade}</dd></div>
+        <div className="col-span-2"><dt className="text-xs text-muted-foreground">{rateColumns[4]?.label}</dt><dd className="mt-1 font-mono">{item.qty}</dd></div>
+        <div className="col-span-2 min-w-0"><dt className="text-xs text-muted-foreground">{rateChartCopy.remarks}</dt><dd className="mt-1 break-words">{item.remarks}</dd></div>
+      </dl>
+      <Button className="mt-4 w-full" asChild><a aria-label={`${rateChartCopy.quote} for ${item.grade}, ${item.gcv} from ${item.source}`} target="_blank" rel="noreferrer" href={whatsappUrl(`Please quote ${item.category}, ${item.gcv} GCV, ${item.grade}.`)}><MessageCircle/>{rateChartCopy.quote}</a></Button>
+    </article>)}</div>
     <div className="grid gap-5 border-t border-border pt-6 lg:grid-cols-[1fr_auto] lg:items-end"><div><p className="font-mono text-xs uppercase text-muted-foreground">Tentative rates · MOQ 100 tons+ · 18% GST extra · Freight as per delivery location · Subject to availability.</p><p className="mt-2 font-mono text-xs text-primary">Effective {effectiveDate}</p></div><div className="glass-panel grid gap-3 p-4 sm:grid-cols-[1fr_1fr_auto] sm:items-end"><label className="text-xs text-muted-foreground">Tons<Input type="number" min={1} value={tons} onChange={(e)=>setTons(Number(e.target.value))}/></label><label className="text-xs text-muted-foreground">Rate / ton<select className="mt-1 h-9 w-full rounded-md border border-input bg-background px-3 font-mono text-sm" value={selectedRate} onChange={(e)=>setSelectedRate(Number(e.target.value))}>{[...new Set(rates.map((item)=>item.rate))].map((rate)=><option key={rate} value={rate}>₹{rate.toLocaleString("en-IN")}</option>)}</select></label><div className="min-w-52"><p className="flex items-center gap-2 text-xs text-muted-foreground"><Calculator className="h-4 w-4"/> Estimated incl. GST</p><strong className="font-mono text-xl text-primary">₹{Math.round(subtotal*1.18).toLocaleString("en-IN")}</strong><p className="text-xs text-muted-foreground">Freight extra · TCS as applicable</p></div></div></div>
   </div>;
 }
