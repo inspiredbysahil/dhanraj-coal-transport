@@ -1,9 +1,10 @@
 import { useMemo, useState } from "react";
-import { ArrowUpDown, Calculator, Download, MessageCircle, Search } from "lucide-react";
+import { ArrowUpDown, Download, MessageCircle, Search } from "lucide-react";
 import { rates, effectiveDate, effectiveDateLabel } from "@/data/rates";
 import { whatsappUrl } from "@/data/site";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { QuickOrderEstimator } from "@/components/QuickOrderEstimator";
 import { rateFilters, rateColumns, rateChartCopy, type RateSortKey } from "@/data/rate-chart";
 
 
@@ -13,8 +14,6 @@ export function RateTable() {
   const [category, setCategory] = useState<string>("");
   const [sort, setSort] = useState<RateSortKey>("gcv");
   const [ascending, setAscending] = useState(false);
-  const [tons, setTons] = useState(100);
-  const [selectedRate, setSelectedRate] = useState(() => rates[0]?.rate ?? 0);
   const filtered = useMemo(() => rates.filter((item) => {
     const matchesCategory = category === "" || item.category === category;
     const haystack = Object.values(item).join(" ").toLowerCase();
@@ -33,7 +32,6 @@ export function RateTable() {
     const url = URL.createObjectURL(new Blob([[head,...rows].join("\n")], { type: "text/csv" }));
     const anchor = document.createElement("a"); anchor.href = url; anchor.download = `dhanraj-rates-${effectiveDate.replaceAll("/","-")}.csv`; anchor.click(); URL.revokeObjectURL(url);
   }
-  const subtotal = Math.max(0, tons) * selectedRate;
   return <div className="space-y-6">
     <div className="rounded-md border border-border bg-card p-4 text-sm"><p className="font-semibold">Last updated: {effectiveDateLabel} · Indicative rates, not a confirmed quotation</p><p className="mt-1 text-muted-foreground">Prices are per ton. 18% GST extra · TCS as applicable · Freight extra, by delivery location · Loading as noted in each row · MOQ 100 tons · Subject to availability.</p></div>
     <div className="glass-panel flex flex-col gap-4 p-4 lg:flex-row lg:items-center lg:justify-between">
@@ -58,6 +56,6 @@ export function RateTable() {
       </dl>
       <Button className="mt-4 w-full" asChild><a aria-label={`${rateChartCopy.quote} for ${item.grade}, ${item.gcv} from ${item.source}`} target="_blank" rel="noreferrer" href={whatsappUrl(`Please quote ${item.category}, ${item.gcv} GCV, ${item.grade}.`)}><MessageCircle/>{rateChartCopy.quote}</a></Button>
     </article>)}</div>
-    <div className="grid gap-5 border-t border-border pt-6 lg:grid-cols-[1fr_auto] lg:items-end"><div><p className="font-mono text-xs uppercase text-muted-foreground">Tentative rates · MOQ 100 tons+ · 18% GST extra · Freight as per delivery location · Subject to availability.</p><p className="mt-2 font-mono text-xs text-primary">Effective {effectiveDate}</p></div><div className="glass-panel grid gap-3 p-4 sm:grid-cols-[1fr_1fr_auto] sm:items-end"><label className="text-xs text-muted-foreground">Tons<Input type="number" min={1} value={tons} onChange={(e)=>setTons(Number(e.target.value))}/></label><label className="text-xs text-muted-foreground">Rate / ton<select className="mt-1 h-9 w-full rounded-md border border-input bg-background px-3 font-mono text-sm" value={selectedRate} onChange={(e)=>setSelectedRate(Number(e.target.value))}>{[...new Set(rates.map((item)=>item.rate))].map((rate)=><option key={rate} value={rate}>₹{rate.toLocaleString("en-IN")}</option>)}</select></label><div className="min-w-52"><p className="flex items-center gap-2 text-xs text-muted-foreground"><Calculator className="h-4 w-4"/> Estimated incl. GST</p><strong className="font-mono text-xl text-primary">₹{Math.round(subtotal*1.18).toLocaleString("en-IN")}</strong><p className="text-xs text-muted-foreground">Freight extra · TCS as applicable</p></div></div></div>
+    <QuickOrderEstimator/>
   </div>;
 }
