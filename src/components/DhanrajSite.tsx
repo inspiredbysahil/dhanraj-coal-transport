@@ -33,11 +33,11 @@ function Nav() {
     <header className="top-nav"><div className="site-shell flex h-20 items-center justify-between">
       <Brand />
       <nav className="hidden items-center gap-7 lg:flex" aria-label="Main navigation">{links}</nav>
-      <div className="flex items-center gap-2"><a href={site.primaryPhoneHref} className="hidden text-xs opacity-80 md:block">{site.primaryPhone}</a><a href="#contact" className="hidden rounded-full bg-card px-4 py-2 text-xs font-semibold text-foreground lg:block">Contact Us</a>
+      <div className="flex shrink-0 items-center gap-2"><a href={site.primaryPhoneHref} className="hidden items-center gap-2 whitespace-nowrap text-xs md:inline-flex"><Phone className="h-4 w-4 shrink-0" aria-hidden="true" />{site.primaryPhone}</a><a href="#contact" className="hidden rounded-full bg-card px-4 py-2 text-xs font-semibold text-foreground lg:block">Contact Us</a>
         <Button variant="circle" className="bg-card text-foreground lg:hidden" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Toggle menu">{open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}</Button></div>
     </div>{open && <nav className="mobile-nav lg:hidden" aria-label="Mobile navigation">{links}<Pill href="#contact" onClick={() => setOpen(false)}>Contact Us</Pill></nav>}</header>
     <motion.div initial={false} animate={{ opacity: stuck ? 1 : 0, y: stuck ? 0 : -20 }} style={{ pointerEvents: stuck ? "auto" : "none" }} className="sticky-nav hidden lg:block">
-      <div className="flex h-14 items-center justify-between pl-5 pr-2"><Brand /><nav className="flex gap-6 text-sm text-muted-foreground" aria-label="Sticky navigation">{navItems.map(([label, id]) => <a className="hover:text-foreground" key={id} href={`#${id}`}>{label}</a>)}<a className="hover:text-foreground" href="/coal-mines">Coal Mines</a></nav><Pill href="#contact">Get a Quote</Pill></div>
+      <div className="flex h-14 items-center justify-between gap-4 pl-5 pr-2"><Brand /><nav className="flex min-w-0 gap-4 whitespace-nowrap text-sm text-muted-foreground" aria-label="Sticky navigation">{navItems.map(([label, id]) => <a className="hover:text-foreground" key={id} href={`#${id}`}>{label}</a>)}<a className="hover:text-foreground" href="/coal-mines">Coal Mines</a><a className="hover:text-foreground" href="/pet-coke-price">Pet Coke</a></nav><Pill href="#contact">Get a Quote</Pill></div>
     </motion.div>
   </>;
 }
