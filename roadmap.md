@@ -1,8 +1,8 @@
 # Subtle glass refresh
 
 ## Quick Order & Tax Estimator
-- [ ] Replace the compact calculator with grade, quantity and destination inputs plus GST breakdown and WhatsApp request.
-- [ ] Verify calculations, invalid input, WhatsApp details and desktop/mobile presentation.
+- [x] Replace the compact calculator with grade, quantity and destination inputs plus GST breakdown and WhatsApp request.
+- [x] Verify calculations, invalid input, WhatsApp details and desktop/mobile presentation.
 
 ## Header and Rate Chart usability
 - [x] Add phone icon and sticky Pet Coke link.
