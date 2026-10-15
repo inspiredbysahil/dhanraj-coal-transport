@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Fuel, Instagram, Linkedin, Mail, MapPin, Menu, MessageCircle, Phone, Quote, Recycle, Search, ShieldCheck, Truck, X, BadgeIndianRupee, Award } from "lucide-react";
+import { Anchor, ArrowRight, ArrowUpRight, BadgeCheck, Building2, ChevronLeft, ChevronRight, Factory, Flame, FlaskConical, Fuel, Instagram, Linkedin, Mail, MapPin, Menu, MessageCircle, Phone, Quote, Recycle, Search, ShieldCheck, Truck, Waves, X, BadgeIndianRupee, Award } from "lucide-react";
 import { site, whatsappUrl } from "@/data/site";
 import { products } from "@/data/products";
 import { faq } from "@/data/faq";
@@ -55,6 +55,13 @@ function Hero() {
   </div></section>;
 }
 
+function AssuranceBar() {
+  const icons = { "min-order": ShieldCheck, fleet: Truck, verified: BadgeCheck, lifting: Anchor } as const;
+  return <section aria-label="Order assurances" className="border-b border-border"><div className="site-shell grid grid-cols-2 lg:grid-cols-4">
+    {home.assurance.map((x) => { const Icon = icons[x.icon]; return <div key={x.text} className="value-card flex items-center gap-3"><Icon className="h-5 w-5 shrink-0" aria-hidden="true" /><p className="text-sm font-semibold leading-snug">{x.text}</p></div>; })}
+  </div></section>;
+}
+
 function About() {
   const a = home.about; const icons = [Recycle, ShieldCheck, BadgeIndianRupee];
   return <section id="about" className="section-pad"><div className="site-shell">
@@ -89,6 +96,18 @@ function Products() {
       <div className="meta"><div><p className="text-sm font-semibold">{item.name}</p><p className="mt-1 text-xs opacity-75">GCV {item.gcv} · Ash {item.ash}</p></div><span className="arrow-dot"><ArrowUpRight /></span></div>
     </a>)}</div>
     <div className="mt-6 flex gap-2"><Button variant="circle" onClick={() => scroll(-1)} aria-label="Previous products"><ChevronLeft /></Button><Button variant="circle" onClick={() => scroll(1)} aria-label="Next products"><ChevronRight /></Button></div>
+  </div></section>;
+}
+
+function IndustriesWeFuel() {
+  const s = home.industriesWeFuel;
+  const icons = { steel: Factory, cement: Building2, textile: Waves, bricks: Flame, chemical: FlaskConical } as const;
+  return <section className="section-pad border-t border-border"><div className="site-shell">
+    <Label>{s.label}</Label>
+    <motion.h2 {...fade} className="headline mt-5">{s.title[0]}<br />{s.title[1]}</motion.h2>
+    <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+      {s.items.map((it, i) => { const Icon = icons[it.icon]; return <motion.div {...fade} transition={{ duration: .5, delay: i * .06 }} key={it.name} className="industrial-card flex flex-col p-5"><Icon className="h-6 w-6" aria-hidden="true" /><h3 className="mt-4 text-sm font-semibold leading-snug">{it.name}</h3><p className="mt-2 text-xs leading-5 text-muted-foreground">{it.text}</p></motion.div>; })}
+    </div>
   </div></section>;
 }
 
@@ -186,7 +205,7 @@ function ContactAndFooter() {
 }
 
 export function DhanrajSite() {
-  return <><main><Hero /><About />{home.quote.approved && <Founder />}<Products />{home.impact.approved && <Impact />}<Rates /><Updates /><FAQSection /><ContactAndFooter /></main>
-    <div className="floating-actions"><a href={site.primaryPhoneHref} aria-label="Call Dhanraj"><Phone className="h-5 w-5" /></a><a target="_blank" rel="noreferrer" href={whatsappUrl()} aria-label="WhatsApp Dhanraj"><MessageCircle className="h-5 w-5" /></a></div>
-    <div className="mobile-contact-bar"><a href={site.primaryPhoneHref}><Phone className="h-4 w-4" /> Call</a><a target="_blank" rel="noreferrer" href={whatsappUrl()}><MessageCircle className="h-4 w-4" /> WhatsApp</a></div></>;
+  return <><main><Hero /><AssuranceBar /><About />{home.quote.approved && <Founder />}<Products /><IndustriesWeFuel />{home.impact.approved && <Impact />}<Rates /><Updates /><FAQSection /><ContactAndFooter /></main>
+    <div className="floating-actions"><a href={site.primaryPhoneHref} aria-label="Call Dhanraj"><Phone className="h-5 w-5" /></a><a target="_blank" rel="noreferrer" href={whatsappUrl()} aria-label="WhatsApp Dhanraj" className="pulse-whatsapp"><MessageCircle className="h-5 w-5" /></a></div>
+    <div className="mobile-contact-bar"><a href={site.primaryPhoneHref}><Phone className="h-4 w-4" /> Call</a><a target="_blank" rel="noreferrer" href={whatsappUrl()} className="pulse-whatsapp"><MessageCircle className="h-4 w-4" /> WhatsApp</a></div></>;
 }

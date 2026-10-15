@@ -41,6 +41,23 @@ export const home = {
     intro: "Every grade is sourced, tested and dispatched to match your furnace and budget.",
     images: { domestic: pDomestic, imported: pImported, "pet-coke": pPetcoke, "wood-coal": pWood } as Record<string, string>,
   },
+  assurance: [
+    { icon: "min-order", text: "100 MT Minimum Order" },
+    { icon: "fleet", text: "Pan-India Rail & Road Fleet" },
+    { icon: "verified", text: "100% GCV & Lab Verified" },
+    { icon: "lifting", text: "Direct Port & Mine Lifting" },
+  ] as const,
+  industriesWeFuel: {
+    label: "Industries we fuel",
+    title: ["Fueling India's", "Core Industries."] as const,
+    items: [
+      { icon: "steel", name: "Steel & Rolling Mills", text: "High-CV coal and pet coke matched to furnace and reheat demand." },
+      { icon: "cement", name: "Cement & Clinker Units", text: "Consistent-GCV fuel for kilns, sized to your burn profile." },
+      { icon: "textile", name: "Textile & Dyeing Boilers", text: "Clean-burning coal for steady boiler steam, batch after batch." },
+      { icon: "bricks", name: "Brick Kilns", text: "Wood coal and domestic coal that fire evenly and economically." },
+      { icon: "chemical", name: "Chemical Plants", text: "Dependable fuel supply with verified quality on every load." },
+    ] as const,
+  },
   impact: {
     approved: false, // numbers below await client confirmation
     label: "Our impact",
