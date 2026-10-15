@@ -82,6 +82,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "author", content: "Dhanraj Coal Transport" },
+      { name: "google-site-verification", content: "-WCYW4Pb7mDT98nFNdAZ0Plommp889KA3Sot8_70T3Y" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: seoSiteName },
     ],
