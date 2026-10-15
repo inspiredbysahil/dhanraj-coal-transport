@@ -2,8 +2,8 @@ import { z } from "zod";
 import { site } from "@/data/site";
 import type { Rate } from "@/data/rates";
 
-/** Set to the real address once provided; the email card and button stay off until then. */
-export const contactEmail: string | null = null;
+/** Client-confirmed address; the email card and button are live. */
+export const contactEmail: string | null = "dhanrajcoaltransport@gmail.com";
 
 export const quoteCopy = {
   eyebrow: "DIRECT DISPATCH & QUOTATION DESK",
