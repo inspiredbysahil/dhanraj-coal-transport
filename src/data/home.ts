@@ -44,7 +44,7 @@ export const home = {
   assurance: [
     { icon: "min-order", text: "100 MT Minimum Order" },
     { icon: "fleet", text: "Pan-India Rail & Road Fleet" },
-    { icon: "verified", text: "100% GCV & Lab Verified" },
+    { icon: "verified", text: "100% GCV & Lab Verified" }, // client-confirmed claim
     { icon: "lifting", text: "Direct Port & Mine Lifting" },
   ] as const,
   industriesWeFuel: {
