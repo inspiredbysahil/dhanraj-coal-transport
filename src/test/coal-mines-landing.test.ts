@@ -16,7 +16,9 @@ describe("Coal Mines supply references", () => {
   it("derives location reference bands without aggregating stock", () => {
     const expected = ["5,500–7,000 kcal/kg", "4,500–6,500 kcal/kg", "5,500 kcal/kg", "Confirm on enquiry"];
     expect(liftingHubs.map(hub => hubReference(hub).gcv)).toEqual(expected);
-    expect(hubReference(liftingHubs[0]).grades).not.toContain("Steam");
+    const dhanbad = liftingHubs.find(hub => hub.id === "dhanbad");
+    if (!dhanbad) throw new Error("Missing Dhanbad hub");
+    expect(hubReference(dhanbad).grades).not.toContain("Steam");
   });
   it("prefills each hub and the right WhatsApp recipient", () => {
     for (const hub of liftingHubs) {
@@ -30,8 +32,10 @@ describe("Coal Mines supply references", () => {
     expect(nonCokingGrades).toHaveLength(12);
     expect(nonCokingGrades[0]).toEqual({ grade: "G1", lowerExclusive: 7000, upperInclusive: null });
     expect(nonCokingGrades[11]).toEqual({ grade: "G12", lowerExclusive: 3700, upperInclusive: 4000 });
-    for (let i = 1; i < nonCokingGrades.length; i++) expect(nonCokingGrades[i].upperInclusive).toBe(nonCokingGrades[i - 1].lowerExclusive);
-    expect(gcvBandLabel(nonCokingGrades[1])).toBe("> 6,700 to ≤ 7,000");
+    for (let i = 1; i < nonCokingGrades.length; i++) expect(nonCokingGrades[i]?.upperInclusive).toBe(nonCokingGrades[i - 1]?.lowerExclusive);
+    const g2 = nonCokingGrades.find(grade => grade.grade === "G2");
+    if (!g2) throw new Error("Missing G2 grade");
+    expect(gcvBandLabel(g2)).toBe("> 6,700 to ≤ 7,000");
   });
   it("classifies washery grades by ash, not fabricated GCV", () => {
     expect(washeryGrades.map(row => [row.lowerExclusive, row.upperInclusive])).toEqual([[18, 21], [21, 24], [24, 28], [28, 35]]);
