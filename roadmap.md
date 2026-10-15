@@ -1,9 +1,9 @@
 # Subtle glass refresh
 
 ## Pet Coke industrial buyer page
-- [ ] Add main/sticky navigation and typical specification references.
-- [ ] Add enquiry-only port tabs and heat-value/cost comparison with WhatsApp requests.
-- [ ] Verify arithmetic, invalid inputs, navigation, quote handoffs and mobile layouts.
+- [x] Add main/sticky navigation and typical specification references.
+- [x] Add enquiry-only port tabs and heat-value/cost comparison with WhatsApp requests.
+- [x] Verify arithmetic, invalid inputs, navigation, quote handoffs and mobile layouts.
 
 ## Coal Mines B2B landing page
 - [x] Add home-section navigation, active page state and header phone link.
