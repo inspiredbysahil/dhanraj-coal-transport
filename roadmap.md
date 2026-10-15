@@ -22,4 +22,9 @@
 - [x] Apply shared glass tokens, readable controls, and refreshed homepage spacing.
 - [x] Refine rates, directory, Pet Coke, sign-in, and connection approval presentation.
 - [x] Verify public desktop/mobile layouts, central interactions, accessibility fallbacks, tests, and diagnostics.
+
+## Client confirmations (15 Oct 2026)
+- [x] Enable email quotation option with dhanrajcoaltransport@gmail.com.
+- [x] Record client confirmation of the "100% GCV & Lab Verified" claim.
+- [x] Record client permission to use the VISHWAKARMA mines/ports source data.
 - [ ] Verify signed-in connection approval — blocked: no auth users or active authorization request exists; no permissions changed.
