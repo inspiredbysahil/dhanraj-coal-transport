@@ -88,7 +88,7 @@ export function QuoteRequestSection() {
   ];
   return <div className="site-shell grid gap-8 py-16 md:py-24 lg:grid-cols-[.9fr_1.1fr]">
     <div>
-      <p className="font-mono text-xs tracking-widest text-spark">{c.eyebrow}</p>
+      <p className="font-mono text-xs tracking-widest opacity-70">{c.eyebrow}</p>
       <h2 className="headline mt-4">{c.title}</h2>
       <p className="muted mt-5 max-w-lg text-sm md:text-base">{c.sub}</p>
       <div className="mt-8 grid gap-3">{cards.map(({ Icon, label, value, href, badge, ext }) =>
@@ -96,7 +96,7 @@ export function QuoteRequestSection() {
           <span className="arrow-dot shrink-0"><Icon /></span>
           <span className="min-w-0"><small className="muted block text-xs">{label}</small><strong className="block text-base font-semibold">{value}</strong><span className="mt-1 inline-block rounded-full bg-inverse-surface px-2.5 py-0.5 text-[11px]">{badge}</span></span></a>)}</div>
       <div className="contact-details mt-6 rounded-2xl border p-5 text-sm">
-        <p className="flex items-center gap-2 font-semibold"><ShieldCheck className="h-4 w-4 text-spark" /> Verified business</p>
+        <p className="flex items-center gap-2 font-semibold"><ShieldCheck className="h-4 w-4" /> Verified business</p>
         <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-xs"><dt className="muted">Legal name</dt><dd>{site.legalName}</dd><dt className="muted">GSTIN</dt><dd className="font-mono">{site.gstin}</dd><dt className="muted">MOQ</dt><dd>{c.minimumMT} Metric Tons (MT)</dd></dl>
         <p className="mt-4 border-t border-inverse-border pt-3 italic">"{site.motto}"</p>
       </div>
