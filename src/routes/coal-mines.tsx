@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CoalMinesDirectory } from "@/components/CoalMinesDirectory";
+import { CoalMinesLanding } from "@/components/CoalMinesLanding";
+import { coalMinesCopy } from "@/data/coal-mines-landing";
 
 const pageUrl = "https://dhanraj-coal-transport.lovable.app/coal-mines";
-const title = "Coal Mines Directory India by State & Operator | Dhanraj Coal Transport";
-const description = "Browse Indian coal mines, coalfields and operators by state — West Bengal, Jharkhand, Odisha, Chhattisgarh and more — with search and filters.";
+const title = coalMinesCopy.seoTitle;
+const description = coalMinesCopy.seoDescription;
 
 export const Route = createFileRoute("/coal-mines")({
   staticData: { sitemap: true },
@@ -16,5 +17,5 @@ export const Route = createFileRoute("/coal-mines")({
     ],
     links: [{ rel: "canonical", href: pageUrl }],
   }),
-  component: CoalMinesDirectory,
+  component: CoalMinesLanding,
 });
