@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Fuel, Instagram, Linkedin, Mail, MapPin, Menu, MessageCircle, Phone, Quote, Recycle, Search, ShieldCheck, Truck, X, BadgeIndianRupee, Award } from "lucide-react";
+import { Anchor, ArrowRight, ArrowUpRight, BadgeCheck, Building2, ChevronLeft, ChevronRight, Factory, Flame, FlaskConical, Fuel, Instagram, Linkedin, Mail, MapPin, Menu, MessageCircle, Phone, Quote, Recycle, Search, ShieldCheck, Truck, Waves, X, BadgeIndianRupee, Award } from "lucide-react";
 import { site, whatsappUrl } from "@/data/site";
 import { products } from "@/data/products";
 import { faq } from "@/data/faq";
