@@ -27,7 +27,7 @@ export function PetCokeHeader() {
         <nav className="hidden items-center gap-5 text-sm text-muted-foreground xl:flex" aria-label="Main navigation">{links}</nav>
         <div className="flex shrink-0 items-center gap-2">
           <Button asChild variant="outline" aria-label={`Call ${site.primaryPhone}`}><a href={site.primaryPhoneHref}><Phone aria-hidden="true" /><span className="hidden sm:inline">{site.primaryPhone}</span></a></Button>
-          <Button variant="circle" className="xl:hidden" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="pet-coke-mobile-menu" aria-label={open ? "Close navigation menu" : "Open navigation menu"}>{open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</Button>
+          <div className="xl:hidden"><Button variant="circle" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="pet-coke-mobile-menu" aria-label={open ? "Close navigation menu" : "Open navigation menu"}>{open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</Button></div>
         </div>
       </div>
       {open && <nav id="pet-coke-mobile-menu" className="mobile-nav xl:hidden" aria-label="Mobile navigation">{links}</nav>}
