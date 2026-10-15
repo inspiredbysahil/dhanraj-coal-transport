@@ -1,7 +1,6 @@
 # Subtle glass refresh
 
 ## Coal Mines B2B landing page
-- [ ] Add home-section navigation, active page state and header phone link.
 - [ ] Add sourced hub cards, official grade reference and confirmed quality steps, preserving the directory.
 - [ ] Verify WhatsApp enquiries, directory controls, navigation, tests and narrow layouts.
 
