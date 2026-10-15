@@ -10,6 +10,7 @@
 <!-- LOVABLE:END -->
 
 - Keep all Dhanraj business copy and datasets in `src/data`; presentation components consume typed exports so content changes never require layout edits.
+- Keep shared B2B SEO metadata and the stable business schema in `src/data/seo.ts`, consumed by leaf route heads; social images and canonical URLs belong only on leaf routes to avoid merged-head conflicts.
 - Keep Coal Mines commercial sections in a focused landing-page wrapper and sourced hub/reference helpers in `src/data`, separate from directory filtering, so supply enquiries cannot alter verbatim mine records.
 - Keep Pet Coke references and enquiry destinations in a dedicated typed data module, with heat-comparison validation and WhatsApp helpers separate from focused presentation components, so unverified availability cannot become priced inventory and arithmetic remains independently testable.
 - Keep rate-chart display labels and category mappings separate from source rate rows in `src/data/rate-chart.ts` so buyer-facing wording never changes dataset identities.
