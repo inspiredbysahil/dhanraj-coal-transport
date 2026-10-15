@@ -14,6 +14,7 @@ import { Route as CoalMinesRouteImport } from './routes/coal-mines'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as PetCokePriceRouteImport } from './routes/pet-coke-price'
+import { Route as PortsRouteImport } from './routes/ports'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
@@ -43,6 +44,11 @@ const PetCokePriceRoute = PetCokePriceRouteImport.update({
   path: '/pet-coke-price',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortsRoute = PortsRouteImport.update({
+  id: '/ports',
+  path: '/ports',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/mcp': typeof McpRoute
   '/pet-coke-price': typeof PetCokePriceRoute
+  '/ports': typeof PortsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/mcp': typeof McpRoute
   '/pet-coke-price': typeof PetCokePriceRoute
+  '/ports': typeof PortsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/mcp': typeof McpRoute
   '/pet-coke-price': typeof PetCokePriceRoute
+  '/ports': typeof PortsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/mcp'
     | '/pet-coke-price'
+    | '/ports'
     | '/sitemap.xml'
     | '/.well-known/oauth-protected-resource'
     | '/.lovable/oauth/consent'
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/mcp'
     | '/pet-coke-price'
+    | '/ports'
     | '/sitemap.xml'
     | '/.well-known/oauth-protected-resource'
     | '/.lovable/oauth/consent'
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/mcp'
     | '/pet-coke-price'
+    | '/ports'
     | '/sitemap.xml'
     | '/.well-known/oauth-protected-resource'
     | '/.lovable/oauth/consent'
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   McpRoute: typeof McpRoute
   PetCokePriceRoute: typeof PetCokePriceRoute
+  PortsRoute: typeof PortsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   DotlovableOauthConsentRoute: typeof DotlovableOauthConsentRoute
@@ -172,6 +185,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PetCokePriceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ports': {
+      id: '/ports'
+      path: '/ports'
+      fullPath: '/ports'
+      preLoaderRoute: typeof PortsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -202,6 +222,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   McpRoute: McpRoute,
   PetCokePriceRoute: PetCokePriceRoute,
+  PortsRoute: PortsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   Char91DotwellKnownChar93OauthProtectedResourceRoute:
     Char91DotwellKnownChar93OauthProtectedResourceRoute,

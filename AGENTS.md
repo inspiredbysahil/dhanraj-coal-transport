@@ -20,3 +20,4 @@
 - Keep the public interface light, photo-led and contrast-driven with a single accent token for actions, because industrial buyers prioritize trust and speed.
 - The homepage is photo-only; any future 3D must load through `src/components/three/LazyScenes.tsx` (lazy, idle-gated, client-only) to keep first paint fast.
 - Use shared glass surface tokens and supporting-chrome classes only; keep data rows and credential/consent forms opaque to preserve readability and avoid stacked blur costs.
+- Keep the Indian Ports page as a source-listed directory (`src/data/ports-directory.ts` helpers over verbatim `src/data/ports.ts`) with no prices or stock, so listing a port never implies active supply.
