@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PetCokeLanding } from "@/components/PetCokeLanding";
 import { products } from "@/data/products";
-import { site } from "@/data/site";
 import { businessId, businessSchema, jsonLd, publicOrigin, seoHead, seoPages } from "@/data/seo";
 
 const petCoke = products.find((product) => product.id === "pet-coke");
@@ -17,9 +16,7 @@ export const Route = createFileRoute("/pet-coke-price")({
         "@id": `${publicOrigin}/pet-coke-price#product`,
         url: `${publicOrigin}/pet-coke-price`,
         description: seoPages.petCoke.description,
-        brand: { "@type": "Brand", name: site.brand },
-        manufacturer: undefined,
-        isRelatedTo: { "@id": businessId },
+        brand: { "@id": businessId },
       })] : [])],
   }),
   component: PetCokeLanding,
