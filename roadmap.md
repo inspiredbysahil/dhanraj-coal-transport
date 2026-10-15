@@ -1,5 +1,10 @@
 # Subtle glass refresh
 
+## Coal Mines B2B landing page
+- [ ] Add home-section navigation, active page state and header phone link.
+- [ ] Add sourced hub cards, official grade reference and confirmed quality steps, preserving the directory.
+- [ ] Verify WhatsApp enquiries, directory controls, navigation, tests and narrow layouts.
+
 ## Quick Order & Tax Estimator
 - [x] Replace the compact calculator with grade, quantity and destination inputs plus GST breakdown and WhatsApp request.
 - [x] Verify calculations, invalid input, WhatsApp details and desktop/mobile presentation.

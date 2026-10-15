@@ -10,6 +10,7 @@
 <!-- LOVABLE:END -->
 
 - Keep all Dhanraj business copy and datasets in `src/data`; presentation components consume typed exports so content changes never require layout edits.
+- Keep Coal Mines commercial sections in a focused landing-page wrapper and sourced hub/reference helpers in `src/data`, separate from directory filtering, so supply enquiries cannot alter verbatim mine records.
 - Keep rate-chart display labels and category mappings separate from source rate rows in `src/data/rate-chart.ts` so buyer-facing wording never changes dataset identities.
 - Keep the order estimator in a focused presentation component with typed copy, validation, calculations and WhatsApp message helpers in `src/data/order-estimator.ts` so estimates can be tested independently of layout.
 - Keep Three.js scenes procedural, client-only, intersection-gated, and capped at 1.75 DPR to protect mobile performance and avoid SSR hydration failures.
