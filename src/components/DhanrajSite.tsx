@@ -29,7 +29,7 @@ function Brand() {
 function Nav() {
   const [open, setOpen] = useState(false); const [stuck, setStuck] = useState(false);
   useEffect(() => { const on = () => { const n = window.scrollY > 500; setStuck((p) => p === n ? p : n); }; on(); window.addEventListener("scroll", on, { passive: true }); return () => window.removeEventListener("scroll", on); }, []);
-  const links = <>{navItems.map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>{label}</a>)}<a href="/coal-mines" onClick={() => setOpen(false)}>Coal Mines</a><a href="/pet-coke-price">Pet Coke</a></>;
+  const links = <>{navItems.map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>{label}</a>)}<a href="/coal-mines" onClick={() => setOpen(false)}>Coal Mines</a><a href="/ports" onClick={() => setOpen(false)}>Indian Ports</a><a href="/pet-coke-price">Pet Coke</a></>;
   return <>
     <header className="top-nav"><div className="site-shell flex h-20 items-center justify-between">
       <Brand />
@@ -38,7 +38,7 @@ function Nav() {
         <Button variant="circle" className="bg-card text-foreground lg:hidden" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Toggle menu">{open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}</Button></div>
     </div>{open && <nav className="mobile-nav lg:hidden" aria-label="Mobile navigation">{links}<Pill href="#contact" onClick={() => setOpen(false)}>Contact Us</Pill></nav>}</header>
     <motion.div initial={false} animate={{ opacity: stuck ? 1 : 0, y: stuck ? 0 : -20 }} style={{ pointerEvents: stuck ? "auto" : "none" }} className="sticky-nav hidden lg:block">
-      <div className="flex h-14 items-center justify-between gap-4 pl-5 pr-2"><Brand /><nav className="flex min-w-0 gap-4 whitespace-nowrap text-sm text-muted-foreground" aria-label="Sticky navigation">{navItems.map(([label, id]) => <a className="hover:text-foreground" key={id} href={`#${id}`}>{label}</a>)}<a className="hover:text-foreground" href="/coal-mines">Coal Mines</a><a className="hover:text-foreground" href="/pet-coke-price">Pet Coke</a></nav><Pill href="#contact">Get a Quote</Pill></div>
+      <div className="flex h-14 items-center justify-between gap-4 pl-5 pr-2"><Brand /><nav className="flex min-w-0 gap-4 whitespace-nowrap text-sm text-muted-foreground" aria-label="Sticky navigation">{navItems.map(([label, id]) => <a className="hover:text-foreground" key={id} href={`#${id}`}>{label}</a>)}<a className="hover:text-foreground" href="/coal-mines">Coal Mines</a><a className="hover:text-foreground" href="/ports">Indian Ports</a><a className="hover:text-foreground" href="/pet-coke-price">Pet Coke</a></nav><Pill href="#contact">Get a Quote</Pill></div>
     </motion.div>
   </>;
 }
@@ -149,7 +149,7 @@ function ContactAndFooter() {
     <QuoteRequestSection />
     <footer className="border-t border-inverse-border"><div className="site-shell grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
       <div><Brand /><p className="muted mt-5 max-w-xs text-sm">Trusted coal supply and logistics from mines and ports to industrial plants across India.</p><div className="mt-6 flex gap-2">{[[Phone, site.primaryPhoneHref, "Call"], [MessageCircle, whatsappUrl(), "WhatsApp"]].map(([I, h, l]) => { const Icon = I as typeof Phone; return <a key={String(l)} href={String(h)} aria-label={String(l)} className="grid h-9 w-9 place-items-center rounded-full bg-inverse-surface"><Icon className="h-4 w-4" /></a>; })}</div></div>
-      <div><h3 className="text-sm font-semibold">Company</h3><div className="muted mt-4 grid gap-2 text-sm">{navItems.map(([l, id]) => <a key={id} href={`#${id}`}>{l}</a>)}<a href="/coal-mines">Coal Mines</a></div></div>
+      <div><h3 className="text-sm font-semibold">Company</h3><div className="muted mt-4 grid gap-2 text-sm">{navItems.map(([l, id]) => <a key={id} href={`#${id}`}>{l}</a>)}<a href="/coal-mines">Coal Mines</a><a href="/ports">Indian Ports</a><a href="/pet-coke-price">Pet Coke</a></div></div>
       <div><h3 className="text-sm font-semibold">Products</h3><div className="muted mt-4 grid gap-2 text-sm">{products.map((p) => <a key={p.id} href="#products">{p.shortName}</a>)}<a href="/pet-coke-price">Pet Coke price</a></div></div>
       <div><h3 className="text-sm font-semibold">Contact</h3><div className="muted mt-4 grid gap-2 text-sm"><p>{site.address}</p><a href={site.primaryPhoneHref}>{site.primaryPhone}</a><a href={site.secondaryPhoneHref}>{site.secondaryPhone}</a><p className="text-xs">GSTIN {site.gstin}</p></div></div>
     </div><div className="site-shell muted flex flex-col gap-2 border-t border-inverse-border py-5 text-xs sm:flex-row sm:justify-between"><span>© 2026 Dhanraj Coal Transport. All rights reserved.</span><span>{site.tagline}</span></div></footer>

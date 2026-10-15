@@ -17,6 +17,7 @@ export function PetCokeHeader() {
   const links = <>
     {site.nav.filter(([name]) => ["About", "Products", "Rates", "Contact"].includes(name)).map(([name, hash]) => <Link key={hash} to="/" hash={hash} onClick={close}>{name}</Link>)}
     <Link to="/coal-mines" onClick={close}>Coal Mines</Link>
+    <Link to="/ports" onClick={close}>Indian Ports</Link>
     <Link to="/pet-coke-price" onClick={close} aria-current="page" className="border-b-2 border-lime py-2 font-semibold text-foreground">Pet Coke</Link>
   </>;
   const brand = <Link to="/" className="brand-mark shrink-0" aria-label="Dhanraj Coal Transport home"><span className="brand-icon"><Fuel aria-hidden="true" /></span><span><strong>DHANRAJ</strong><small>COAL TRANSPORT</small></span></Link>;

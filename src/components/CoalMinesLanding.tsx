@@ -14,6 +14,7 @@ function MinesHeader() {
     <Link to="/" hash="products" onClick={close}>Products</Link>
     <Link to="/" hash="rates" onClick={close}>Rates</Link>
     <Link to="/coal-mines" onClick={close} aria-current="page" className="border-b-2 border-lime py-2 font-semibold text-foreground">Coal Mines</Link>
+    <Link to="/ports" onClick={close}>Indian Ports</Link>
     <Link to="/pet-coke-price" onClick={close}>Pet Coke</Link>
     <Link to="/" hash="contact" onClick={close}>Contact</Link>
   </>;
