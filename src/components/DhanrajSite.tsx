@@ -205,7 +205,7 @@ function ContactAndFooter() {
 }
 
 export function DhanrajSite() {
-  return <><main><Hero /><About />{home.quote.approved && <Founder />}<Products />{home.impact.approved && <Impact />}<Rates /><Updates /><FAQSection /><ContactAndFooter /></main>
-    <div className="floating-actions"><a href={site.primaryPhoneHref} aria-label="Call Dhanraj"><Phone className="h-5 w-5" /></a><a target="_blank" rel="noreferrer" href={whatsappUrl()} aria-label="WhatsApp Dhanraj"><MessageCircle className="h-5 w-5" /></a></div>
-    <div className="mobile-contact-bar"><a href={site.primaryPhoneHref}><Phone className="h-4 w-4" /> Call</a><a target="_blank" rel="noreferrer" href={whatsappUrl()}><MessageCircle className="h-4 w-4" /> WhatsApp</a></div></>;
+  return <><main><Hero /><AssuranceBar /><About />{home.quote.approved && <Founder />}<Products /><IndustriesWeFuel />{home.impact.approved && <Impact />}<Rates /><Updates /><FAQSection /><ContactAndFooter /></main>
+    <div className="floating-actions"><a href={site.primaryPhoneHref} aria-label="Call Dhanraj"><Phone className="h-5 w-5" /></a><a target="_blank" rel="noreferrer" href={whatsappUrl()} aria-label="WhatsApp Dhanraj" className="pulse-whatsapp"><MessageCircle className="h-5 w-5" /></a></div>
+    <div className="mobile-contact-bar"><a href={site.primaryPhoneHref}><Phone className="h-4 w-4" /> Call</a><a target="_blank" rel="noreferrer" href={whatsappUrl()} className="pulse-whatsapp"><MessageCircle className="h-4 w-4" /> WhatsApp</a></div></>;
 }
