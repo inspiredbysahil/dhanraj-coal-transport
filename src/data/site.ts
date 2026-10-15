@@ -11,7 +11,7 @@ export const site = {
   secondaryPhone: "+91 98059 95137",
   secondaryPhoneHref: "tel:+919805995137",
   gstin: "21EWPPR7307G1ZA",
-  legalName: "DHAN RAJ",
+  legalName: "DHANRAJ COAL TRANSPORT",
   tradeName: "DHANRAJ TRADERS",
   address: "Mouza Deulbeda, Talcher, Angul, Odisha — 759107",
   branches: ["Morbi (Gujarat)", "Karnataka", "Ramgarh (Jharkhand)"],
