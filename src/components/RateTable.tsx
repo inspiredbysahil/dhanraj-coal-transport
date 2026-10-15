@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
 import { ArrowUpDown, Download, MessageCircle, Search } from "lucide-react";
 import { rates, effectiveDate, effectiveDateLabel } from "@/data/rates";
-import { whatsappUrl } from "@/data/site";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { QuickOrderEstimator } from "@/components/QuickOrderEstimator";
@@ -40,7 +39,7 @@ export function RateTable() {
     </div>
     <div className="rate-table-wrap hidden overflow-auto rounded-md border border-border md:block">
       <table className="w-full min-w-[1050px] text-left text-sm"><thead className="sticky top-0 z-10 bg-card text-foreground"><tr>{rateColumns.map(({key,label})=><th scope="col" aria-sort={sort===key?(ascending?"ascending":"descending"):"none"} key={key} className="p-4 text-sm font-semibold"><Button variant="plain" className="flex items-center gap-2 px-0 text-left text-foreground" onClick={()=>changeSort(key)}>{label}<ArrowUpDown className="h-3 w-3" aria-hidden="true"/></Button></th>)}<th scope="col" className="p-4 text-sm font-semibold">{rateChartCopy.remarks}</th><th scope="col" className="p-4 text-sm font-semibold">{rateChartCopy.action}</th></tr></thead>
-      <tbody>{filtered.length===0 && <tr><td colSpan={8} className="p-6 text-center text-muted-foreground">{rateChartCopy.empty}</td></tr>}{filtered.map((item,index)=><tr key={`${item.grade}-${index}`} className="border-t border-border transition-colors hover:bg-accent"><td className="p-4">{item.category}</td><td className="p-4 font-mono text-spark">{item.gcv}</td><td className="p-4">{item.source}</td><td className="max-w-72 p-4">{item.grade}</td><td className="p-4 font-mono">{item.qty}</td><td className="p-4 font-mono font-bold text-primary">₹{item.rate.toLocaleString("en-IN")}<span className="font-normal text-muted-foreground">/ton</span></td><td className="p-4 text-muted-foreground">{item.remarks}</td><td className="p-4"><Button title="Get quote for this row" variant="ghost" size="icon" asChild><a aria-label={`Request quote for ${item.grade}, ${item.gcv} GCV from ${item.source}`} target="_blank" rel="noreferrer" href={whatsappUrl(`Hello DHANRAJ COAL TRANSPORT, please quote ${item.category}, ${item.gcv} GCV, ${item.grade}, from ${item.source} at the listed rate ₹${item.rate}/ton.`)}><MessageCircle/></a></Button></td></tr>)}</tbody></table>
+      <tbody>{filtered.length===0 && <tr><td colSpan={8} className="p-6 text-center text-muted-foreground">{rateChartCopy.empty}</td></tr>}{filtered.map((item,index)=><tr key={`${item.grade}-${index}`} className="border-t border-border transition-colors hover:bg-accent"><td className="p-4">{item.category}</td><td className="p-4 font-mono text-spark">{item.gcv}</td><td className="p-4">{item.source}</td><td className="max-w-72 p-4">{item.grade}</td><td className="p-4 font-mono">{item.qty}</td><td className="p-4 font-mono font-bold text-primary">₹{item.rate.toLocaleString("en-IN")}<span className="font-normal text-muted-foreground">/ton</span></td><td className="p-4 text-muted-foreground">{item.remarks}</td><td className="p-4"><Button title="Get quote for this row" variant="ghost" size="icon" asChild><a aria-label={`Request quote for ${item.grade}, ${item.gcv} GCV from ${item.source}`} href="#contact" onClick={()=>window.dispatchEvent(new CustomEvent("select-rate",{detail:item}))}><MessageCircle/></a></Button></td></tr>)}</tbody></table>
     </div>
     <div className="grid gap-3 md:hidden">{filtered.length===0 && <p className="text-sm text-muted-foreground">{rateChartCopy.empty}</p>}{filtered.map((item,index)=><article key={`${item.grade}-${index}`} className="industrial-card min-w-0 p-4">
       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
@@ -54,7 +53,7 @@ export function RateTable() {
         <div className="col-span-2"><dt className="text-xs text-muted-foreground">{rateColumns[4]?.label}</dt><dd className="mt-1 font-mono">{item.qty}</dd></div>
         <div className="col-span-2 min-w-0"><dt className="text-xs text-muted-foreground">{rateChartCopy.remarks}</dt><dd className="mt-1 break-words">{item.remarks}</dd></div>
       </dl>
-      <Button className="mt-4 w-full" asChild><a aria-label={`${rateChartCopy.quote} for ${item.grade}, ${item.gcv} from ${item.source}`} target="_blank" rel="noreferrer" href={whatsappUrl(`Please quote ${item.category}, ${item.gcv} GCV, ${item.grade}.`)}><MessageCircle/>{rateChartCopy.quote}</a></Button>
+      <Button className="mt-4 w-full" asChild><a aria-label={`${rateChartCopy.quote} for ${item.grade}, ${item.gcv} from ${item.source}`} href="#contact" onClick={()=>window.dispatchEvent(new CustomEvent("select-rate",{detail:item}))}><MessageCircle/>{rateChartCopy.quote}</a></Button>
     </article>)}</div>
     <QuickOrderEstimator/>
   </div>;

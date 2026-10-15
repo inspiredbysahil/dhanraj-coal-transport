@@ -11,6 +11,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { RateTable } from "@/components/RateTable";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
+import { QuoteRequestSection } from "@/components/QuoteRequestSection";
 
 const fade = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: "-60px" }, transition: { duration: .6 } } as const;
 const navItems = site.nav.filter(([, id]) => id !== "top" && id !== "network" && id !== "services");
@@ -143,58 +144,9 @@ function FAQSection() {
     <Accordion type="single" collapsible>{items.map(([q, a], i) => <AccordionItem value={`item-${i}`} key={q}><AccordionTrigger className="text-base">{q}</AccordionTrigger><AccordionContent className="leading-7 text-muted-foreground">{a}</AccordionContent></AccordionItem>)}</Accordion></div></section>;
 }
 
-const enquirySchema = z.object({
-  name: z.string().trim().min(2, "Please enter your name").max(80, "Name is too long"),
-  company: z.string().trim().max(100, "Company name is too long"),
-  phone: z.string().trim().transform((v) => v.replace(/[\s-]/g, "")).refine((v) => /^(\+91|0)?[6-9]\d{9}$/.test(v), "Enter a valid 10-digit Indian mobile number"),
-  email: z.string().trim().max(120).refine((v) => v === "" || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v), "Enter a valid email address, or leave it empty"),
-  product: z.string(),
-  quantity: z.string().trim().max(40, "Keep quantity short, e.g. 500 tons"),
-  city: z.string().trim().max(80, "City name is too long"),
-  requirement: z.string().trim().max(800, "Please keep this under 800 characters"),
-});
-type EnquiryKey = keyof z.infer<typeof enquirySchema>;
-const emptyForm: Record<EnquiryKey, string> = { name: "", company: "", phone: "", email: "", product: "", quantity: "", city: "", requirement: "" };
-
-function EnquiryForm() {
-  const [form, setForm] = useState(emptyForm); const [errors, setErrors] = useState<Partial<Record<EnquiryKey, string>>>({});
-  const [status, setStatus] = useState<"idle" | "busy" | "opened" | "blocked">("idle"); const [link, setLink] = useState("");
-  useEffect(() => { const h = (e: Event) => { const p = (e as CustomEvent<string>).detail; setForm((v) => ({ ...v, product: products.some((x) => x.name === p) ? p : v.product, requirement: v.requirement || `Enquiry for ${p}` })); }; window.addEventListener("select-product", h); return () => window.removeEventListener("select-product", h); }, []);
-  const set = (k: EnquiryKey, v: string) => { setForm((f) => ({ ...f, [k]: v })); if (errors[k]) setErrors((e) => ({ ...e, [k]: undefined })); };
-  function submit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault(); if (status === "busy") return;
-    const r = enquirySchema.safeParse(form);
-    if (!r.success) { const n: Partial<Record<EnquiryKey, string>> = {}; r.error.issues.forEach((i) => { const k = i.path[0] as EnquiryKey; n[k] ??= i.message; }); setErrors(n); const first = Object.keys(n)[0]; document.getElementById(`enq-${first}`)?.focus(); return; }
-    setErrors({}); const d = r.data;
-    const lines = [["Name", d.name], ["Company", d.company], ["Phone", d.phone], ["Email", d.email], ["Product", d.product], ["Quantity", d.quantity], ["Delivery city", d.city], ["Requirement", d.requirement]].filter(([, v]) => v).map(([l, v]) => `${l}: ${v}`);
-    const url = whatsappUrl(`Hello DHANRAJ COAL TRANSPORT,\n\n${lines.join("\n")}`); setLink(url); setStatus("busy");
-    const w = window.open(url, "_blank"); if (w) w.opener = null;
-    setStatus(w === null ? "blocked" : "opened");
-    setTimeout(() => setStatus((s) => (s === "busy" ? "idle" : s)), 2500);
-  }
-  const field = (k: EnquiryKey, label: string, opts: { required?: boolean; type?: string; placeholder?: string; auto?: string } = {}) => <label htmlFor={`enq-${k}`} className="muted text-sm">{label}{opts.required && <span aria-hidden="true"> *</span>}
-    <Input id={`enq-${k}`} className="mt-2" type={opts.type ?? "text"} inputMode={k === "phone" ? "tel" : undefined} autoComplete={opts.auto} placeholder={opts.placeholder} required={opts.required} value={form[k]} onChange={(e) => set(k, e.target.value)} aria-invalid={!!errors[k]} aria-describedby={errors[k] ? `enq-${k}-err` : undefined} />
-    {errors[k] && <span id={`enq-${k}-err`} role="alert" className="mt-1 block text-xs text-destructive">{errors[k]}</span>}</label>;
-  return <form className="contact-form grid gap-4 border p-5 md:grid-cols-2 md:p-7" onSubmit={submit} noValidate aria-label="Enquiry form">
-    <p className="muted text-xs md:col-span-2">Fields marked * are required. Submitting opens WhatsApp with your details filled in — you press send there.</p>
-    {field("name", "Name", { required: true, auto: "name" })}{field("company", "Company", { auto: "organization" })}
-    {field("phone", "Phone", { required: true, type: "tel", placeholder: "98765 43210", auto: "tel" })}{field("email", "Email", { type: "email", auto: "email" })}
-    <label htmlFor="enq-product" className="muted text-sm">Product<select id="enq-product" className="mt-2 h-9 w-full rounded-md border border-input bg-background px-3 text-sm text-foreground" value={form.product} onChange={(e) => set("product", e.target.value)}><option value="">Not sure yet</option>{products.map((p) => <option key={p.id} value={p.name}>{p.name}</option>)}</select></label>
-    {field("quantity", "Quantity", { placeholder: "e.g. 500 tons" })}
-    {field("city", "Delivery city / plant location", { auto: "address-level2" })}
-    <label htmlFor="enq-requirement" className="muted text-sm md:col-span-2">Requirement<Textarea id="enq-requirement" className="mt-2 min-h-28" value={form.requirement} onChange={(e) => set("requirement", e.target.value)} aria-invalid={!!errors.requirement} />{errors.requirement && <span role="alert" className="mt-1 block text-xs text-destructive">{errors.requirement}</span>}</label>
-    <Button variant="pill" type="submit" disabled={status === "busy"} className="light justify-between disabled:opacity-60 md:col-span-2">{status === "busy" ? "Opening WhatsApp…" : "Continue on WhatsApp"}<span className="dot"><MessageCircle /></span></Button>
-    <p aria-live="polite" className="muted text-xs md:col-span-2">{status === "opened" && "WhatsApp opened in a new tab. Your enquiry is sent only after you press send in WhatsApp."}{status === "blocked" && <>Your browser blocked the new tab. <a className="underline" href={link} target="_blank" rel="noreferrer">Open WhatsApp manually</a>.</>}</p>
-  </form>;
-}
-
 function ContactAndFooter() {
   return <section className="md:px-4 md:pb-4"><div id="contact" className="dark-block md:rounded-3xl">
-    <div className="site-shell py-20 text-center md:py-28"><h2 className="headline mx-auto">{home.cta.title[0]}<br />{home.cta.title[1]}</h2><div className="mt-8 flex justify-center"><a href={whatsappUrl()} target="_blank" rel="noreferrer" className="pill light">{home.cta.button}<span className="dot"><ArrowRight /></span></a></div></div>
-    <div className="site-shell grid gap-6 pb-16 lg:grid-cols-[.8fr_1.2fr]">
-      <div className="contact-details space-y-5 border p-5 md:p-7">{[[Phone, "Primary", site.primaryPhone, site.primaryPhoneHref], [Phone, site.secondaryContact, site.secondaryPhone, site.secondaryPhoneHref], [MapPin, "Head office", site.address, "https://www.google.com/maps/search/?api=1&query=Mouza+Deulbeda+Talcher+Angul+Odisha+759107"]].map(([Icon, l, v, href]) => { const I = Icon as typeof Phone; return <a key={String(l)} href={String(href)} className="flex gap-4"><span className="arrow-dot shrink-0"><I /></span><span><small className="muted block text-xs">{String(l)}</small><strong className="text-sm font-semibold">{String(v)}</strong></span></a>; })}<p className="muted border-t border-inverse-border pt-5 text-xs">Branches · {site.branches.join(" · ")}</p></div>
-      <EnquiryForm />
-    </div>
+    <QuoteRequestSection />
     <footer className="border-t border-inverse-border"><div className="site-shell grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
       <div><Brand /><p className="muted mt-5 max-w-xs text-sm">Trusted coal supply and logistics from mines and ports to industrial plants across India.</p><div className="mt-6 flex gap-2">{[[Phone, site.primaryPhoneHref, "Call"], [MessageCircle, whatsappUrl(), "WhatsApp"]].map(([I, h, l]) => { const Icon = I as typeof Phone; return <a key={String(l)} href={String(h)} aria-label={String(l)} className="grid h-9 w-9 place-items-center rounded-full bg-inverse-surface"><Icon className="h-4 w-4" /></a>; })}</div></div>
       <div><h3 className="text-sm font-semibold">Company</h3><div className="muted mt-4 grid gap-2 text-sm">{navItems.map(([l, id]) => <a key={id} href={`#${id}`}>{l}</a>)}<a href="/coal-mines">Coal Mines</a></div></div>
