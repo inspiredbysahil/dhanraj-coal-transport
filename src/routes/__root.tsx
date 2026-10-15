@@ -12,6 +12,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { seoSiteName } from "@/data/seo";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -82,7 +83,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "author", content: "Dhanraj Coal Transport" },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Dhanraj Coal Transport" },
+      { property: "og:site_name", content: seoSiteName },
     ],
     links: [
       {

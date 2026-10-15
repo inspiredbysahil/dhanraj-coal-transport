@@ -3,35 +3,14 @@ import { DhanrajSite } from "@/components/DhanrajSite";
 import { site } from "@/data/site";
 import { faq } from "@/data/faq";
 import { products } from "@/data/products";
-
-const pageUrl = "https://dhanraj-coal-transport.lovable.app/";
-const shareImageUrl = "https://dhanraj-coal-transport.lovable.app/dhanraj-coal-logistics.jpg";
+import { businessId, businessSchema, jsonLd, seoHead, seoPages } from "@/data/seo";
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
   head: () => ({
-    meta: [
-      { title: site.seoTitle },
-      { name: "description", content: site.seoDescription },
-      { property: "og:title", content: site.seoTitle },
-      { property: "og:description", content: site.seoDescription },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: pageUrl },
-      { property: "og:image", content: shareImageUrl },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: site.seoTitle },
-      { name: "twitter:description", content: site.seoDescription },
-      { name: "twitter:image", content: shareImageUrl },
-      { name: "theme-color", content: "#F7F8F5" },
-    ],
-    links: [{ rel: "canonical", href: pageUrl }],
+    ...seoHead(seoPages.home),
     scripts: [
-      { type: "application/ld+json", children: JSON.stringify({
-        "@context": "https://schema.org", "@type": "LocalBusiness", name: site.brand,
-        url: pageUrl, description: site.seoDescription, telephone: site.primaryPhone, taxID: site.gstin,
-        address: { "@type": "PostalAddress", streetAddress: "Mouza Deulbeda", addressLocality: "Talcher", addressRegion: "Odisha", postalCode: "759107", addressCountry: "IN" },
-        areaServed: "India", priceRange: "₹₹₹",
-      }) },
+      jsonLd(businessSchema),
       { type: "application/ld+json", children: JSON.stringify({
         "@context": "https://schema.org", "@type": "FAQPage",
         mainEntity: faq.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
@@ -40,6 +19,7 @@ export const Route = createFileRoute("/")({
         "@context": "https://schema.org", "@type": "Product", name: product.name,
         description: `${product.name} for ${product.detail}. Typical GCV ${product.gcv} kcal/kg, ash ${product.ash}, moisture ${product.moisture} and sulphur ${product.sulphur}.`,
         brand: { "@type": "Brand", name: site.brand },
+        isRelatedTo: { "@id": businessId },
         additionalProperty: [
           { "@type": "PropertyValue", name: "GCV", value: `${product.gcv} kcal/kg` },
           { "@type": "PropertyValue", name: "Ash", value: product.ash },

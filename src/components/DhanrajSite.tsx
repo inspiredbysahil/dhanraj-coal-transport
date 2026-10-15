@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Anchor, ArrowRight, ArrowUpRight, BadgeCheck, Building2, ChevronLeft, ChevronRight, Factory, Flame, FlaskConical, Fuel, Instagram, Linkedin, Mail, MapPin, Menu, MessageCircle, Phone, Quote, Recycle, Search, ShieldCheck, Truck, Waves, X, BadgeIndianRupee, Award } from "lucide-react";
 import { site, whatsappUrl } from "@/data/site";
 import { products } from "@/data/products";
-import { faq } from "@/data/faq";
+import { faq, faqTitle } from "@/data/faq";
 import { home } from "@/data/home";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -140,7 +140,7 @@ function Updates() {
 
 function FAQSection() {
   const [search, setSearch] = useState(""); const items = faq.filter(([q, a]) => `${q} ${a}`.toLowerCase().includes(search.toLowerCase()));
-  return <section className="section-pad border-t border-border"><div className="site-shell grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><div><Label>FAQ</Label><h2 className="headline mt-5">Answers Before<br />You Call.</h2><div className="relative mt-8"><Search className="absolute left-3 top-4 h-4 w-4 text-muted-foreground" /><Input value={search} onChange={(e) => setSearch(e.target.value)} className="h-12 rounded-full bg-card pl-10" placeholder="Search questions…" aria-label="Search frequently asked questions" /></div></div>
+  return <section className="section-pad border-t border-border" aria-labelledby="buyer-faq-title"><div className="site-shell grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><div><Label>FAQ</Label><h2 id="buyer-faq-title" className="mt-5 text-3xl font-semibold leading-tight md:text-4xl">{faqTitle}</h2><div className="relative mt-8"><Search className="absolute left-3 top-4 h-4 w-4 text-muted-foreground" /><Input value={search} onChange={(e) => setSearch(e.target.value)} className="h-12 rounded-full bg-card pl-10" placeholder="Search questions…" aria-label="Search frequently asked questions" /></div></div>
     <Accordion type="single" collapsible>{items.map(([q, a], i) => <AccordionItem value={`item-${i}`} key={q}><AccordionTrigger className="text-base">{q}</AccordionTrigger><AccordionContent className="leading-7 text-muted-foreground">{a}</AccordionContent></AccordionItem>)}</Accordion></div></section>;
 }
 
