@@ -1,9 +1,9 @@
 # Subtle glass refresh
 
 ## B2B SEO and buyer FAQs
-- [ ] Update the three requested leaf heads and consistent business JSON-LD.
-- [ ] Prepare matching share-sized photos and replace the existing FAQ with five buyer questions.
-- [ ] Verify initial HTML, navigation, images, FAQs and automated tests; explain publish requirements.
+- [x] Update the three requested leaf heads and consistent business JSON-LD.
+- [x] Prepare matching share-sized photos and replace the existing FAQ with five buyer questions.
+- [x] Verify initial HTML, navigation, images, FAQs and automated tests; explain publish requirements.
 
 ## Pet Coke industrial buyer page
 - [x] Add main/sticky navigation and typical specification references.
