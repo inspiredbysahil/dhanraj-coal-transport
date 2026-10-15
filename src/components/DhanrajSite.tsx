@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { QuoteRequestSection } from "@/components/QuoteRequestSection";
 
 const fade = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: "-60px" }, transition: { duration: .6 } } as const;
-const navItems = site.nav.filter(([, id]) => id !== "top" && id !== "network" && id !== "services");
+const navItems = site.nav.filter(([, id]) => id !== "top");
 
 function Pill({ href, children, light, onClick }: { href: string; children: React.ReactNode; light?: boolean; onClick?: () => void }) {
   return <Button variant="pill" asChild className={light ? "light" : ""}><a href={href} onClick={onClick}>{children}<span className="dot"><ArrowRight /></span></a></Button>;

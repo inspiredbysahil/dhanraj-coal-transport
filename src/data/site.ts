@@ -20,7 +20,7 @@ export const site = {
   seoDescription: "Trusted Pan-India supplier of Domestic Coal, Imported Indonesian Coal, Pet Coke & Wood Coal. Mine, port & vessel-wise supply with reliable logistics. Call +91 63761 39600.",
   nav: [
     ["Home", "top"], ["About", "about"], ["Products", "products"],
-    ["Supply Network", "network"], ["Services", "services"], ["Rates", "rates"], ["Contact", "contact"],
+    ["Rates", "rates"], ["Contact", "contact"],
   ] as const,
   industries: ["Steel", "Cement", "Power Plants", "Brick Kilns", "Paper", "Chemicals", "Manufacturing", "Food Industry"],
   timeline: [
