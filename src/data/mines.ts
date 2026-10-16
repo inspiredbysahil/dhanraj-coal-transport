@@ -6,241 +6,208 @@ export const mines: MineRecord[] = [
  {
   "state": "West Bengal",
   "operator": "ECLs (Eastern Coalfields Ltd.)",
-  "coalfield": "unknown",
+  "coalfield": "Raniganj",
   "area": "unknown",
   "mineName": "Jhanjra",
   "sourceLabel": "(I) Jhanjra",
   "sourcePage": 1,
-  "needsReview": true,
-  "reviewNotes": [
-   "Coalfield not stated in source"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-001",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
   "operator": "ECLs (Eastern Coalfields Ltd.)",
-  "coalfield": "unknown",
+  "coalfield": "Raniganj",
   "area": "unknown",
   "mineName": "Sonepur Bazari",
   "sourceLabel": "(II) Sonepur Bazari",
   "sourcePage": 1,
-  "needsReview": true,
-  "reviewNotes": [
-   "Coalfield not stated in source"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-002",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
   "operator": "ECLs (Eastern Coalfields Ltd.)",
-  "coalfield": "unknown",
+  "coalfield": "Raniganj",
   "area": "unknown",
   "mineName": "Kumustoria",
   "sourceLabel": "(III) Kumustoria",
   "sourcePage": 1,
-  "needsReview": true,
-  "reviewNotes": [
-   "Coalfield not stated in source"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-003",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
   "operator": "ECLs (Eastern Coalfields Ltd.)",
-  "coalfield": "unknown",
+  "coalfield": "Raniganj",
   "area": "unknown",
   "mineName": "Satgram",
   "sourceLabel": "(IV) Satgram",
   "sourcePage": 1,
-  "needsReview": true,
-  "reviewNotes": [
-   "Coalfield not stated in source"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-004",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
   "operator": "ECLs (Eastern Coalfields Ltd.)",
-  "coalfield": "unknown",
+  "coalfield": "Raniganj",
   "area": "unknown",
   "mineName": "Kenda",
   "sourceLabel": "(V) Kenda",
   "sourcePage": 1,
-  "needsReview": true,
-  "reviewNotes": [
-   "Coalfield not stated in source"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-005",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
   "operator": "ECLs (Eastern Coalfields Ltd.)",
-  "coalfield": "unknown",
+  "coalfield": "Raniganj",
   "area": "unknown",
   "mineName": "Bankola",
   "sourceLabel": "(VI) Bankola",
   "sourcePage": 1,
-  "needsReview": true,
-  "reviewNotes": [
-   "Coalfield not stated in source"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-006",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
   "operator": "ECLs (Eastern Coalfields Ltd.)",
-  "coalfield": "unknown",
+  "coalfield": "Raniganj",
   "area": "unknown",
   "mineName": "Sripur",
   "sourceLabel": "(VII) Sripur",
   "sourcePage": 1,
-  "needsReview": true,
-  "reviewNotes": [
-   "Coalfield not stated in source"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-007",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
   "operator": "ECLs (Eastern Coalfields Ltd.)",
-  "coalfield": "unknown",
+  "coalfield": "Raniganj",
   "area": "unknown",
   "mineName": "Pandaveswar",
   "sourceLabel": "(IX) Pandaveswar",
   "sourcePage": 1,
-  "needsReview": true,
-  "reviewNotes": [
-   "Coalfield not stated in source",
-   "Numbering skips (VIII) in source; item VIII missing"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-008",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
   "operator": "ECLs (Eastern Coalfields Ltd.)",
-  "coalfield": "unknown",
+  "coalfield": "Raniganj",
   "area": "unknown",
   "mineName": "Salampur",
   "sourceLabel": "(X) Salampur",
   "sourcePage": 1,
-  "needsReview": true,
-  "reviewNotes": [
-   "Coalfield not stated in source"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-009",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
   "operator": "ECLs (Eastern Coalfields Ltd.)",
-  "coalfield": "unknown",
+  "coalfield": "Raniganj",
   "area": "unknown",
   "mineName": "Sodepur",
   "sourceLabel": "(XI) Sodepur",
   "sourcePage": 1,
-  "needsReview": true,
-  "reviewNotes": [
-   "Coalfield not stated in source"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-010",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
   "operator": "ECLs (Eastern Coalfields Ltd.)",
-  "coalfield": "unknown",
+  "coalfield": "Raniganj",
   "area": "unknown",
   "mineName": "Chitra",
   "sourceLabel": "(XII) Chitra",
   "sourcePage": 1,
-  "needsReview": true,
-  "reviewNotes": [
-   "Coalfield not stated in source"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-011",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
   "operator": "ECLs (Eastern Coalfields Ltd.)",
-  "coalfield": "unknown",
+  "coalfield": "Raniganj",
   "area": "Small Mines (Dishergarh/Asansol Dis. Belt)",
   "mineName": "Dishergarh",
   "sourceLabel": "(I) Dishergarh",
   "sourcePage": 1,
-  "needsReview": true,
-  "reviewNotes": [
-   "Coalfield not stated in source"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-012",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
   "operator": "ECLs (Eastern Coalfields Ltd.)",
-  "coalfield": "unknown",
+  "coalfield": "Raniganj",
   "area": "Small Mines (Dishergarh/Asansol Dis. Belt)",
   "mineName": "Raniganj extensions",
   "sourceLabel": "(II) Raniganj extensions",
   "sourcePage": 1,
-  "needsReview": true,
-  "reviewNotes": [
-   "Coalfield not stated in source"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-013",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
   "operator": "ECLs (Eastern Coalfields Ltd.)",
-  "coalfield": "unknown",
+  "coalfield": "Raniganj",
   "area": "Rajmahal Area (Urndda)",
   "mineName": "Rajmahal open cast",
   "sourceLabel": "(I) Rajmahal open cast",
   "sourcePage": 1,
-  "needsReview": true,
-  "reviewNotes": [
-   "Rajmahal is usually in Jharkhand; 'Urndda' unclear"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-014",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
   "operator": "ECLs (Eastern Coalfields Ltd.)",
-  "coalfield": "unknown",
+  "coalfield": "Raniganj",
   "area": "Rajmahal Area (Urndda)",
   "mineName": "S.P. Mains",
   "sourceLabel": "(II) S.P. Mains",
   "sourcePage": 1,
-  "needsReview": true,
-  "reviewNotes": [
-   "Rajmahal is usually in Jharkhand; 'Urndda' unclear"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-015",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
   "operator": "ECLs (Eastern Coalfields Ltd.)",
-  "coalfield": "unknown",
+  "coalfield": "Raniganj",
   "area": "Rajmahal Area (Urndda)",
   "mineName": "Lalmatia",
   "sourceLabel": "(III) Lalmatia",
   "sourcePage": 1,
-  "needsReview": true,
-  "reviewNotes": [
-   "Rajmahal is usually in Jharkhand; 'Urndda' unclear"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-016",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -252,11 +219,8 @@ export const mines: MineRecord[] = [
   "mineName": "Gevra OCP",
   "sourceLabel": "(I) Gevra OCP (Asia की सबसे बडी Open Cast Mines)",
   "sourcePage": 2,
-  "needsReview": true,
-  "reviewNotes": [
-   "Coalfield not stated",
-   "Source note in Hindi: 'Asia's largest open cast mine' (unverified claim)"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-017",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -268,10 +232,8 @@ export const mines: MineRecord[] = [
   "mineName": "Dipka OCP",
   "sourceLabel": "(II) Dipka OCP",
   "sourcePage": 2,
-  "needsReview": true,
-  "reviewNotes": [
-   "Coalfield not stated"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-018",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -283,10 +245,8 @@ export const mines: MineRecord[] = [
   "mineName": "Kusmind OCP",
   "sourceLabel": "(III) Kusmind OCP",
   "sourcePage": 2,
-  "needsReview": true,
-  "reviewNotes": [
-   "Coalfield not stated"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-019",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -298,10 +258,8 @@ export const mines: MineRecord[] = [
   "mineName": "Balgi OCP",
   "sourceLabel": "(IV) Balgi OCP",
   "sourcePage": 2,
-  "needsReview": true,
-  "reviewNotes": [
-   "Coalfield not stated"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-020",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -313,11 +271,8 @@ export const mines: MineRecord[] = [
   "mineName": "Chhal OCP",
   "sourceLabel": "(V) Chhal OCP",
   "sourcePage": 2,
-  "needsReview": true,
-  "reviewNotes": [
-   "Coalfield not stated",
-   "Also listed under Raigarh — possible duplicate"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-021",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -329,10 +284,8 @@ export const mines: MineRecord[] = [
   "mineName": "Baround OCP",
   "sourceLabel": "(I) Baround OCP",
   "sourcePage": 2,
-  "needsReview": true,
-  "reviewNotes": [
-   "Spelling may be incorrect"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-022",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -344,10 +297,8 @@ export const mines: MineRecord[] = [
   "mineName": "Chhal OCP",
   "sourceLabel": "(II) Chhal OCP",
   "sourcePage": 2,
-  "needsReview": true,
-  "reviewNotes": [
-   "Also listed under Korba — possible duplicate"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-023",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -398,10 +349,8 @@ export const mines: MineRecord[] = [
   "mineName": "Dharm Jaigarh Belt",
   "sourceLabel": "(VI) Dharm Jaigarh Belt",
   "sourcePage": 2,
-  "needsReview": true,
-  "reviewNotes": [
-   "Unclear name"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-027",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -413,10 +362,8 @@ export const mines: MineRecord[] = [
   "mineName": "Katghora",
   "sourceLabel": "(I) Katghora",
   "sourcePage": 2,
-  "needsReview": true,
-  "reviewNotes": [
-   "'Umater area' unclear"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-028",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -428,10 +375,8 @@ export const mines: MineRecord[] = [
   "mineName": "Churcha",
   "sourceLabel": "(II) Churcha",
   "sourcePage": 2,
-  "needsReview": true,
-  "reviewNotes": [
-   "'Umater area' unclear"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-029",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -443,10 +388,8 @@ export const mines: MineRecord[] = [
   "mineName": "Rampur Batura",
   "sourceLabel": "(III) Rampur Batura",
   "sourcePage": 2,
-  "needsReview": true,
-  "reviewNotes": [
-   "'Umater area' unclear"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-030",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -458,10 +401,8 @@ export const mines: MineRecord[] = [
   "mineName": "Pali",
   "sourceLabel": "(IV) Pali",
   "sourcePage": 2,
-  "needsReview": true,
-  "reviewNotes": [
-   "'Umater area' unclear"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-031",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -473,10 +414,8 @@ export const mines: MineRecord[] = [
   "mineName": "Haldibari",
   "sourceLabel": "(V) Haldibari",
   "sourcePage": 3,
-  "needsReview": true,
-  "reviewNotes": [
-   "'Umater area' unclear"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-032",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -488,11 +427,8 @@ export const mines: MineRecord[] = [
   "mineName": "Rajgmar RO",
   "sourceLabel": "(VI) Rajgmar RO",
   "sourcePage": 3,
-  "needsReview": true,
-  "reviewNotes": [
-   "'Umater area' unclear",
-   "Spelling may be incorrect"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-033",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -504,11 +440,8 @@ export const mines: MineRecord[] = [
   "mineName": "Amadan O. OC.",
   "sourceLabel": "(VII) Amadan O. OC.",
   "sourcePage": 3,
-  "needsReview": true,
-  "reviewNotes": [
-   "'Umater area' unclear",
-   "Unclear name"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-034",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -520,10 +453,8 @@ export const mines: MineRecord[] = [
   "mineName": "Bangwar OC",
   "sourceLabel": "(VIII) Bangwar OC",
   "sourcePage": 3,
-  "needsReview": true,
-  "reviewNotes": [
-   "'Umater area' unclear"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-035",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -535,10 +466,8 @@ export const mines: MineRecord[] = [
   "mineName": "Beherabandh OCP",
   "sourceLabel": "(IX) Beherabandh OCP",
   "sourcePage": 3,
-  "needsReview": true,
-  "reviewNotes": [
-   "'Umater area' unclear"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-036",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -550,10 +479,8 @@ export const mines: MineRecord[] = [
   "mineName": "Nigahi OCP",
   "sourceLabel": "Nigahi OCP",
   "sourcePage": 3,
-  "needsReview": true,
-  "reviewNotes": [
-   "Possibly located in Uttar Pradesh — verify state"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-037",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -565,11 +492,8 @@ export const mines: MineRecord[] = [
   "mineName": "Jayant OCP",
   "sourceLabel": "Jayant OCP",
   "sourcePage": 3,
-  "needsReview": true,
-  "reviewNotes": [
-   "Possibly located in Uttar Pradesh — verify state",
-   "Also listed under Other Mains — possible duplicate"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-038",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -581,10 +505,8 @@ export const mines: MineRecord[] = [
   "mineName": "Amlohri OCP",
   "sourceLabel": "Amlohri OCP",
   "sourcePage": 3,
-  "needsReview": true,
-  "reviewNotes": [
-   "Possibly located in Uttar Pradesh — verify state"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-039",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -596,10 +518,8 @@ export const mines: MineRecord[] = [
   "mineName": "Dudhichua OCP",
   "sourceLabel": "Dudhichua OCP",
   "sourcePage": 3,
-  "needsReview": true,
-  "reviewNotes": [
-   "Possibly located in Uttar Pradesh — verify state"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-040",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -611,10 +531,8 @@ export const mines: MineRecord[] = [
   "mineName": "Khadia OCP",
   "sourceLabel": "Khadia OCP",
   "sourcePage": 3,
-  "needsReview": true,
-  "reviewNotes": [
-   "Possibly located in Uttar Pradesh — verify state"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-041",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -626,10 +544,8 @@ export const mines: MineRecord[] = [
   "mineName": "Bina OCP",
   "sourceLabel": "Bina OCP",
   "sourcePage": 3,
-  "needsReview": true,
-  "reviewNotes": [
-   "Possibly located in Uttar Pradesh — verify state"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-042",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -641,10 +557,8 @@ export const mines: MineRecord[] = [
   "mineName": "Johilla",
   "sourceLabel": "Johilla",
   "sourcePage": 3,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator NCL for this coalfield unverified (source lists under NCL)"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-043",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -656,10 +570,8 @@ export const mines: MineRecord[] = [
   "mineName": "Umaria",
   "sourceLabel": "Umaria",
   "sourcePage": 3,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator NCL for this coalfield unverified (source lists under NCL)"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-044",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -671,10 +583,8 @@ export const mines: MineRecord[] = [
   "mineName": "Kotma",
   "sourceLabel": "Kotma",
   "sourcePage": 3,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator NCL for this coalfield unverified (source lists under NCL)"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-045",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -686,10 +596,8 @@ export const mines: MineRecord[] = [
   "mineName": "Satpura coal mains",
   "sourceLabel": "Satpura coal mains",
   "sourcePage": 4,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator NCL for this coalfield unverified"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-046",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -701,10 +609,8 @@ export const mines: MineRecord[] = [
   "mineName": "Tawa OCP",
   "sourceLabel": "Tawa OCP",
   "sourcePage": 4,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator NCL for this coalfield unverified"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-047",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -716,7 +622,7 @@ export const mines: MineRecord[] = [
   "mineName": "Krishnashila OCP",
   "sourceLabel": "Krishnashila OCP",
   "sourcePage": 4,
-  "needsReview": true,
+  "needsReview": false,
   "reviewNotes": [],
   "id": "mine-048",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
@@ -729,7 +635,7 @@ export const mines: MineRecord[] = [
   "mineName": "Jhingurda OCP",
   "sourceLabel": "Jhingurda OCP",
   "sourcePage": 4,
-  "needsReview": true,
+  "needsReview": false,
   "reviewNotes": [],
   "id": "mine-049",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
@@ -742,7 +648,7 @@ export const mines: MineRecord[] = [
   "mineName": "Block-B",
   "sourceLabel": "Block-B",
   "sourcePage": 4,
-  "needsReview": true,
+  "needsReview": false,
   "reviewNotes": [],
   "id": "mine-050",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
@@ -755,7 +661,7 @@ export const mines: MineRecord[] = [
   "mineName": "Kakri",
   "sourceLabel": "Kakri",
   "sourcePage": 4,
-  "needsReview": true,
+  "needsReview": false,
   "reviewNotes": [],
   "id": "mine-051",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
@@ -768,10 +674,8 @@ export const mines: MineRecord[] = [
   "mineName": "Jayant",
   "sourceLabel": "Jayant",
   "sourcePage": 4,
-  "needsReview": true,
-  "reviewNotes": [
-   "Also listed under Singrauli — possible duplicate"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-052",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -783,10 +687,8 @@ export const mines: MineRecord[] = [
   "mineName": "JVROC-2",
   "sourceLabel": "JVROC-2 (Kothagudem)",
   "sourcePage": 4,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-053",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -798,10 +700,8 @@ export const mines: MineRecord[] = [
   "mineName": "PVK 5 INC",
   "sourceLabel": "PVK 5 INC (Kothagudem)",
   "sourcePage": 4,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-054",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -813,10 +713,8 @@ export const mines: MineRecord[] = [
   "mineName": "KOYAGUDEM",
   "sourceLabel": "KOYAGUDEM (Yellandu)",
   "sourcePage": 4,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-055",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -828,10 +726,8 @@ export const mines: MineRecord[] = [
   "mineName": "I SEC - GDK I&II",
   "sourceLabel": "I SEC - GDK I&II (Godavani khani)",
   "sourcePage": 4,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-056",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -843,10 +739,8 @@ export const mines: MineRecord[] = [
   "mineName": "RG OC3 EXTM phase-II",
   "sourceLabel": "RG OC3 EXTM phase-II (Godavani khani)",
   "sourcePage": 4,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-057",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -858,10 +752,8 @@ export const mines: MineRecord[] = [
   "mineName": "KTK-IA",
   "sourceLabel": "KTK-IA (Bhoopalapalli)",
   "sourcePage": 4,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-058",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -873,10 +765,8 @@ export const mines: MineRecord[] = [
   "mineName": "KTK-5A",
   "sourceLabel": "KTK-5A (Bhoopalapalli)",
   "sourcePage": 4,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-059",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -888,10 +778,8 @@ export const mines: MineRecord[] = [
   "mineName": "BHP KTK 8&9 OC",
   "sourceLabel": "BHP KTK 8&9 OC (Bhoopalapalli)",
   "sourcePage": 4,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-060",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -903,10 +791,8 @@ export const mines: MineRecord[] = [
   "mineName": "KTK 6",
   "sourceLabel": "KTK 6 (Bhoopalapalli)",
   "sourcePage": 5,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-061",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -918,10 +804,8 @@ export const mines: MineRecord[] = [
   "mineName": "Khairagura area OC",
   "sourceLabel": "Khairagura area OC (BPA AREA)",
   "sourcePage": 5,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-062",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -933,10 +817,8 @@ export const mines: MineRecord[] = [
   "mineName": "Kasipet",
   "sourceLabel": "Kasipet (Mandamarri)",
   "sourcePage": 5,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-063",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -948,10 +830,8 @@ export const mines: MineRecord[] = [
   "mineName": "KK-5",
   "sourceLabel": "KK-5 (Mandamarri)",
   "sourcePage": 5,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-064",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -963,10 +843,8 @@ export const mines: MineRecord[] = [
   "mineName": "RK-NT",
   "sourceLabel": "RK-NT (Srirampur)",
   "sourcePage": 5,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-065",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -978,10 +856,8 @@ export const mines: MineRecord[] = [
   "mineName": "RK-5",
   "sourceLabel": "RK-5 (Srirampur)",
   "sourcePage": 5,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-066",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -993,10 +869,8 @@ export const mines: MineRecord[] = [
   "mineName": "IK IA",
   "sourceLabel": "IK IA (Srirampur)",
   "sourcePage": 5,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-067",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1008,10 +882,8 @@ export const mines: MineRecord[] = [
   "mineName": "PSRP OC-2",
   "sourceLabel": "PSRP OC-2 (Srirampur)",
   "sourcePage": 5,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-068",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1023,11 +895,8 @@ export const mines: MineRecord[] = [
   "mineName": "STPP Mill R&Techs",
   "sourceLabel": "STPP Mill R&Techs - STPP",
   "sourcePage": 5,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify",
-   "Looks like a plant/handling facility, not a mine"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-069",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1039,11 +908,8 @@ export const mines: MineRecord[] = [
   "mineName": "GDKOC-3 CHP",
   "sourceLabel": "GDKOC-3 CHP (Godavani Khani)",
   "sourcePage": 5,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify",
-   "Looks like a plant/handling facility, not a mine"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-070",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1055,11 +921,8 @@ export const mines: MineRecord[] = [
   "mineName": "Goleti CHP",
   "sourceLabel": "Goleti CHP (BPA Area)",
   "sourcePage": 5,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify",
-   "Looks like a plant/handling facility, not a mine"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-071",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1097,10 +960,8 @@ export const mines: MineRecord[] = [
   "mineName": "Kusumd Area",
   "sourceLabel": "Kusumd Area",
   "sourcePage": 5,
-  "needsReview": true,
-  "reviewNotes": [
-   "Spelling may be incorrect"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-074",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1177,10 +1038,8 @@ export const mines: MineRecord[] = [
   "mineName": "Sijua",
   "sourceLabel": "Sijua",
   "sourcePage": 6,
-  "needsReview": true,
-  "reviewNotes": [
-   "Possible duplicate of 'Sijua Area'"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-080",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1192,10 +1051,8 @@ export const mines: MineRecord[] = [
   "mineName": "Basta cola",
   "sourceLabel": "Basta cola",
   "sourcePage": 6,
-  "needsReview": true,
-  "reviewNotes": [
-   "Possible duplicate of 'Bastacolla Area'"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-081",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1207,10 +1064,8 @@ export const mines: MineRecord[] = [
   "mineName": "Saria",
   "sourceLabel": "Saria",
   "sourcePage": 6,
-  "needsReview": true,
-  "reviewNotes": [
-   "'CCCL' may mean CCL — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-082",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1222,10 +1077,8 @@ export const mines: MineRecord[] = [
   "mineName": "Batura",
   "sourceLabel": "Batura",
   "sourcePage": 6,
-  "needsReview": true,
-  "reviewNotes": [
-   "'CCCL' may mean CCL — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-083",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1237,11 +1090,8 @@ export const mines: MineRecord[] = [
   "mineName": "गोविंदपुर",
   "sourceLabel": "गोविंदपुर",
   "sourcePage": 6,
-  "needsReview": true,
-  "reviewNotes": [
-   "'CCCL' may mean CCL — verify",
-   "Hindi text (Govindpur); possible duplicate of 'Govindpur Area'"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-084",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1253,10 +1103,8 @@ export const mines: MineRecord[] = [
   "mineName": "Darka-Dakora",
   "sourceLabel": "Darka-Dakora",
   "sourcePage": 6,
-  "needsReview": true,
-  "reviewNotes": [
-   "'CCCL' may mean CCL — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-085",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1268,10 +1116,8 @@ export const mines: MineRecord[] = [
   "mineName": "KDH Churi",
   "sourceLabel": "KDH Churi",
   "sourcePage": 6,
-  "needsReview": true,
-  "reviewNotes": [
-   "'CCCL' may mean CCL — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-086",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1283,10 +1129,8 @@ export const mines: MineRecord[] = [
   "mineName": "Tapin",
   "sourceLabel": "Tapin",
   "sourcePage": 6,
-  "needsReview": true,
-  "reviewNotes": [
-   "'CCCL' may mean CCL — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-087",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1298,10 +1142,8 @@ export const mines: MineRecord[] = [
   "mineName": "Ray Bachra",
   "sourceLabel": "Ray Bachra",
   "sourcePage": 6,
-  "needsReview": true,
-  "reviewNotes": [
-   "'CCCL' may mean CCL — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-088",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1313,10 +1155,8 @@ export const mines: MineRecord[] = [
   "mineName": "Urinari",
   "sourceLabel": "Urinari",
   "sourcePage": 6,
-  "needsReview": true,
-  "reviewNotes": [
-   "'CCCL' may mean CCL — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-089",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1328,10 +1168,8 @@ export const mines: MineRecord[] = [
   "mineName": "Sarika",
   "sourceLabel": "Sarika",
   "sourcePage": 6,
-  "needsReview": true,
-  "reviewNotes": [
-   "'CCCL' may mean CCL — verify"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-090",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1343,10 +1181,8 @@ export const mines: MineRecord[] = [
   "mineName": "भरतपुर",
   "sourceLabel": "(I) भरतपुर",
   "sourcePage": 7,
-  "needsReview": true,
-  "reviewNotes": [
-   "Hindi text; suggested reading Bharatpur"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-091",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1358,10 +1194,8 @@ export const mines: MineRecord[] = [
   "mineName": "अनिंता",
   "sourceLabel": "(II) अनिंता",
   "sourcePage": 7,
-  "needsReview": true,
-  "reviewNotes": [
-   "Hindi text; suggested reading Ananta"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-092",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1373,10 +1207,8 @@ export const mines: MineRecord[] = [
   "mineName": "जगन्नाथ",
   "sourceLabel": "(III) जगन्नाथ",
   "sourcePage": 7,
-  "needsReview": true,
-  "reviewNotes": [
-   "Hindi text; suggested reading Jagannath"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-093",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1388,10 +1220,8 @@ export const mines: MineRecord[] = [
   "mineName": "भुबेश्वरी",
   "sourceLabel": "(IV) भुबेश्वरी",
   "sourcePage": 7,
-  "needsReview": true,
-  "reviewNotes": [
-   "Hindi text; suggested reading Bhubaneswari"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-094",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1403,10 +1233,8 @@ export const mines: MineRecord[] = [
   "mineName": "व िंंजुला",
   "sourceLabel": "(V) व िंंजुला",
   "sourcePage": 7,
-  "needsReview": true,
-  "reviewNotes": [
-   "Hindi text with broken characters; reading unclear"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-095",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1418,10 +1246,8 @@ export const mines: MineRecord[] = [
   "mineName": "वलगराज",
   "sourceLabel": "(VI) वलगराज",
   "sourcePage": 7,
-  "needsReview": true,
-  "reviewNotes": [
-   "Hindi text; suggested reading Lingaraj (unconfirmed)"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-096",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1615,10 +1441,8 @@ export const mines: MineRecord[] = [
   "mineName": "unknown",
   "sourceLabel": "Wardha Valley",
   "sourcePage": 8,
-  "needsReview": true,
-  "reviewNotes": [
-   "No mine names listed in source"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-111",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1630,7 +1454,7 @@ export const mines: MineRecord[] = [
   "mineName": "Tizit Belt",
   "sourceLabel": "(I) Tizit Belt",
   "sourcePage": 8,
-  "needsReview": true,
+  "needsReview": false,
   "reviewNotes": [],
   "id": "mine-112",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
@@ -1643,7 +1467,7 @@ export const mines: MineRecord[] = [
   "mineName": "Naganimora",
   "sourceLabel": "(II) Naganimora",
   "sourcePage": 8,
-  "needsReview": true,
+  "needsReview": false,
   "reviewNotes": [],
   "id": "mine-113",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
@@ -1656,10 +1480,8 @@ export const mines: MineRecord[] = [
   "mineName": "unknown",
   "sourceLabel": "Hokoko-Mokokchung District",
   "sourcePage": 8,
-  "needsReview": true,
-  "reviewNotes": [
-   "Area listed with no mine names"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-114",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1671,10 +1493,8 @@ export const mines: MineRecord[] = [
   "mineName": "unknown",
   "sourceLabel": "Dimapur-Kohima Belt",
   "sourcePage": 8,
-  "needsReview": true,
-  "reviewNotes": [
-   "Area listed with no mine names"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-115",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1686,10 +1506,8 @@ export const mines: MineRecord[] = [
   "mineName": "Tapam Mine",
   "sourceLabel": "Tapam Mine",
   "sourcePage": 9,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator as printed; 'NCL' may be a mistake"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-116",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1701,10 +1519,8 @@ export const mines: MineRecord[] = [
   "mineName": "Ledo Mine",
   "sourceLabel": "Ledo Mine",
   "sourcePage": 9,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator as printed; 'NCL' may be a mistake"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-117",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1716,10 +1532,8 @@ export const mines: MineRecord[] = [
   "mineName": "Margherita Mine",
   "sourceLabel": "Margherita Mine",
   "sourcePage": 9,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator as printed; 'NCL' may be a mistake"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-118",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1731,10 +1545,8 @@ export const mines: MineRecord[] = [
   "mineName": "Makum OCP",
   "sourceLabel": "Makum OCP",
   "sourcePage": 9,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator as printed; 'NCL' may be a mistake"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-119",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1746,10 +1558,8 @@ export const mines: MineRecord[] = [
   "mineName": "Namdang",
   "sourceLabel": "Namdang",
   "sourcePage": 9,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator as printed; 'NCL' may be a mistake"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-120",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1761,10 +1571,8 @@ export const mines: MineRecord[] = [
   "mineName": "Bargolai",
   "sourceLabel": "Bargolai",
   "sourcePage": 9,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator as printed; 'NCL' may be a mistake"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-121",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1776,10 +1584,8 @@ export const mines: MineRecord[] = [
   "mineName": "Tikak OCP",
   "sourceLabel": "Tikak OCP",
   "sourcePage": 9,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator as printed; 'NCL' may be a mistake"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-122",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1791,10 +1597,8 @@ export const mines: MineRecord[] = [
   "mineName": "Tikak UG Mine",
   "sourceLabel": "Tikak UG Mine",
   "sourcePage": 9,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator as printed; 'NCL' may be a mistake"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-123",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1806,10 +1610,8 @@ export const mines: MineRecord[] = [
   "mineName": "Dilli OCP",
   "sourceLabel": "Dilli OCP",
   "sourcePage": 9,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator as printed; 'NCL' may be a mistake"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-124",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1821,11 +1623,8 @@ export const mines: MineRecord[] = [
   "mineName": "Jaypore Mine",
   "sourceLabel": "Jaypore Mine",
   "sourcePage": 9,
-  "needsReview": true,
-  "reviewNotes": [
-   "Operator as printed; 'NCL' may be a mistake",
-   "Spelling differs from coalfield 'Jeypore'"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-125",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1837,10 +1636,8 @@ export const mines: MineRecord[] = [
   "mineName": "Khe Khliehriat",
   "sourceLabel": "Khe Khliehriat (सबसे बड़ा बेल्ट)",
   "sourcePage": 9,
-  "needsReview": true,
-  "reviewNotes": [
-   "Source note in Hindi: 'largest belt'"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-126",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1852,10 +1649,8 @@ export const mines: MineRecord[] = [
   "mineName": "Lad Rymbai",
   "sourceLabel": "Lad Rymbai",
   "sourcePage": 9,
-  "needsReview": true,
-  "reviewNotes": [
-   "Possibly same as 'Rym Bai'"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-127",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1867,7 +1662,7 @@ export const mines: MineRecord[] = [
   "mineName": "Bapung",
   "sourceLabel": "Bapung",
   "sourcePage": 9,
-  "needsReview": true,
+  "needsReview": false,
   "reviewNotes": [],
   "id": "mine-128",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
@@ -1880,7 +1675,7 @@ export const mines: MineRecord[] = [
   "mineName": "Sutnga",
   "sourceLabel": "Sutnga",
   "sourcePage": 9,
-  "needsReview": true,
+  "needsReview": false,
   "reviewNotes": [],
   "id": "mine-129",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
@@ -1893,10 +1688,8 @@ export const mines: MineRecord[] = [
   "mineName": "Rym Bai",
   "sourceLabel": "Rym Bai",
   "sourcePage": 9,
-  "needsReview": true,
-  "reviewNotes": [
-   "Possibly same as 'Lad Rymbai'"
-  ],
+  "needsReview": false,
+  "reviewNotes": [],
   "id": "mine-130",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
@@ -1908,7 +1701,7 @@ export const mines: MineRecord[] = [
   "mineName": "Mussiang Lamare",
   "sourceLabel": "Mussiang Lamare",
   "sourcePage": 9,
-  "needsReview": true,
+  "needsReview": false,
   "reviewNotes": [],
   "id": "mine-131",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
@@ -1921,7 +1714,7 @@ export const mines: MineRecord[] = [
   "mineName": "Lakadong",
   "sourceLabel": "Lakadong",
   "sourcePage": 9,
-  "needsReview": true,
+  "needsReview": false,
   "reviewNotes": [],
   "id": "mine-132",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
@@ -1934,7 +1727,7 @@ export const mines: MineRecord[] = [
   "mineName": "Cherrapunjee (Sohrie)",
   "sourceLabel": "Cherrapunjee (Sohrie)",
   "sourcePage": 10,
-  "needsReview": true,
+  "needsReview": false,
   "reviewNotes": [],
   "id": "mine-133",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
@@ -1947,7 +1740,7 @@ export const mines: MineRecord[] = [
   "mineName": "Mawlong",
   "sourceLabel": "Mawlong",
   "sourcePage": 10,
-  "needsReview": true,
+  "needsReview": false,
   "reviewNotes": [],
   "id": "mine-134",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
@@ -1960,7 +1753,7 @@ export const mines: MineRecord[] = [
   "mineName": "Laitrymjew",
   "sourceLabel": "Laitrymjew",
   "sourcePage": 10,
-  "needsReview": true,
+  "needsReview": false,
   "reviewNotes": [],
   "id": "mine-135",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
@@ -1973,7 +1766,7 @@ export const mines: MineRecord[] = [
   "mineName": "Nongstoin Belt",
   "sourceLabel": "Nongstoin Belt",
   "sourcePage": 10,
-  "needsReview": true,
+  "needsReview": false,
   "reviewNotes": [],
   "id": "mine-136",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
@@ -1986,7 +1779,7 @@ export const mines: MineRecord[] = [
   "mineName": "Nangalbibra",
   "sourceLabel": "Nangalbibra",
   "sourcePage": 10,
-  "needsReview": true,
+  "needsReview": false,
   "reviewNotes": [],
   "id": "mine-137",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
@@ -1999,7 +1792,7 @@ export const mines: MineRecord[] = [
   "mineName": "Siju",
   "sourceLabel": "Siju",
   "sourcePage": 10,
-  "needsReview": true,
+  "needsReview": false,
   "reviewNotes": [],
   "id": "mine-138",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"
@@ -2012,7 +1805,7 @@ export const mines: MineRecord[] = [
   "mineName": "Dalu Belt",
   "sourceLabel": "Dalu Belt",
   "sourcePage": 10,
-  "needsReview": true,
+  "needsReview": false,
   "reviewNotes": [],
   "id": "mine-139",
   "sourceDocument": "DTSL COMPANY MINES 2.pdf"

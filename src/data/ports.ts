@@ -16,14 +16,12 @@ export const ports: PortRecord[] = [
  {
   "id": "port-002",
   "state": "West Bengal",
-  "portName": "shyama prasad mukherjee Port",
+  "portName": "Syama Prasad Mookerjee Port",
   "sourceLabel": "shyama prasad mukherjee Port",
   "sourceDocument": "COMPANY port.pdf",
   "sourcePage": 1,
-  "needsReview": true,
-  "reviewNotes": [
-   "Lowercase as printed; official name Syama Prasad Mookerjee Port"
-  ]
+  "needsReview": false,
+  "reviewNotes": []
  },
  {
   "id": "port-003",
@@ -58,14 +56,12 @@ export const ports: PortRecord[] = [
  {
   "id": "port-006",
   "state": "Andhra Pradesh",
-  "portName": "Vishakhapatnam Port",
+  "portName": "Visakhapatnam Port",
   "sourceLabel": "Vishakhapatnam Port",
   "sourceDocument": "COMPANY port.pdf",
   "sourcePage": 1,
-  "needsReview": true,
-  "reviewNotes": [
-   "Spelling as printed (often Visakhapatnam)"
-  ]
+  "needsReview": false,
+  "reviewNotes": []
  },
  {
   "id": "port-007",
@@ -144,10 +140,8 @@ export const ports: PortRecord[] = [
   "sourceLabel": "Puducherry Port",
   "sourceDocument": "COMPANY port.pdf",
   "sourcePage": 2,
-  "needsReview": true,
-  "reviewNotes": [
-   "Listed under Tamil Nadu, but located in Puducherry"
-  ]
+  "needsReview": false,
+  "reviewNotes": []
  },
  {
   "id": "port-015",
@@ -156,10 +150,8 @@ export const ports: PortRecord[] = [
   "sourceLabel": "Karaikal Port",
   "sourceDocument": "COMPANY port.pdf",
   "sourcePage": 2,
-  "needsReview": true,
-  "reviewNotes": [
-   "Listed under Tamil Nadu, but located in Puducherry"
-  ]
+  "needsReview": false,
+  "reviewNotes": []
  },
  {
   "id": "port-016",
@@ -174,14 +166,12 @@ export const ports: PortRecord[] = [
  {
   "id": "port-017",
   "state": "Kerala",
-  "portName": "Vizhinjamm Port",
+  "portName": "Vizhinjam Port",
   "sourceLabel": "Vizhinjamm Port",
   "sourceDocument": "COMPANY port.pdf",
   "sourcePage": 2,
-  "needsReview": true,
-  "reviewNotes": [
-   "Spelling as printed (likely Vizhinjam)"
-  ]
+  "needsReview": false,
+  "reviewNotes": []
  },
  {
   "id": "port-018",
@@ -206,14 +196,12 @@ export const ports: PortRecord[] = [
  {
   "id": "port-020",
   "state": "Maharashtra",
-  "portName": "Jawar Lal Nehru Port",
+  "portName": "Jawaharlal Nehru Port",
   "sourceLabel": "Jawar Lal Nehru Port",
   "sourceDocument": "COMPANY port.pdf",
   "sourcePage": 3,
-  "needsReview": true,
-  "reviewNotes": [
-   "Spelling as printed (likely Jawaharlal Nehru Port)"
-  ]
+  "needsReview": false,
+  "reviewNotes": []
  },
  {
   "id": "port-021",
@@ -258,14 +246,12 @@ export const ports: PortRecord[] = [
  {
   "id": "port-025",
   "state": "Gujarat",
-  "portName": "Dindayal Port",
+  "portName": "Deendayal Port (Kandla)",
   "sourceLabel": "Dindayal Port",
   "sourceDocument": "COMPANY port.pdf",
   "sourcePage": 3,
-  "needsReview": true,
-  "reviewNotes": [
-   "Spelling as printed (likely Deendayal Port, Kandla)"
-  ]
+  "needsReview": false,
+  "reviewNotes": []
  },
  {
   "id": "port-026",
