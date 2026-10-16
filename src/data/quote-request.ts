@@ -52,7 +52,7 @@ export const deliveryModes = ["By Road (Tipper/Trailer)", "By Rail Rake", "Ex-Mi
 export const quoteSchema = z.object({
   name: z.string().trim().min(2, "Enter your name and designation").max(100),
   company: z.string().trim().min(2, "Enter your company or plant name").max(120),
-  phone: z.string().trim().transform((v) => v.replace(/[\s-]/g, "").replace(/^(\+91|91|0)/, "")).refine((v) => /^[6-9]\d{9}$/.test(v), "Enter a valid 10-digit Indian mobile number"),
+  phone: z.string().trim().transform((v) => v.replace(/[\s-]/g, "").replace(/^(?:\+91|91|0)(?=\d{10}$)/, "")).refine((v) => /^[6-9]\d{9}$/.test(v), "Enter a valid 10-digit Indian mobile number"),
   email: z.string().trim().max(120).refine((v) => v === "" || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v), "Enter a valid email, or leave it empty"),
   fuel: z.string().refine((v) => (fuelCategories as readonly string[]).includes(v), "Choose a fuel category"),
   grade: z.string().trim().max(160),
