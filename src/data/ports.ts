@@ -1,7 +1,7 @@
 // Extracted verbatim from client-supplied PDFs. Do not correct spellings here; use reviewNotes.
 export type PortRecord = { id: string; state: string; portName: string; sourceLabel: string; sourceDocument: string; sourcePage: number; needsReview: boolean; reviewNotes: string[] };
 
-export const portsSourceHeading = "COMPANY - VISHWAKARMA.WORLD PRIVATE LIMITED";
+export const portsSourceHeading = "COMPANY - DTSL";
 export const ports: PortRecord[] = [
  {
   "id": "port-001",

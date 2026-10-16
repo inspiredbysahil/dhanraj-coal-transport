@@ -1,7 +1,7 @@
 // Extracted verbatim from client-supplied PDFs. Do not correct spellings here; use reviewNotes.
 export type MineRecord = { id: string; state: string; operator: string; coalfield: string; area: string; mineName: string; sourceLabel: string; sourceDocument: string; sourcePage: number; needsReview: boolean; reviewNotes: string[] };
 
-export const minesSourceHeading = "VISHWAKARMA.WORL PRIVATE LIMITED";
+export const minesSourceHeading = "DTSL";
 export const mines: MineRecord[] = [
  {
   "state": "West Bengal",
@@ -16,7 +16,7 @@ export const mines: MineRecord[] = [
    "Coalfield not stated in source"
   ],
   "id": "mine-001",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
@@ -31,7 +31,7 @@ export const mines: MineRecord[] = [
    "Coalfield not stated in source"
   ],
   "id": "mine-002",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
@@ -46,7 +46,7 @@ export const mines: MineRecord[] = [
    "Coalfield not stated in source"
   ],
   "id": "mine-003",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
@@ -61,7 +61,7 @@ export const mines: MineRecord[] = [
    "Coalfield not stated in source"
   ],
   "id": "mine-004",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
@@ -76,7 +76,7 @@ export const mines: MineRecord[] = [
    "Coalfield not stated in source"
   ],
   "id": "mine-005",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
@@ -91,7 +91,7 @@ export const mines: MineRecord[] = [
    "Coalfield not stated in source"
   ],
   "id": "mine-006",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
@@ -106,7 +106,7 @@ export const mines: MineRecord[] = [
    "Coalfield not stated in source"
   ],
   "id": "mine-007",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
@@ -122,7 +122,7 @@ export const mines: MineRecord[] = [
    "Numbering skips (VIII) in source; item VIII missing"
   ],
   "id": "mine-008",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
@@ -137,7 +137,7 @@ export const mines: MineRecord[] = [
    "Coalfield not stated in source"
   ],
   "id": "mine-009",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
@@ -152,7 +152,7 @@ export const mines: MineRecord[] = [
    "Coalfield not stated in source"
   ],
   "id": "mine-010",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
@@ -167,7 +167,7 @@ export const mines: MineRecord[] = [
    "Coalfield not stated in source"
   ],
   "id": "mine-011",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
@@ -182,7 +182,7 @@ export const mines: MineRecord[] = [
    "Coalfield not stated in source"
   ],
   "id": "mine-012",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
@@ -197,7 +197,7 @@ export const mines: MineRecord[] = [
    "Coalfield not stated in source"
   ],
   "id": "mine-013",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
@@ -212,7 +212,7 @@ export const mines: MineRecord[] = [
    "Rajmahal is usually in Jharkhand; 'Urndda' unclear"
   ],
   "id": "mine-014",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
@@ -227,7 +227,7 @@ export const mines: MineRecord[] = [
    "Rajmahal is usually in Jharkhand; 'Urndda' unclear"
   ],
   "id": "mine-015",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "West Bengal",
@@ -242,7 +242,7 @@ export const mines: MineRecord[] = [
    "Rajmahal is usually in Jharkhand; 'Urndda' unclear"
   ],
   "id": "mine-016",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -258,7 +258,7 @@ export const mines: MineRecord[] = [
    "Source note in Hindi: 'Asia's largest open cast mine' (unverified claim)"
   ],
   "id": "mine-017",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -273,7 +273,7 @@ export const mines: MineRecord[] = [
    "Coalfield not stated"
   ],
   "id": "mine-018",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -288,7 +288,7 @@ export const mines: MineRecord[] = [
    "Coalfield not stated"
   ],
   "id": "mine-019",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -303,7 +303,7 @@ export const mines: MineRecord[] = [
    "Coalfield not stated"
   ],
   "id": "mine-020",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -319,7 +319,7 @@ export const mines: MineRecord[] = [
    "Also listed under Raigarh — possible duplicate"
   ],
   "id": "mine-021",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -334,7 +334,7 @@ export const mines: MineRecord[] = [
    "Spelling may be incorrect"
   ],
   "id": "mine-022",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -349,7 +349,7 @@ export const mines: MineRecord[] = [
    "Also listed under Korba — possible duplicate"
   ],
   "id": "mine-023",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -362,7 +362,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-024",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -375,7 +375,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-025",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -388,7 +388,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-026",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -403,7 +403,7 @@ export const mines: MineRecord[] = [
    "Unclear name"
   ],
   "id": "mine-027",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -418,7 +418,7 @@ export const mines: MineRecord[] = [
    "'Umater area' unclear"
   ],
   "id": "mine-028",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -433,7 +433,7 @@ export const mines: MineRecord[] = [
    "'Umater area' unclear"
   ],
   "id": "mine-029",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -448,7 +448,7 @@ export const mines: MineRecord[] = [
    "'Umater area' unclear"
   ],
   "id": "mine-030",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -463,7 +463,7 @@ export const mines: MineRecord[] = [
    "'Umater area' unclear"
   ],
   "id": "mine-031",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -478,7 +478,7 @@ export const mines: MineRecord[] = [
    "'Umater area' unclear"
   ],
   "id": "mine-032",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -494,7 +494,7 @@ export const mines: MineRecord[] = [
    "Spelling may be incorrect"
   ],
   "id": "mine-033",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -510,7 +510,7 @@ export const mines: MineRecord[] = [
    "Unclear name"
   ],
   "id": "mine-034",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -525,7 +525,7 @@ export const mines: MineRecord[] = [
    "'Umater area' unclear"
   ],
   "id": "mine-035",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Chhattisgarh",
@@ -540,7 +540,7 @@ export const mines: MineRecord[] = [
    "'Umater area' unclear"
   ],
   "id": "mine-036",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Madhya Pradesh",
@@ -555,7 +555,7 @@ export const mines: MineRecord[] = [
    "Possibly located in Uttar Pradesh — verify state"
   ],
   "id": "mine-037",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Madhya Pradesh",
@@ -571,7 +571,7 @@ export const mines: MineRecord[] = [
    "Also listed under Other Mains — possible duplicate"
   ],
   "id": "mine-038",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Madhya Pradesh",
@@ -586,7 +586,7 @@ export const mines: MineRecord[] = [
    "Possibly located in Uttar Pradesh — verify state"
   ],
   "id": "mine-039",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Madhya Pradesh",
@@ -601,7 +601,7 @@ export const mines: MineRecord[] = [
    "Possibly located in Uttar Pradesh — verify state"
   ],
   "id": "mine-040",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Madhya Pradesh",
@@ -616,7 +616,7 @@ export const mines: MineRecord[] = [
    "Possibly located in Uttar Pradesh — verify state"
   ],
   "id": "mine-041",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Madhya Pradesh",
@@ -631,7 +631,7 @@ export const mines: MineRecord[] = [
    "Possibly located in Uttar Pradesh — verify state"
   ],
   "id": "mine-042",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Madhya Pradesh",
@@ -646,7 +646,7 @@ export const mines: MineRecord[] = [
    "Operator NCL for this coalfield unverified (source lists under NCL)"
   ],
   "id": "mine-043",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Madhya Pradesh",
@@ -661,7 +661,7 @@ export const mines: MineRecord[] = [
    "Operator NCL for this coalfield unverified (source lists under NCL)"
   ],
   "id": "mine-044",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Madhya Pradesh",
@@ -676,7 +676,7 @@ export const mines: MineRecord[] = [
    "Operator NCL for this coalfield unverified (source lists under NCL)"
   ],
   "id": "mine-045",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Madhya Pradesh",
@@ -691,7 +691,7 @@ export const mines: MineRecord[] = [
    "Operator NCL for this coalfield unverified"
   ],
   "id": "mine-046",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Madhya Pradesh",
@@ -706,7 +706,7 @@ export const mines: MineRecord[] = [
    "Operator NCL for this coalfield unverified"
   ],
   "id": "mine-047",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Madhya Pradesh",
@@ -719,7 +719,7 @@ export const mines: MineRecord[] = [
   "needsReview": true,
   "reviewNotes": [],
   "id": "mine-048",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Madhya Pradesh",
@@ -732,7 +732,7 @@ export const mines: MineRecord[] = [
   "needsReview": true,
   "reviewNotes": [],
   "id": "mine-049",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Madhya Pradesh",
@@ -745,7 +745,7 @@ export const mines: MineRecord[] = [
   "needsReview": true,
   "reviewNotes": [],
   "id": "mine-050",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Madhya Pradesh",
@@ -758,7 +758,7 @@ export const mines: MineRecord[] = [
   "needsReview": true,
   "reviewNotes": [],
   "id": "mine-051",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Madhya Pradesh",
@@ -773,7 +773,7 @@ export const mines: MineRecord[] = [
    "Also listed under Singrauli — possible duplicate"
   ],
   "id": "mine-052",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Telangana",
@@ -788,7 +788,7 @@ export const mines: MineRecord[] = [
    "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
   ],
   "id": "mine-053",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Telangana",
@@ -803,7 +803,7 @@ export const mines: MineRecord[] = [
    "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
   ],
   "id": "mine-054",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Telangana",
@@ -818,7 +818,7 @@ export const mines: MineRecord[] = [
    "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
   ],
   "id": "mine-055",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Telangana",
@@ -833,7 +833,7 @@ export const mines: MineRecord[] = [
    "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
   ],
   "id": "mine-056",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Telangana",
@@ -848,7 +848,7 @@ export const mines: MineRecord[] = [
    "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
   ],
   "id": "mine-057",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Telangana",
@@ -863,7 +863,7 @@ export const mines: MineRecord[] = [
    "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
   ],
   "id": "mine-058",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Telangana",
@@ -878,7 +878,7 @@ export const mines: MineRecord[] = [
    "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
   ],
   "id": "mine-059",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Telangana",
@@ -893,7 +893,7 @@ export const mines: MineRecord[] = [
    "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
   ],
   "id": "mine-060",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Telangana",
@@ -908,7 +908,7 @@ export const mines: MineRecord[] = [
    "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
   ],
   "id": "mine-061",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Telangana",
@@ -923,7 +923,7 @@ export const mines: MineRecord[] = [
    "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
   ],
   "id": "mine-062",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Telangana",
@@ -938,7 +938,7 @@ export const mines: MineRecord[] = [
    "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
   ],
   "id": "mine-063",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Telangana",
@@ -953,7 +953,7 @@ export const mines: MineRecord[] = [
    "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
   ],
   "id": "mine-064",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Telangana",
@@ -968,7 +968,7 @@ export const mines: MineRecord[] = [
    "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
   ],
   "id": "mine-065",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Telangana",
@@ -983,7 +983,7 @@ export const mines: MineRecord[] = [
    "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
   ],
   "id": "mine-066",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Telangana",
@@ -998,7 +998,7 @@ export const mines: MineRecord[] = [
    "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
   ],
   "id": "mine-067",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Telangana",
@@ -1013,7 +1013,7 @@ export const mines: MineRecord[] = [
    "Operator printed 'CCL + SCCL'; CCL is Jharkhand-based — verify"
   ],
   "id": "mine-068",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Telangana",
@@ -1029,7 +1029,7 @@ export const mines: MineRecord[] = [
    "Looks like a plant/handling facility, not a mine"
   ],
   "id": "mine-069",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Telangana",
@@ -1045,7 +1045,7 @@ export const mines: MineRecord[] = [
    "Looks like a plant/handling facility, not a mine"
   ],
   "id": "mine-070",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Telangana",
@@ -1061,7 +1061,7 @@ export const mines: MineRecord[] = [
    "Looks like a plant/handling facility, not a mine"
   ],
   "id": "mine-071",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Jharkhand",
@@ -1074,7 +1074,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-072",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Jharkhand",
@@ -1087,7 +1087,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-073",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Jharkhand",
@@ -1102,7 +1102,7 @@ export const mines: MineRecord[] = [
    "Spelling may be incorrect"
   ],
   "id": "mine-074",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Jharkhand",
@@ -1115,7 +1115,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-075",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Jharkhand",
@@ -1128,7 +1128,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-076",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Jharkhand",
@@ -1141,7 +1141,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-077",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Jharkhand",
@@ -1154,7 +1154,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-078",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Jharkhand",
@@ -1167,7 +1167,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-079",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Jharkhand",
@@ -1182,7 +1182,7 @@ export const mines: MineRecord[] = [
    "Possible duplicate of 'Sijua Area'"
   ],
   "id": "mine-080",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Jharkhand",
@@ -1197,7 +1197,7 @@ export const mines: MineRecord[] = [
    "Possible duplicate of 'Bastacolla Area'"
   ],
   "id": "mine-081",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Jharkhand",
@@ -1212,7 +1212,7 @@ export const mines: MineRecord[] = [
    "'CCCL' may mean CCL — verify"
   ],
   "id": "mine-082",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Jharkhand",
@@ -1227,7 +1227,7 @@ export const mines: MineRecord[] = [
    "'CCCL' may mean CCL — verify"
   ],
   "id": "mine-083",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Jharkhand",
@@ -1243,7 +1243,7 @@ export const mines: MineRecord[] = [
    "Hindi text (Govindpur); possible duplicate of 'Govindpur Area'"
   ],
   "id": "mine-084",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Jharkhand",
@@ -1258,7 +1258,7 @@ export const mines: MineRecord[] = [
    "'CCCL' may mean CCL — verify"
   ],
   "id": "mine-085",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Jharkhand",
@@ -1273,7 +1273,7 @@ export const mines: MineRecord[] = [
    "'CCCL' may mean CCL — verify"
   ],
   "id": "mine-086",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Jharkhand",
@@ -1288,7 +1288,7 @@ export const mines: MineRecord[] = [
    "'CCCL' may mean CCL — verify"
   ],
   "id": "mine-087",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Jharkhand",
@@ -1303,7 +1303,7 @@ export const mines: MineRecord[] = [
    "'CCCL' may mean CCL — verify"
   ],
   "id": "mine-088",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Jharkhand",
@@ -1318,7 +1318,7 @@ export const mines: MineRecord[] = [
    "'CCCL' may mean CCL — verify"
   ],
   "id": "mine-089",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Jharkhand",
@@ -1333,7 +1333,7 @@ export const mines: MineRecord[] = [
    "'CCCL' may mean CCL — verify"
   ],
   "id": "mine-090",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1348,7 +1348,7 @@ export const mines: MineRecord[] = [
    "Hindi text; suggested reading Bharatpur"
   ],
   "id": "mine-091",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1363,7 +1363,7 @@ export const mines: MineRecord[] = [
    "Hindi text; suggested reading Ananta"
   ],
   "id": "mine-092",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1378,7 +1378,7 @@ export const mines: MineRecord[] = [
    "Hindi text; suggested reading Jagannath"
   ],
   "id": "mine-093",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1393,7 +1393,7 @@ export const mines: MineRecord[] = [
    "Hindi text; suggested reading Bhubaneswari"
   ],
   "id": "mine-094",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1408,7 +1408,7 @@ export const mines: MineRecord[] = [
    "Hindi text with broken characters; reading unclear"
   ],
   "id": "mine-095",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1423,7 +1423,7 @@ export const mines: MineRecord[] = [
    "Hindi text; suggested reading Lingaraj (unconfirmed)"
   ],
   "id": "mine-096",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1436,7 +1436,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-097",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1449,7 +1449,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-098",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1462,7 +1462,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-099",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1475,7 +1475,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-100",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1488,7 +1488,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-101",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1501,7 +1501,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-102",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1514,7 +1514,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-103",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1527,7 +1527,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-104",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1540,7 +1540,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-105",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1553,7 +1553,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-106",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1566,7 +1566,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-107",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1579,7 +1579,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-108",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1592,7 +1592,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-109",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Odisha",
@@ -1605,7 +1605,7 @@ export const mines: MineRecord[] = [
   "needsReview": false,
   "reviewNotes": [],
   "id": "mine-110",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Maharashtra",
@@ -1620,7 +1620,7 @@ export const mines: MineRecord[] = [
    "No mine names listed in source"
   ],
   "id": "mine-111",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Nagaland",
@@ -1633,7 +1633,7 @@ export const mines: MineRecord[] = [
   "needsReview": true,
   "reviewNotes": [],
   "id": "mine-112",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Nagaland",
@@ -1646,7 +1646,7 @@ export const mines: MineRecord[] = [
   "needsReview": true,
   "reviewNotes": [],
   "id": "mine-113",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Nagaland",
@@ -1661,7 +1661,7 @@ export const mines: MineRecord[] = [
    "Area listed with no mine names"
   ],
   "id": "mine-114",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Nagaland",
@@ -1676,7 +1676,7 @@ export const mines: MineRecord[] = [
    "Area listed with no mine names"
   ],
   "id": "mine-115",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Assam",
@@ -1691,7 +1691,7 @@ export const mines: MineRecord[] = [
    "Operator as printed; 'NCL' may be a mistake"
   ],
   "id": "mine-116",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Assam",
@@ -1706,7 +1706,7 @@ export const mines: MineRecord[] = [
    "Operator as printed; 'NCL' may be a mistake"
   ],
   "id": "mine-117",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Assam",
@@ -1721,7 +1721,7 @@ export const mines: MineRecord[] = [
    "Operator as printed; 'NCL' may be a mistake"
   ],
   "id": "mine-118",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Assam",
@@ -1736,7 +1736,7 @@ export const mines: MineRecord[] = [
    "Operator as printed; 'NCL' may be a mistake"
   ],
   "id": "mine-119",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Assam",
@@ -1751,7 +1751,7 @@ export const mines: MineRecord[] = [
    "Operator as printed; 'NCL' may be a mistake"
   ],
   "id": "mine-120",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Assam",
@@ -1766,7 +1766,7 @@ export const mines: MineRecord[] = [
    "Operator as printed; 'NCL' may be a mistake"
   ],
   "id": "mine-121",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Assam",
@@ -1781,7 +1781,7 @@ export const mines: MineRecord[] = [
    "Operator as printed; 'NCL' may be a mistake"
   ],
   "id": "mine-122",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Assam",
@@ -1796,7 +1796,7 @@ export const mines: MineRecord[] = [
    "Operator as printed; 'NCL' may be a mistake"
   ],
   "id": "mine-123",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Assam",
@@ -1811,7 +1811,7 @@ export const mines: MineRecord[] = [
    "Operator as printed; 'NCL' may be a mistake"
   ],
   "id": "mine-124",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Assam",
@@ -1827,7 +1827,7 @@ export const mines: MineRecord[] = [
    "Spelling differs from coalfield 'Jeypore'"
   ],
   "id": "mine-125",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Meghalaya",
@@ -1842,7 +1842,7 @@ export const mines: MineRecord[] = [
    "Source note in Hindi: 'largest belt'"
   ],
   "id": "mine-126",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Meghalaya",
@@ -1857,7 +1857,7 @@ export const mines: MineRecord[] = [
    "Possibly same as 'Rym Bai'"
   ],
   "id": "mine-127",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Meghalaya",
@@ -1870,7 +1870,7 @@ export const mines: MineRecord[] = [
   "needsReview": true,
   "reviewNotes": [],
   "id": "mine-128",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Meghalaya",
@@ -1883,7 +1883,7 @@ export const mines: MineRecord[] = [
   "needsReview": true,
   "reviewNotes": [],
   "id": "mine-129",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Meghalaya",
@@ -1898,7 +1898,7 @@ export const mines: MineRecord[] = [
    "Possibly same as 'Lad Rymbai'"
   ],
   "id": "mine-130",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Meghalaya",
@@ -1911,7 +1911,7 @@ export const mines: MineRecord[] = [
   "needsReview": true,
   "reviewNotes": [],
   "id": "mine-131",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Meghalaya",
@@ -1924,7 +1924,7 @@ export const mines: MineRecord[] = [
   "needsReview": true,
   "reviewNotes": [],
   "id": "mine-132",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Meghalaya",
@@ -1937,7 +1937,7 @@ export const mines: MineRecord[] = [
   "needsReview": true,
   "reviewNotes": [],
   "id": "mine-133",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Meghalaya",
@@ -1950,7 +1950,7 @@ export const mines: MineRecord[] = [
   "needsReview": true,
   "reviewNotes": [],
   "id": "mine-134",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Meghalaya",
@@ -1963,7 +1963,7 @@ export const mines: MineRecord[] = [
   "needsReview": true,
   "reviewNotes": [],
   "id": "mine-135",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Meghalaya",
@@ -1976,7 +1976,7 @@ export const mines: MineRecord[] = [
   "needsReview": true,
   "reviewNotes": [],
   "id": "mine-136",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Meghalaya",
@@ -1989,7 +1989,7 @@ export const mines: MineRecord[] = [
   "needsReview": true,
   "reviewNotes": [],
   "id": "mine-137",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Meghalaya",
@@ -2002,7 +2002,7 @@ export const mines: MineRecord[] = [
   "needsReview": true,
   "reviewNotes": [],
   "id": "mine-138",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  },
  {
   "state": "Meghalaya",
@@ -2015,7 +2015,7 @@ export const mines: MineRecord[] = [
   "needsReview": true,
   "reviewNotes": [],
   "id": "mine-139",
-  "sourceDocument": "VISHWAKARMA COMPANY MINES 2.pdf"
+  "sourceDocument": "DTSL COMPANY MINES 2.pdf"
  }
 ];
 
@@ -2031,4 +2031,4 @@ export const mineHeadquarters: Record<string, { operator: string; hq: string; so
   Odisha: { operator: "MCL (Mahanadi Coalfield Ltd.)", hq: "Sambalpur", sourcePage: 7 },
   Maharashtra: { operator: "WCL (Western Coalfields LTD.)", hq: "Nagpur (Maharashtra)", sourcePage: 8 },
 };
-export const minesSourceDocument = "VISHWAKARMA COMPANY MINES 2.pdf";
+export const minesSourceDocument = "DTSL COMPANY MINES 2.pdf";
